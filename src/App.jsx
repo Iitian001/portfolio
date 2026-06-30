@@ -25,13 +25,13 @@ function LoadingScreen() {
   useEffect(() => {
     // Only trigger once when progress reaches 100
     if (progress === 100 && !startFade && !hide) {
-      // Keep the loading screen completely visible for 2.5 seconds to allow GPU compilation
+      // Start fading immediately to cut load times
       const t = setTimeout(() => {
         setStartFade(true); // Triggers the CSS fade-out transition
         
-        // Remove from DOM 1 second later after CSS transition finishes
-        setTimeout(() => setHide(true), 1000); 
-      }, 2500);
+        // Remove from DOM after CSS transition finishes
+        setTimeout(() => setHide(true), 800); 
+      }, 100);
       
       return () => clearTimeout(t);
     }
