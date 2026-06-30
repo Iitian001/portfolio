@@ -9,7 +9,7 @@ export default function DesktopPC(props) {
   const { scene } = useGLTF("/models/desktop.glb");
   
   // Load local video to prevent CORS / Suspense blocking issues
-  const videoTex = useVideoTexture("/models/video.mp4", { muted: true, loop: true, start: true });
+  const videoTex = useVideoTexture("/videos/hero-video.mp4", { muted: true, loop: true, start: true });
   
   const meshes = {};
 

@@ -9,8 +9,13 @@ import { Avatar } from './components/Avatar';
 import AboutModel from './components/AboutModel';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import './advanced-animations.css';
 
 import CoffeeLoader from './components/CoffeeLoader';
+import Cursor from './components/Cursor';
+import ScrollProgress from './components/ScrollProgress';
+import MagneticButton from './components/MagneticButton';
+import Typewriter from './components/Typewriter';
 
 function LoadingScreen() {
   const { progress } = useProgress();
@@ -48,6 +53,14 @@ function LoadingScreen() {
 function App() {
   const [avatarHovered, setAvatarHovered] = useState(false);
   const [avatarAnimation, setAvatarAnimation] = useState("Idle");
+  const [heroParallax, setHeroParallax] = useState({ x: 0, y: 0 });
+
+  const handleHeroMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const x = (clientX / window.innerWidth - 0.5) * 30; // 30px max movement
+    const y = (clientY / window.innerHeight - 0.5) * 30;
+    setHeroParallax({ x, y });
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -77,6 +90,8 @@ function App() {
 
   return (
     <div className="app-container">
+      <Cursor />
+      <ScrollProgress />
       <LoadingScreen />
       {/* Navigation */}
       <nav className="navbar glass-card">
@@ -91,22 +106,23 @@ function App() {
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </div>
-        <button className="btn-primary">Let's Connect <ArrowRight size={16} style={{display: 'inline', marginLeft: '8px'}} /></button>
+        <MagneticButton className="btn-primary" onClick={() => window.location.href = '#contact'}>Let's Connect <ArrowRight size={16} style={{display: 'inline', marginLeft: '8px'}} /></MagneticButton>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="hero-section">
-        <div className="hero-content" data-aos="fade-right">
+      <section id="home" className="hero-section" onMouseMove={handleHeroMouseMove}>
+        <div className="hero-content" data-aos="fade-right" style={{ transform: `translate3d(${heroParallax.x}px, ${heroParallax.y}px, 0)` }}>
           <div className="greeting glass-card">👋 Hi, I'm</div>
           <h1 className="glow-text title">Shreyash</h1>
-          <h2 className="subtitle">Anything can be automated.</h2>
-          <h2 className="subtitle">AI Engineer & Student at IIT Kharagpur <span className="cursor">|</span></h2>
+          <h2 className="subtitle" style={{ minHeight: '3.6rem' }}>
+            <Typewriter phrases={['Anything can be automated.', 'Bridging AI and Web Engineering.', 'Complex problems, elegant solutions.']} />
+          </h2>
           <p className="description">
             I build scalable web applications, intelligent AI solutions, and full-stack digital experiences.
           </p>
           <div className="hero-buttons">
-            <button className="btn-primary">View My Work <ArrowRight size={16} style={{display: 'inline', marginLeft: '8px'}} /></button>
-            <button className="btn-secondary">Download CV <Download size={16} style={{display: 'inline', marginLeft: '8px'}} /></button>
+            <MagneticButton className="btn-primary" onClick={() => window.location.href = '#projects'}>View My Work <ArrowRight size={16} style={{display: 'inline', marginLeft: '8px'}} /></MagneticButton>
+            <MagneticButton className="btn-secondary">Download CV <Download size={16} style={{display: 'inline', marginLeft: '8px'}} /></MagneticButton>
           </div>
           <div className="social-links" data-aos="fade-up" data-aos-delay="200">
             <a href="https://github.com/Iitian001" target="_blank" rel="noreferrer" className="glass-card"><Github size={20} /></a>
