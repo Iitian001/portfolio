@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home, User, Star, Mail, ArrowRight, Monitor, Code, Send, Cpu, Settings, Network, Bot, Sparkles } from 'lucide-react';
+import { Home, User, Star, Mail, ArrowRight, Monitor, Code, Send, Cpu, Settings, Network, Bot, Sparkles, Bell } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 function App() {
@@ -369,6 +369,13 @@ function App() {
 
         {/* Main Content Area */}
         <main className="main-content">
+          <div className="mobile-header">
+            <div>
+              <div className="mobile-header-title">Hello, I'm Shreyash!</div>
+              <div className="mobile-header-subtitle">(A dynamic Developer)</div>
+            </div>
+            <div className="mobile-bell"><Bell size={20} /></div>
+          </div>
           
           {/* Hero Section */}
           <section className="hero-section">
@@ -414,7 +421,10 @@ function App() {
 
           {/* Featured Projects */}
           <section className="featured-projects">
-            <div className="box-3d bg-pink projects-tab">FEATURED PROJECTS</div>
+            <div className="box-3d bg-pink projects-tab">
+              <span className="desktop-text">FEATURED PROJECTS</span>
+              <span className="mobile-text">Recent Projects</span>
+            </div>
 
             
             <div className="project-grid">
@@ -479,7 +489,10 @@ function App() {
 
             {/* What I Do - Basic (Opens Modal) */}
             <div className="bento-block box-3d bg-purple" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-              <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '1.5rem', textAlign: 'center', textShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>WHAT I DO</h3>
+              <h3 className="what-i-do-title" style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '1.5rem', textAlign: 'center', textShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>
+                <span className="desktop-text">WHAT I DO</span>
+                <span className="mobile-text">My Expertise</span>
+              </h3>
               
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', width: '100%', marginBottom: '1.5rem' }}>
                 <div className="box-3d bg-pink" style={{ padding: '1rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
@@ -521,6 +534,32 @@ function App() {
           </section>
 
         </main>
+        
+        {/* Mobile Bottom Navigation */}
+        <nav className="mobile-bottom-nav">
+          <div className="mobile-nav-item active">
+            <Home size={22} />
+            <span>Home</span>
+          </div>
+          <div className="mobile-nav-item" onClick={() => setIsAboutModalOpen(true)}>
+            <User size={22} />
+            <span>About</span>
+          </div>
+          <div className="mobile-nav-item" onClick={() => setIsProjectsModalOpen(true)}>
+            <div className="custom-icon-outline">
+              <div className="custom-icon-inner" />
+            </div>
+            <span>Projects</span>
+          </div>
+          <div className="mobile-nav-item" onClick={() => setIsServicesModalOpen(true)}>
+            <Settings size={22} />
+            <span>Services</span>
+          </div>
+          <div className="mobile-nav-item" onClick={() => setIsModalOpen(true)}>
+            <Mail size={22} />
+            <span>Contact</span>
+          </div>
+        </nav>
       </div>
     </>
   );
