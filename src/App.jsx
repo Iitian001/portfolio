@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Home, User, Star, Mail, ArrowRight, Monitor, Code, Send, Cpu, Settings, Network, Bot, Sparkles } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import '@google/model-viewer';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
