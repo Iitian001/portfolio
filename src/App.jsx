@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Home, User, Star, Mail, ArrowRight, Monitor, Code, Send, Cpu, Settings, Network, Bot, Sparkles, Bell } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import MobileLayout from './MobileLayout';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isServicesModalOpen, setIsServicesModalOpen] = useState(false);
   const [isProjectsModalOpen, setIsProjectsModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+  
+  // State for mobile view
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (isModalOpen || isServicesModalOpen || isProjectsModalOpen || isAboutModalOpen) {
@@ -20,6 +30,10 @@ function App() {
       document.body.style.overflow = 'unset';
     };
   }, [isModalOpen, isServicesModalOpen, isProjectsModalOpen, isAboutModalOpen]);
+
+  if (isMobile) {
+    return <MobileLayout />;
+  }
 
   return (
     <>
