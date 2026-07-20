@@ -292,15 +292,60 @@ export default function MobileLayout() {
       )}
 
       {/* =========================================
-          CONTACT PLACEHOLDER
+          CONTACT TAB
           ========================================= */}
       {activeTab === 'contact' && (
-        <section className="sm-middle-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-           <div className="sm-project-header">
-             <span className="sm-badge" style={{backgroundColor: '#8b5cf6', fontSize: '0.9rem', padding: '0.8rem 1.5rem'}}>
-               CONTACT SECTION COMING SOON
-             </span>
-           </div>
+        <section className="sm-middle-section" style={{ minHeight: '100vh', paddingTop: '3rem', paddingBottom: '6rem' }}>
+          <div className="sm-project-header" style={{justifyContent: 'center', marginBottom: '2rem'}}>
+            <span className="sm-badge" style={{backgroundColor: '#ef4444', color: '#fff', fontSize: '0.8rem', padding: '0.5rem 1rem'}}>LET'S TALK</span>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '400px', margin: '0 auto' }}>
+            
+            {/* Reach Out Text */}
+            <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+              <h2 className="sm-about-title" style={{ fontSize: '2.5rem' }}>REACH OUT</h2>
+              <p className="sm-about-text" style={{ fontSize: '0.75rem' }}>Interested in collaborating, or just want to say hi? Send me a message!</p>
+            </div>
+
+            {/* Social Links Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem' }}>
+              <a href="mailto:shreyash.designs@gmail.com" className="sm-about-card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
+                <Mail size={24} color="#8b5cf6" />
+                <span style={{ color: '#fff', fontSize: '0.6rem', fontWeight: 700 }}>EMAIL ME</span>
+              </a>
+              <a href="https://github.com/Iitian001" target="_blank" rel="noreferrer" className="sm-about-card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
+                <Code size={24} color="#8b5cf6" />
+                <span style={{ color: '#fff', fontSize: '0.6rem', fontWeight: 700 }}>GITHUB</span>
+              </a>
+              <a href="https://www.linkedin.com/in/shreyashautomation" target="_blank" rel="noreferrer" className="sm-about-card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
+                <User size={24} color="#8b5cf6" />
+                <span style={{ color: '#fff', fontSize: '0.6rem', fontWeight: 700 }}>LINKEDIN</span>
+              </a>
+              <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" className="sm-about-card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
+                <Monitor size={24} color="#8b5cf6" />
+                <span style={{ color: '#fff', fontSize: '0.6rem', fontWeight: 700 }}>WEBSITE</span>
+              </a>
+            </div>
+
+            {/* Contact Form */}
+            <div className="sm-about-card" style={{ padding: '1.5rem', marginTop: '0.5rem' }}>
+              <h3 style={{ color: '#fff', fontSize: '1rem', fontFamily: "'Space Mono', monospace", marginBottom: '1.5rem', textAlign: 'center' }}>SEND A MESSAGE</h3>
+              <form action="https://api.web3forms.com/submit" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <input type="hidden" name="access_key" value="32325e99-d553-4bad-a24a-50f938ffbd0c" />
+                <input type="hidden" name="subject" value="New message from your Mobile Portfolio!" />
+                
+                <input type="text" name="name" placeholder="YOUR NAME" required style={{ padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', backgroundColor: '#111', color: '#fff', outline: 'none', fontFamily: 'inherit', fontSize: '0.75rem', width: '100%', boxSizing: 'border-box' }} />
+                <input type="email" name="email" placeholder="YOUR EMAIL" required style={{ padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', backgroundColor: '#111', color: '#fff', outline: 'none', fontFamily: 'inherit', fontSize: '0.75rem', width: '100%', boxSizing: 'border-box' }} />
+                <textarea name="message" placeholder="WHAT'S ON YOUR MIND?" required rows="4" style={{ padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', backgroundColor: '#111', color: '#fff', outline: 'none', resize: 'none', fontFamily: 'inherit', fontSize: '0.75rem', width: '100%', boxSizing: 'border-box' }}></textarea>
+                
+                <button type="submit" className="sm-btn-purple" style={{ marginTop: '0.5rem', padding: '1rem', fontSize: '0.8rem', justifyContent: 'center' }}>
+                  SEND IT <ArrowRight size={16} />
+                </button>
+              </form>
+            </div>
+
+          </div>
         </section>
       )}
 
