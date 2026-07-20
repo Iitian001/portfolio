@@ -114,6 +114,160 @@ html, body {
   box-shadow: inset -10px -10px 20px rgba(0,0,0,0.3);
 }
 
+/* Floating Geometric Shapes */
+.floating-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-shapes .shape {
+  position: absolute;
+  opacity: 0.15;
+  filter: blur(1px);
+}
+
+.floating-shapes .circle {
+  border-radius: 50%;
+  box-shadow: 0 0 40px currentColor;
+}
+
+.floating-shapes .circle-1 {
+  width: 80px; height: 80px;
+  background: var(--color-pink); color: var(--color-pink);
+  top: 10%; left: 80%;
+  animation: float-1 18s ease-in-out infinite;
+}
+
+.floating-shapes .circle-2 {
+  width: 120px; height: 120px;
+  background: var(--color-cyan); color: var(--color-cyan);
+  top: 60%; left: 5%;
+  animation: float-2 22s ease-in-out infinite;
+}
+
+.floating-shapes .circle-3 {
+  width: 50px; height: 50px;
+  background: var(--color-yellow); color: var(--color-yellow);
+  top: 30%; left: 50%;
+  animation: float-3 15s ease-in-out infinite;
+}
+
+.floating-shapes .circle-4 {
+  width: 160px; height: 160px;
+  background: var(--color-purple); color: var(--color-purple);
+  top: 75%; left: 70%;
+  animation: float-1 25s ease-in-out infinite reverse;
+}
+
+.floating-shapes .square {
+  box-shadow: 0 0 30px currentColor;
+}
+
+.floating-shapes .square-1 {
+  width: 60px; height: 60px;
+  background: var(--color-orange); color: var(--color-orange);
+  top: 15%; left: 25%; border-radius: 12px;
+  animation: float-rotate-1 20s ease-in-out infinite;
+}
+
+.floating-shapes .square-2 {
+  width: 90px; height: 90px;
+  background: var(--color-blue); color: var(--color-blue);
+  top: 50%; left: 85%; border-radius: 16px;
+  animation: float-rotate-2 24s ease-in-out infinite;
+}
+
+.floating-shapes .square-3 {
+  width: 40px; height: 40px;
+  background: var(--color-pink); color: var(--color-pink);
+  top: 85%; left: 35%; border-radius: 8px;
+  animation: float-rotate-1 16s ease-in-out infinite reverse;
+}
+
+.floating-shapes .triangle {
+  width: 0; height: 0; background: none;
+  filter: drop-shadow(0 0 20px currentColor);
+}
+
+.floating-shapes .triangle-1 {
+  border-left: 40px solid transparent; border-right: 40px solid transparent;
+  border-bottom: 70px solid var(--color-cyan); color: var(--color-cyan);
+  top: 20%; left: 65%;
+  animation: float-rotate-2 19s ease-in-out infinite;
+}
+
+.floating-shapes .triangle-2 {
+  border-left: 30px solid transparent; border-right: 30px solid transparent;
+  border-bottom: 52px solid var(--color-yellow); color: var(--color-yellow);
+  top: 70%; left: 15%;
+  animation: float-rotate-1 23s ease-in-out infinite reverse;
+}
+
+.floating-shapes .triangle-3 {
+  border-left: 50px solid transparent; border-right: 50px solid transparent;
+  border-bottom: 86px solid var(--color-purple); color: var(--color-purple);
+  top: 45%; left: 40%;
+  animation: float-3 28s ease-in-out infinite;
+}
+
+.floating-shapes .ring {
+  border-radius: 50%; background: transparent;
+}
+
+.floating-shapes .ring-1 {
+  width: 100px; height: 100px;
+  border: 6px solid var(--color-orange); box-shadow: 0 0 30px var(--color-orange);
+  top: 40%; left: 90%;
+  animation: float-2 21s ease-in-out infinite;
+}
+
+.floating-shapes .ring-2 {
+  width: 70px; height: 70px;
+  border: 5px solid var(--color-pink); box-shadow: 0 0 25px var(--color-pink);
+  top: 5%; left: 40%;
+  animation: float-1 17s ease-in-out infinite reverse;
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -40px) scale(1.05); }
+  50% { transform: translate(-20px, -80px) scale(0.95); }
+  75% { transform: translate(40px, -30px) scale(1.02); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-40px, 30px) scale(0.95); }
+  50% { transform: translate(30px, 60px) scale(1.08); }
+  75% { transform: translate(-20px, 20px) scale(0.98); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(50px, -50px) scale(1.1); }
+  66% { transform: translate(-30px, 40px) scale(0.9); }
+}
+
+@keyframes float-rotate-1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  25% { transform: translate(25px, -35px) rotate(90deg) scale(1.05); }
+  50% { transform: translate(-15px, -70px) rotate(180deg) scale(0.95); }
+  75% { transform: translate(35px, -25px) rotate(270deg) scale(1.02); }
+}
+
+@keyframes float-rotate-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  25% { transform: translate(-30px, 25px) rotate(-90deg) scale(0.95); }
+  50% { transform: translate(25px, 50px) rotate(-180deg) scale(1.08); }
+  75% { transform: translate(-15px, 15px) rotate(-270deg) scale(0.98); }
+}
+
 #root {
   min-height: 100vh;
   padding: 1.5rem; /* Drastically reduced padding to pack elements */
@@ -285,7 +439,7 @@ h1 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Drastically reduced vertical gap between major sections */
+  gap: 2.5rem; /* More breathing room between major sections */
 }
 
 /* Hero Section */

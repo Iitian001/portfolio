@@ -288,7 +288,7 @@ function App() {
               {/* Image side */}
               <div style={{ flex: '1 1 250px', maxWidth: '350px' }}>
                 <div style={{ borderRadius: '30px', overflow: 'hidden', border: '4px solid black', boxShadow: '8px 8px 0 black', position: 'relative', height: '400px' }}>
-                  <img src="https://images.unsplash.com/photo-1618365908648-e71bd5716cba?w=600&h=800&fit=crop" alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src="/favicon.jpg" alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
               </div>
 
@@ -320,6 +320,22 @@ function App() {
       <div className="bg-ribbon ribbon-purple-bottom"></div>
       <div className="shape-orange-ring"></div>
       <div className="shape-yellow-sphere"></div>
+
+      {/* Animated Floating Geometric Shapes */}
+      <div className="floating-shapes">
+        <div className="shape circle circle-1"></div>
+        <div className="shape circle circle-2"></div>
+        <div className="shape circle circle-3"></div>
+        <div className="shape circle circle-4"></div>
+        <div className="shape square square-1"></div>
+        <div className="shape square square-2"></div>
+        <div className="shape square square-3"></div>
+        <div className="shape triangle triangle-1"></div>
+        <div className="shape triangle triangle-2"></div>
+        <div className="shape triangle triangle-3"></div>
+        <div className="shape ring ring-1"></div>
+        <div className="shape ring ring-2"></div>
+      </div>
 
       <div className="portfolio-layout">
         
