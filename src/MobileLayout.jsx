@@ -31,7 +31,7 @@ export default function MobileLayout() {
           <div className="s-speech-bubble s-bubble-2">always();</div>
           
           <div className="s-avatar-wrapper">
-             <model-viewer src="/avatar1.glb" alt="3D Avatar" camera-controls disable-zoom style={{ width: '150px', height: '150px', backgroundColor: 'transparent' }}></model-viewer>
+             <img src="/avatar.png" alt="2D Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} />
              <div className="s-laptop-prop">
                <Code size={20} color="white" />
                <div style={{fontSize: '0.6rem', textAlign: 'right', fontWeight: 'bold', color: 'white'}}>BUGS<br/>FEAR<br/>ME</div>
