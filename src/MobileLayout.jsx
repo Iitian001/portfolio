@@ -164,6 +164,33 @@ export default function MobileLayout() {
             </div>
           </div>
         </div>
+
+        {/* About Section */}
+        <div className="sm-about-section">
+          <div className="sm-project-header" style={{marginTop: '2.5rem'}}>
+            <span className="sm-badge" style={{backgroundColor: '#eab308', color: '#111'}}>WHO AM I? (Besides tired)</span>
+          </div>
+          <div className="sm-about-card">
+            <div className="sm-about-img-container">
+              <img src="/favicon.jpg" alt="Profile" className="sm-about-img" />
+            </div>
+            <div className="sm-about-content">
+              <h2 className="sm-about-title">CREATIVE DEVELOPER</h2>
+              <p className="sm-about-text">
+                Hi! I'm Shreyash, a passionate creative developer specializing in building stunning, high-performance web applications and intelligent systems. I blend bleeding-edge technology with bold, unapologetic design.
+              </p>
+              <p className="sm-about-text">
+                When I'm not writing code or automating workflows, you can find me exploring new AI architectures or refining my design systems.
+              </p>
+              <div className="sm-about-tags">
+                <span className="sm-tag-react">REACT</span>
+                <span className="sm-tag-python">PYTHON</span>
+                <span className="sm-tag-ai">AI / ML</span>
+                <span className="sm-tag-ui">UX / UI</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Bottom Nav */}
