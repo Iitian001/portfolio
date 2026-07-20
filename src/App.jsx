@@ -25,15 +25,15 @@ function App() {
     <>
       {/* Projects Modal */}
       {isProjectsModalOpen && (
-        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.7)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem', backdropFilter: 'blur(8px)' }}>
-          <div style={{ backgroundColor: '#8a2be2', padding: '2.5rem', width: '100%', maxWidth: '1050px', position: 'relative', display: 'flex', flexDirection: 'column', borderRadius: '40px', border: '4px solid #6b21a8', boxShadow: 'inset 0 -15px 0 rgba(0,0,0,0.2), 0 20px 50px rgba(0,0,0,0.4)' }}>
+        <div className="mobile-modal-overlay" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
+          <div className="mobile-modal-content" style={{ backgroundColor: 'rgba(20, 25, 45, 0.95)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '32px', padding: '2.5rem 2rem', width: '100%', maxWidth: '1050px', position: 'relative', display: 'flex', flexDirection: 'column', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
             
             {/* Top Bar with FEATURED PROJECTS Badge and Close Button */}
-            <div style={{ position: 'absolute', top: '-25px', left: '40px', backgroundColor: '#f81f72', color: 'white', padding: '1rem 2.5rem', borderRadius: '50px', fontWeight: 900, fontSize: '1.1rem', border: '3px solid #be1252', boxShadow: 'inset 0 -8px 0 rgba(0,0,0,0.2), 0 10px 20px rgba(0,0,0,0.3)', display: 'flex', alignItems: 'center', gap: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1.5rem', borderRadius: '50px', fontSize: '0.9rem', fontWeight: 900, marginBottom: '2rem', color: 'white', backgroundColor: '#f81f72', border: '2px solid rgba(255,255,255,0.1)', textTransform: 'uppercase', alignSelf: 'flex-start' }}>
               <Star size={18} fill="white" /> FEATURED PROJECTS
             </div>
 
-            <button onClick={() => setIsProjectsModalOpen(false)} style={{ position: 'absolute', top: '-25px', right: '-20px', background: 'white', border: '3px solid #6b21a8', color: 'black', fontSize: '1.5rem', cursor: 'pointer', fontWeight: '900', width: '50px', height: '50px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s', boxShadow: '0 10px 20px rgba(0,0,0,0.3), inset 0 -4px 0 rgba(0,0,0,0.2)' }}>✕</button>
+            <button onClick={() => setIsProjectsModalOpen(false)} style={{ position: 'absolute', top: 20, right: 20, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: 'white', fontSize: '1.2rem', cursor: 'pointer', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100 }}>✕</button>
 
             {/* Header Content */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2.5rem', marginTop: '1rem' }}>
@@ -138,9 +138,9 @@ function App() {
 
       {/* Services Modal */}
       {isServicesModalOpen && (
-        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem', backdropFilter: 'blur(4px)' }}>
-          <div style={{ backgroundColor: '#fdfdfd', padding: '3rem 2rem', width: '100%', maxWidth: '1000px', position: 'relative', display: 'flex', flexDirection: 'column', maxHeight: '90vh', overflowY: 'auto', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}>
-            <button onClick={() => setIsServicesModalOpen(false)} style={{ position: 'absolute', top: 20, right: 25, background: 'transparent', border: 'none', color: 'black', fontSize: '2rem', cursor: 'pointer', fontWeight: '400' }}>✕</button>
+        <div className="mobile-modal-overlay" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
+          <div className="mobile-modal-content" style={{ backgroundColor: 'rgba(20, 25, 45, 0.95)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '32px', padding: '2.5rem 2rem', width: '100%', maxWidth: '1000px', position: 'relative', display: 'flex', flexDirection: 'column', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
+            <button onClick={() => setIsServicesModalOpen(false)} style={{ position: 'absolute', top: 20, right: 20, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: 'white', fontSize: '1.2rem', cursor: 'pointer', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100 }}>✕</button>
             
             <div style={{ textAlign: 'center', marginBottom: '3rem', marginTop: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1.5rem', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 900, marginBottom: '1.5rem', color: 'black', backgroundColor: '#ffe500', boxShadow: '0 6px 15px rgba(255, 229, 0, 0.4)' }}>
@@ -273,9 +273,9 @@ function App() {
 
       {/* About Modal */}
       {isAboutModalOpen && (
-        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
-          <div style={{ backgroundColor: '#ffe500', borderRadius: '40px', boxShadow: '12px 12px 0 rgba(0,0,0,1)', padding: '3rem 2.5rem', width: '100%', maxWidth: '900px', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', border: '4px solid black' }}>
-            <button onClick={() => setIsAboutModalOpen(false)} style={{ position: 'absolute', top: 20, right: 25, background: 'white', border: '3px solid black', color: 'black', fontSize: '1.5rem', cursor: 'pointer', fontWeight: '900', width: '50px', height: '50px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '4px 4px 0 black', zIndex: 100 }}>✕</button>
+        <div className="mobile-modal-overlay" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
+          <div className="mobile-modal-content" style={{ backgroundColor: 'rgba(20, 25, 45, 0.95)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '32px', padding: '2.5rem 2rem', width: '100%', maxWidth: '900px', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
+            <button onClick={() => setIsAboutModalOpen(false)} style={{ position: 'absolute', top: 20, right: 20, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: 'white', fontSize: '1.2rem', cursor: 'pointer', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100 }}>✕</button>
             
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1.5rem', borderRadius: '50px', fontSize: '0.9rem', fontWeight: 900, marginBottom: '2rem', color: 'white', backgroundColor: '#a855f7', border: '2px solid black', boxShadow: '4px 4px 0 black', textTransform: 'uppercase' }}>
               <User size={18} strokeWidth={3} /> WHO AM I?
