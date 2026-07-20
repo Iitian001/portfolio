@@ -166,28 +166,33 @@
   font-size: 0.5rem;
   font-weight: 700;
   padding: 0.2rem 0.4rem;
-  border-radius: 20px;
+  border-radius: 6px;
   position: absolute;
   white-space: nowrap;
   box-shadow: 0 4px 10px rgba(139, 92, 246, 0.4);
 }
 .top-pill {
   top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 20%;
+}
+.top-pill::after {
+  content: ''; position: absolute; bottom: -4px; right: 20px;
+  border-width: 5px 5px 0; border-style: solid; border-color: #8b5cf6 transparent transparent;
 }
 .right-pill {
-  top: 40%;
-  right: -15px;
+  top: 15%;
+  right: -10px;
   background-color: #1a1a1a;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
-.bottom-pill-badge {
-  bottom: -15px;
-  left: -15px;
-  width: 50px;
-  height: 50px;
+.sm-starburst {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 55px;
+  height: 55px;
+  background-color: #8b5cf6;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -195,11 +200,11 @@
   justify-content: center;
   text-align: center;
   font-size: 0.45rem;
+  font-weight: 900;
+  color: #fff;
   border: 2px dashed rgba(255,255,255,0.5);
-}
-.sm-star-icon {
-  font-size: 0.7rem;
-  margin-bottom: 1px;
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+  transform: rotate(-15deg);
 }
 
 /* =========================================
