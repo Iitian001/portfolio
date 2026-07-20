@@ -57,7 +57,7 @@ function App() {
               <a href="https://github.com/Iitian001/Palak_Ai_stock-expert" target="_blank" rel="noreferrer" style={{ backgroundColor: '#f81f72', borderRadius: '24px', display: 'flex', flexDirection: 'column', border: '3px solid #be1252', textDecoration: 'none', overflow: 'hidden', position: 'relative', boxShadow: 'inset 0 -12px 0 rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.3)' }}>
                 {/* Image Section */}
                 <div style={{ position: 'relative', width: '100%', height: '160px', padding: '1rem' }}>
-                  <img src="/palak.jpg" alt="Palak AI" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
+                  <img src="./palak.jpg" alt="Palak AI" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
                   {/* Number Badge */}
                   <div style={{ position: 'absolute', top: '10px', left: '10px', backgroundColor: 'black', color: 'white', padding: '0.4rem 0.8rem', borderRadius: '8px', fontWeight: 900, fontSize: '0.9rem', boxShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>01</div>
                 </div>
@@ -76,7 +76,7 @@ function App() {
               <a href="https://github.com/Iitian001/N8N_tamplets" target="_blank" rel="noreferrer" style={{ backgroundColor: '#217eff', borderRadius: '24px', display: 'flex', flexDirection: 'column', border: '3px solid #1656b5', textDecoration: 'none', overflow: 'hidden', position: 'relative', boxShadow: 'inset 0 -12px 0 rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.3)' }}>
                 {/* Image Section */}
                 <div style={{ position: 'relative', width: '100%', height: '160px', padding: '1rem' }}>
-                  <img src="/n8n.png" alt="N8N Templates" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
+                  <img src="./n8n.png" alt="N8N Templates" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
                   <div style={{ position: 'absolute', top: '10px', left: '10px', backgroundColor: 'black', color: 'white', padding: '0.4rem 0.8rem', borderRadius: '8px', fontWeight: 900, fontSize: '0.9rem', boxShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>02</div>
                 </div>
                 {/* Content Section */}
@@ -94,7 +94,7 @@ function App() {
               <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" style={{ backgroundColor: '#a855f7', borderRadius: '24px', display: 'flex', flexDirection: 'column', border: '3px solid #7e22ce', textDecoration: 'none', overflow: 'hidden', position: 'relative', boxShadow: 'inset 0 -12px 0 rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.3)' }}>
                 {/* Image Section */}
                 <div style={{ position: 'relative', width: '100%', height: '160px', padding: '1rem' }}>
-                  <img src="/portfolio.png" alt="Portfolio" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
+                  <img src="./portfolio.png" alt="Portfolio" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
                   <div style={{ position: 'absolute', top: '10px', left: '10px', backgroundColor: 'black', color: 'white', padding: '0.4rem 0.8rem', borderRadius: '8px', fontWeight: 900, fontSize: '0.9rem', boxShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>03</div>
                 </div>
                 {/* Content Section */}
@@ -112,7 +112,7 @@ function App() {
               <a href="https://github.com/Iitian001/Shreyash_code-" target="_blank" rel="noreferrer" style={{ backgroundColor: '#ff7b00', borderRadius: '24px', display: 'flex', flexDirection: 'column', border: '3px solid #cc6200', textDecoration: 'none', overflow: 'hidden', position: 'relative', boxShadow: 'inset 0 -12px 0 rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.3)' }}>
                 {/* Image Section */}
                 <div style={{ position: 'relative', width: '100%', height: '160px', padding: '1rem' }}>
-                  <img src="/shreyash.png" alt="Shreyash Code" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
+                  <img src="./shreyash.png" alt="Shreyash Code" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
                   <div style={{ position: 'absolute', top: '10px', left: '10px', backgroundColor: 'black', color: 'white', padding: '0.4rem 0.8rem', borderRadius: '8px', fontWeight: 900, fontSize: '0.9rem', boxShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>04</div>
                 </div>
                 {/* Content Section */}
@@ -341,7 +341,7 @@ function App() {
               <div className="speech-bubble box-3d bg-purple" style={{padding: '1.4rem', textTransform: 'uppercase', boxShadow: 'var(--shadow-small)', fontSize: '1rem'}}>
                 LET'S CREATE<br/>SOMETHING<br/>AMAZING!
               </div>
-              <model-viewer src="/avatar2.glb" alt="3D Character" camera-controls disable-zoom style={{width: '90%', height: '90%', borderRadius: '30px', borderBottomLeftRadius: '50px', borderBottomRightRadius: '50px', marginBottom: '10px', backgroundColor: 'transparent'}}></model-viewer>
+              <model-viewer src="./avatar2.glb" alt="3D Character" camera-controls disable-zoom style={{width: '90%', height: '90%', borderRadius: '30px', borderBottomLeftRadius: '50px', borderBottomRightRadius: '50px', marginBottom: '10px', backgroundColor: 'transparent'}}></model-viewer>
             </div>
             <div className="social-box">
               <a href="https://github.com/Iitian001" target="_blank" rel="noreferrer" style={{color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, backgroundColor: 'var(--color-pink)', borderRadius: '50%', border: '2px solid black'}}><FaGithub size={20} /></a>
@@ -387,7 +387,7 @@ function App() {
                
                {/* Avatar */}
                <div className="avatar-container" style={{ width: 260, height: 260, left: -40, top: 120 }}>
-                  <model-viewer src="/avatar1.glb" alt="3D Avatar" camera-controls disable-zoom style={{ width: '100%', height: '100%', borderRadius: '50%', backgroundColor: 'transparent' }}></model-viewer>
+                  <model-viewer src="./avatar1.glb" alt="3D Avatar" camera-controls disable-zoom style={{ width: '100%', height: '100%', borderRadius: '50%', backgroundColor: 'transparent' }}></model-viewer>
                   <div className="box-3d bg-blue freelance-badge" style={{ fontSize: '0.9rem', padding: '0.8rem 1.5rem', bottom: -10, right: -20, whiteSpace: 'nowrap' }}>
                     <div style={{width: 14, height: 14, backgroundColor: '#00ff88', borderRadius: '50%'}}></div>
                     AVAILABLE FOR FREELANCE
@@ -403,7 +403,7 @@ function App() {
             
             <div className="project-grid">
               <a href="https://github.com/Iitian001/Palak_Ai_stock-expert" target="_blank" rel="noreferrer" className="box-3d bg-pink project-card" style={{textDecoration: 'none', color: 'inherit'}}>
-                <img src="/palak.jpg" alt="Palak AI" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
+                <img src="./palak.jpg" alt="Palak AI" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
                 <div className="project-info">
                   <div>
                     <h3 style={{fontSize: '1.1rem'}}>PALAK AI STOCK EXPERT</h3>
@@ -414,7 +414,7 @@ function App() {
               </a>
               
               <a href="https://github.com/Iitian001/N8N_tamplets" target="_blank" rel="noreferrer" className="box-3d bg-blue project-card" style={{textDecoration: 'none', color: 'inherit'}}>
-                <img src="/n8n.png" alt="N8N Templates" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
+                <img src="./n8n.png" alt="N8N Templates" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
                 <div className="project-info">
                   <div>
                     <h3 style={{fontSize: '1.1rem'}}>N8N TEMPLATES</h3>
@@ -425,7 +425,7 @@ function App() {
               </a>
 
               <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" className="box-3d bg-purple project-card" style={{textDecoration: 'none', color: 'inherit'}}>
-                <img src="/portfolio.png" alt="Portfolio" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
+                <img src="./portfolio.png" alt="Portfolio" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
                 <div className="project-info">
                   <div>
                     <h3 style={{fontSize: '1.1rem'}}>PORTFOLIO</h3>
@@ -436,7 +436,7 @@ function App() {
               </a>
 
               <a href="https://github.com/Iitian001/Shreyash_code-" target="_blank" rel="noreferrer" className="box-3d bg-orange project-card" style={{textDecoration: 'none', color: 'inherit'}}>
-                <img src="/shreyash.png" alt="Shreyash Code" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
+                <img src="./shreyash.png" alt="Shreyash Code" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
                 <div className="project-info">
                   <div>
                     <h3 style={{fontSize: '1.1rem'}}>SHREYASH CODE</h3>
