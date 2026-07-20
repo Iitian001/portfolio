@@ -1,4 +1,5 @@
 import React from 'react';
+import './mobile.css';
 import { Home, User, Settings, Mail, ArrowRight, Code, Terminal, Monitor, Sparkles, Plus, MoreHorizontal } from 'lucide-react';
 
 export default function MobileLayout() {
