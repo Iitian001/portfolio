@@ -128,8 +128,7 @@ html, body {
 
 .floating-shapes .shape {
   position: absolute;
-  opacity: 0.15;
-  filter: blur(1px);
+  opacity: 0.35;
 }
 
 .floating-shapes .circle {
