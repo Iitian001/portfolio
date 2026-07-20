@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Home, User, Star, Mail, ArrowRight, Monitor, Code, Send, Cpu, Settings, Network, Bot, Sparkles } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import '@google/model-viewer';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,7 +57,7 @@ function App() {
               <a href="https://github.com/Iitian001/Palak_Ai_stock-expert" target="_blank" rel="noreferrer" style={{ backgroundColor: '#f81f72', borderRadius: '24px', display: 'flex', flexDirection: 'column', border: '3px solid #be1252', textDecoration: 'none', overflow: 'hidden', position: 'relative', boxShadow: 'inset 0 -12px 0 rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.3)' }}>
                 {/* Image Section */}
                 <div style={{ position: 'relative', width: '100%', height: '160px', padding: '1rem' }}>
-                  <img src="./palak.jpg" alt="Palak AI" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
+                  <img src="/palak.jpg" alt="Palak AI" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
                   {/* Number Badge */}
                   <div style={{ position: 'absolute', top: '10px', left: '10px', backgroundColor: 'black', color: 'white', padding: '0.4rem 0.8rem', borderRadius: '8px', fontWeight: 900, fontSize: '0.9rem', boxShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>01</div>
                 </div>
@@ -75,10 +74,12 @@ function App() {
 
               {/* Card 2 - Blue */}
               <a href="https://github.com/Iitian001/N8N_tamplets" target="_blank" rel="noreferrer" style={{ backgroundColor: '#217eff', borderRadius: '24px', display: 'flex', flexDirection: 'column', border: '3px solid #1656b5', textDecoration: 'none', overflow: 'hidden', position: 'relative', boxShadow: 'inset 0 -12px 0 rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.3)' }}>
+                {/* Image Section */}
                 <div style={{ position: 'relative', width: '100%', height: '160px', padding: '1rem' }}>
-                  <img src="./n8n.png" alt="N8N Templates" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
+                  <img src="/n8n.png" alt="N8N Templates" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
                   <div style={{ position: 'absolute', top: '10px', left: '10px', backgroundColor: 'black', color: 'white', padding: '0.4rem 0.8rem', borderRadius: '8px', fontWeight: 900, fontSize: '0.9rem', boxShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>02</div>
                 </div>
+                {/* Content Section */}
                 <div style={{ padding: '0 1.2rem 1.2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                   <h3 style={{ color: 'white', fontWeight: 900, fontSize: '1.2rem', marginBottom: '0.6rem', lineHeight: '1.1', textTransform: 'uppercase' }}>n8n Templates</h3>
                   <div style={{ display: 'inline-flex', alignSelf: 'flex-start', backgroundColor: 'rgba(0,0,0,0.3)', color: 'white', padding: '0.3rem 0.8rem', borderRadius: '50px', fontWeight: 900, fontSize: '0.75rem', marginBottom: '1rem' }}>WORKFLOW AUTOMATION</div>
@@ -91,10 +92,12 @@ function App() {
 
               {/* Card 3 - Purple */}
               <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" style={{ backgroundColor: '#a855f7', borderRadius: '24px', display: 'flex', flexDirection: 'column', border: '3px solid #7e22ce', textDecoration: 'none', overflow: 'hidden', position: 'relative', boxShadow: 'inset 0 -12px 0 rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.3)' }}>
+                {/* Image Section */}
                 <div style={{ position: 'relative', width: '100%', height: '160px', padding: '1rem' }}>
-                  <img src="./portfolio.png" alt="Portfolio" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
+                  <img src="/portfolio.png" alt="Portfolio" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
                   <div style={{ position: 'absolute', top: '10px', left: '10px', backgroundColor: 'black', color: 'white', padding: '0.4rem 0.8rem', borderRadius: '8px', fontWeight: 900, fontSize: '0.9rem', boxShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>03</div>
                 </div>
+                {/* Content Section */}
                 <div style={{ padding: '0 1.2rem 1.2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                   <h3 style={{ color: 'white', fontWeight: 900, fontSize: '1.2rem', marginBottom: '0.6rem', lineHeight: '1.1', textTransform: 'uppercase' }}>Portfolio</h3>
                   <div style={{ display: 'inline-flex', alignSelf: 'flex-start', backgroundColor: 'rgba(0,0,0,0.3)', color: 'white', padding: '0.3rem 0.8rem', borderRadius: '50px', fontWeight: 900, fontSize: '0.75rem', marginBottom: '1rem' }}>JAVASCRIPT / REACT</div>
@@ -107,10 +110,12 @@ function App() {
 
               {/* Card 4 - Orange */}
               <a href="https://github.com/Iitian001/Shreyash_code-" target="_blank" rel="noreferrer" style={{ backgroundColor: '#ff7b00', borderRadius: '24px', display: 'flex', flexDirection: 'column', border: '3px solid #cc6200', textDecoration: 'none', overflow: 'hidden', position: 'relative', boxShadow: 'inset 0 -12px 0 rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.3)' }}>
+                {/* Image Section */}
                 <div style={{ position: 'relative', width: '100%', height: '160px', padding: '1rem' }}>
-                  <img src="./shreyash.png" alt="Shreyash Code" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
+                  <img src="/shreyash.png" alt="Shreyash Code" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', border: '2px solid rgba(0,0,0,0.1)' }} />
                   <div style={{ position: 'absolute', top: '10px', left: '10px', backgroundColor: 'black', color: 'white', padding: '0.4rem 0.8rem', borderRadius: '8px', fontWeight: 900, fontSize: '0.9rem', boxShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>04</div>
                 </div>
+                {/* Content Section */}
                 <div style={{ padding: '0 1.2rem 1.2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                   <h3 style={{ color: 'white', fontWeight: 900, fontSize: '1.2rem', marginBottom: '0.6rem', lineHeight: '1.1', textTransform: 'uppercase' }}>Shreyash Code</h3>
                   <div style={{ display: 'inline-flex', alignSelf: 'flex-start', backgroundColor: 'rgba(0,0,0,0.3)', color: 'white', padding: '0.3rem 0.8rem', borderRadius: '50px', fontWeight: 900, fontSize: '0.75rem', marginBottom: '1rem' }}>PYTHON SCRIPTS</div>
@@ -147,6 +152,7 @@ function App() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', width: '100%', padding: '0 1rem' }}>
               
+              {/* Card 1 */}
               <div style={{ background: 'linear-gradient(135deg, #ff3b8f, #f81f72)', padding: '1.5rem 1.2rem', display: 'flex', flexDirection: 'column', textAlign: 'left', position: 'relative', borderRadius: '24px', boxShadow: '0 15px 30px rgba(248, 31, 114, 0.4), inset 2px 2px 6px rgba(255, 255, 255, 0.6), inset -2px -2px 6px rgba(0, 0, 0, 0.15)' }}>
                 <div style={{ backgroundColor: 'white', display: 'inline-block', padding: '0.3rem 0.8rem', fontSize: '0.8rem', fontWeight: 900, color: 'black', borderRadius: '20px', boxShadow: '0 6px 12px rgba(0,0,0,0.1)', alignSelf: 'flex-start' }}>01</div>
                 <div style={{ alignSelf: 'center', margin: '1.5rem 0 1rem' }}>
@@ -159,6 +165,7 @@ function App() {
                 </div>
               </div>
 
+              {/* Card 2 */}
               <div style={{ background: 'linear-gradient(135deg, #2ae0e0, #13c6d4)', padding: '1.5rem 1.2rem', display: 'flex', flexDirection: 'column', textAlign: 'left', position: 'relative', borderRadius: '24px', boxShadow: '0 15px 30px rgba(19, 198, 212, 0.4), inset 2px 2px 6px rgba(255, 255, 255, 0.6), inset -2px -2px 6px rgba(0, 0, 0, 0.15)' }}>
                 <div style={{ backgroundColor: 'white', display: 'inline-block', padding: '0.3rem 0.8rem', fontSize: '0.8rem', fontWeight: 900, color: 'black', borderRadius: '20px', boxShadow: '0 6px 12px rgba(0,0,0,0.1)', alignSelf: 'flex-start' }}>02</div>
                 <div style={{ alignSelf: 'center', margin: '1.5rem 0 1rem' }}>
@@ -171,6 +178,7 @@ function App() {
                 </div>
               </div>
 
+              {/* Card 3 */}
               <div style={{ background: 'linear-gradient(135deg, #ff9f29, #ff7b00)', padding: '1.5rem 1.2rem', display: 'flex', flexDirection: 'column', textAlign: 'left', position: 'relative', borderRadius: '24px', boxShadow: '0 15px 30px rgba(255, 123, 0, 0.4), inset 2px 2px 6px rgba(255, 255, 255, 0.6), inset -2px -2px 6px rgba(0, 0, 0, 0.15)' }}>
                 <div style={{ backgroundColor: 'white', display: 'inline-block', padding: '0.3rem 0.8rem', fontSize: '0.8rem', fontWeight: 900, color: 'black', borderRadius: '20px', boxShadow: '0 6px 12px rgba(0,0,0,0.1)', alignSelf: 'flex-start' }}>03</div>
                 <div style={{ alignSelf: 'center', margin: '1.5rem 0 1rem' }}>
@@ -183,6 +191,7 @@ function App() {
                 </div>
               </div>
 
+              {/* Card 4 */}
               <div style={{ background: 'linear-gradient(135deg, #4da3ff, #217eff)', padding: '1.5rem 1.2rem', display: 'flex', flexDirection: 'column', textAlign: 'left', position: 'relative', borderRadius: '24px', boxShadow: '0 15px 30px rgba(33, 126, 255, 0.4), inset 2px 2px 6px rgba(255, 255, 255, 0.6), inset -2px -2px 6px rgba(0, 0, 0, 0.15)' }}>
                 <div style={{ backgroundColor: 'white', display: 'inline-block', padding: '0.3rem 0.8rem', fontSize: '0.8rem', fontWeight: 900, color: 'black', borderRadius: '20px', boxShadow: '0 6px 12px rgba(0,0,0,0.1)', alignSelf: 'flex-start' }}>04</div>
                 <div style={{ alignSelf: 'center', margin: '1.5rem 0 1rem' }}>
@@ -279,14 +288,14 @@ function App() {
               {/* Image side */}
               <div style={{ flex: '1 1 250px', maxWidth: '350px' }}>
                 <div style={{ borderRadius: '30px', overflow: 'hidden', border: '4px solid black', boxShadow: '8px 8px 0 black', position: 'relative', height: '400px' }}>
-                  <img src="./favicon.jpg" alt="Shreyash" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src="https://images.unsplash.com/photo-1618365908648-e71bd5716cba?w=600&h=800&fit=crop" alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
               </div>
 
               {/* Text side */}
               <div style={{ flex: '2 1 350px', textAlign: 'left' }}>
                 <p style={{ fontSize: '1.1rem', fontWeight: 800, color: 'black', lineHeight: 1.6, marginBottom: '2rem', border: '3px solid black', padding: '1.5rem', borderRadius: '24px', backgroundColor: 'white', boxShadow: '6px 6px 0 black' }}>
-                  Hi! I'm Shreyash, a passionate creative developer specializing in building stunning, high-performance web applications and intelligent systems. I blend bleeding-edge technology with bold, unapologetic design. 
+                  Hi! I'm Shreyash, a passionate creative developer specializing in building stunning, high-performance web applications and intelligent systems. I blend bleeding-edge technology with bold, unapologetic design (as you can tell by this neo-brutalist portfolio). 
                   <br/><br/>
                   When I'm not writing code or automating workflows, you can find me exploring new AI architectures or refining my design systems.
                 </p>
@@ -305,7 +314,7 @@ function App() {
         </div>
       )}
 
-      {/* Background Ribbons */}
+      {/* Massive Intersecting Background Ribbons */}
       <div className="bg-ribbon ribbon-pink-vertical"></div>
       <div className="bg-ribbon ribbon-pink-horizontal"></div>
       <div className="bg-ribbon ribbon-purple-bottom"></div>
@@ -315,24 +324,24 @@ function App() {
       <div className="portfolio-layout">
         
         {/* Sidebar Navigation */}
-        <aside className="sidebar" style={{ marginTop: '8rem' }}>
-          <div className="box-3d bg-pink" style={{padding: '1.2rem 1.5rem'}}><Home size={24} /> HOME</div>
-          <div className="box-3d bg-purple" onClick={() => setIsAboutModalOpen(true)} style={{padding: '1.2rem 1.5rem', cursor: 'pointer'}}><User size={24} /> ABOUT</div>
-          <div className="box-3d bg-pink" onClick={() => setIsProjectsModalOpen(true)} style={{padding: '1.2rem 1.5rem', cursor: 'pointer'}}>
-            <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 24, height: 24, border: '2px solid #fff', borderRadius: '6px', marginRight: '0.3rem', verticalAlign: 'middle'}}>
-              <div style={{width: 10, height: 10, backgroundColor: '#fff', borderRadius: '3px'}}/>
+        <aside className="sidebar" style={{ marginTop: '12rem' }}>
+          <div className="box-3d bg-pink" style={{padding: '1.4rem 1.5rem'}}><Home size={28} /> HOME</div>
+          <div className="box-3d bg-purple" onClick={() => setIsAboutModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}><User size={28} /> ABOUT</div>
+          <div className="box-3d bg-pink" onClick={() => setIsProjectsModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}>
+            <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, border: '2px solid #fff', borderRadius: '6px', marginRight: '0.5rem', verticalAlign: 'middle'}}>
+              <div style={{width: 12, height: 12, backgroundColor: '#fff', borderRadius: '3px'}}/>
             </div> PROJECTS
           </div>
-          <div className="box-3d bg-cyan" onClick={() => setIsServicesModalOpen(true)} style={{padding: '1.2rem 1.5rem', cursor: 'pointer'}}><Star size={24} /> SERVICES</div>
-          <div className="box-3d bg-purple" onClick={() => setIsModalOpen(true)} style={{padding: '1.2rem 1.5rem', cursor: 'pointer'}}><Mail size={24} /> CONTACT</div>
+          <div className="box-3d bg-cyan" onClick={() => setIsServicesModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}><Star size={28} /> SERVICES</div>
+          <div className="box-3d bg-purple" onClick={() => setIsModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}><Mail size={28} /> CONTACT</div>
 
           {/* Character & Social Box */}
           <div className="character-section">
             <div className="character-box">
-              <div className="speech-bubble box-3d bg-purple" style={{padding: '1.2rem', textTransform: 'uppercase', boxShadow: 'var(--shadow-small)', fontSize: '0.95rem'}}>
+              <div className="speech-bubble box-3d bg-purple" style={{padding: '1.4rem', textTransform: 'uppercase', boxShadow: 'var(--shadow-small)', fontSize: '1rem'}}>
                 LET'S CREATE<br/>SOMETHING<br/>AMAZING!
               </div>
-              <model-viewer src="./avatar2.glb" alt="3D Character" camera-controls disable-zoom style={{width: '90%', height: '90%', borderRadius: '30px', borderBottomLeftRadius: '50px', borderBottomRightRadius: '50px', marginBottom: '10px', backgroundColor: 'transparent'}}></model-viewer>
+              <model-viewer src="/avatar2.glb" alt="3D Character" camera-controls disable-zoom style={{width: '90%', height: '90%', borderRadius: '30px', borderBottomLeftRadius: '50px', borderBottomRightRadius: '50px', marginBottom: '10px', backgroundColor: 'transparent'}}></model-viewer>
             </div>
             <div className="social-box">
               <a href="https://github.com/Iitian001" target="_blank" rel="noreferrer" style={{color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, backgroundColor: 'var(--color-pink)', borderRadius: '50%', border: '2px solid black'}}><FaGithub size={20} /></a>
@@ -349,19 +358,18 @@ function App() {
           <section className="hero-section">
             <div className="hero-text-area">
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <div className="box-3d bg-purple hello-pill" style={{padding: '0.8rem 2.5rem', fontSize: '1.6rem'}}>HEY THERE!</div>
+                <div className="box-3d bg-purple hello-pill" style={{padding: '0.8rem 2.5rem', fontSize: '1.6rem'}}>HELLO!</div>
                 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" style={{ width: '80px', height: '80px', transform: 'rotate(10deg)', filter: 'drop-shadow(0 15px 15px rgba(0,0,0,0.4))' }} />
               </div>
               
               <h1>I'M<br/>SHREYASH</h1>
-              <div className="designer-subtitle">DESIGNER & DEVELOPER</div>
               
-              <div className="box-3d bg-purple hero-subtitle" style={{ fontSize: '0.9rem', padding: '0.8rem 2rem', marginTop: '0.8rem' }}>
-                DESIGNER <span className="dot">•</span> DEVELOPER <span className="dot">•</span> CREATIVE THINKER
+              <div className="box-3d bg-purple hero-subtitle" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem', marginTop: '0.5rem' }}>
+                AI ENGINEER <span className="dot">•</span> AUTOMATION SPECIALIST <span className="dot">•</span> CREATIVE THINKER
               </div>
               
               <p className="intro-text">
-                I create bold, modern and user focused digital experiences that leave a lasting impact.
+                I build intelligent systems and automate workflows to solve complex problems.
               </p>
               
               <div className="box-3d bg-yellow view-work-btn" style={{ display: 'inline-flex', padding: '1.2rem 1.2rem 1.2rem 2.5rem', fontSize: '1.2rem' }}>
@@ -377,10 +385,10 @@ function App() {
                <div className="box-3d bg-cyan tag-float tag-branding" style={{fontSize: '1.2rem', padding: '1.5rem'}}>AUTOMATION</div>
                <div className="box-3d bg-pink tag-float tag-dev" style={{fontSize: '1.2rem', padding: '1.5rem'}}>&lt;/&gt; INTELLIGENCE</div>
                
-               {/* Avatar - Photo */}
-               <div className="avatar-container" style={{ width: 240, height: 240, left: -20, top: 80 }}>
-                  <img src="./favicon.jpg" alt="Shreyash" />
-                  <div className="box-3d bg-blue freelance-badge" style={{ fontSize: '0.75rem', padding: '0.6rem 1.2rem', bottom: -15, right: -40, whiteSpace: 'nowrap' }}>
+               {/* Avatar */}
+               <div className="avatar-container" style={{ width: 260, height: 260, left: -40, top: 120 }}>
+                  <model-viewer src="/avatar1.glb" alt="3D Avatar" camera-controls disable-zoom style={{ width: '100%', height: '100%', borderRadius: '50%', backgroundColor: 'transparent' }}></model-viewer>
+                  <div className="box-3d bg-blue freelance-badge" style={{ fontSize: '0.9rem', padding: '0.8rem 1.5rem', bottom: -10, right: -20, whiteSpace: 'nowrap' }}>
                     <div style={{width: 14, height: 14, backgroundColor: '#00ff88', borderRadius: '50%'}}></div>
                     AVAILABLE FOR FREELANCE
                   </div>
@@ -391,14 +399,14 @@ function App() {
           {/* Featured Projects */}
           <section className="featured-projects">
             <div className="box-3d bg-pink projects-tab">FEATURED PROJECTS</div>
-            <div className="box-3d bg-orange projects-view-all" onClick={() => setIsProjectsModalOpen(true)} style={{cursor: 'pointer'}}>VIEW ALL PROJECTS <ArrowRight size={14} /></div>
 
+            
             <div className="project-grid">
               <a href="https://github.com/Iitian001/Palak_Ai_stock-expert" target="_blank" rel="noreferrer" className="box-3d bg-pink project-card" style={{textDecoration: 'none', color: 'inherit'}}>
-                <img src="./palak.jpg" alt="Palak AI" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
+                <img src="/palak.jpg" alt="Palak AI" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
                 <div className="project-info">
                   <div>
-                    <h3 style={{fontSize: '1rem'}}>PALAK AI STOCK EXPERT</h3>
+                    <h3 style={{fontSize: '1.1rem'}}>PALAK AI STOCK EXPERT</h3>
                     <p>AI / FINANCE</p>
                   </div>
                   <div className="project-arrow"><ArrowRight size={14} color="white" /></div>
@@ -406,10 +414,10 @@ function App() {
               </a>
               
               <a href="https://github.com/Iitian001/N8N_tamplets" target="_blank" rel="noreferrer" className="box-3d bg-blue project-card" style={{textDecoration: 'none', color: 'inherit'}}>
-                <img src="./n8n.png" alt="N8N Templates" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
+                <img src="/n8n.png" alt="N8N Templates" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
                 <div className="project-info">
                   <div>
-                    <h3 style={{fontSize: '1rem'}}>N8N TEMPLATES</h3>
+                    <h3 style={{fontSize: '1.1rem'}}>N8N TEMPLATES</h3>
                     <p>WORKFLOW AUTOMATION</p>
                   </div>
                   <div className="project-arrow"><ArrowRight size={14} color="white" /></div>
@@ -417,10 +425,10 @@ function App() {
               </a>
 
               <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" className="box-3d bg-purple project-card" style={{textDecoration: 'none', color: 'inherit'}}>
-                <img src="./portfolio.png" alt="Portfolio" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
+                <img src="/portfolio.png" alt="Portfolio" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
                 <div className="project-info">
                   <div>
-                    <h3 style={{fontSize: '1rem'}}>PORTFOLIO</h3>
+                    <h3 style={{fontSize: '1.1rem'}}>PORTFOLIO</h3>
                     <p>JAVASCRIPT / REACT</p>
                   </div>
                   <div className="project-arrow"><ArrowRight size={14} color="white" /></div>
@@ -428,10 +436,10 @@ function App() {
               </a>
 
               <a href="https://github.com/Iitian001/Shreyash_code-" target="_blank" rel="noreferrer" className="box-3d bg-orange project-card" style={{textDecoration: 'none', color: 'inherit'}}>
-                <img src="./shreyash.png" alt="Shreyash Code" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
+                <img src="/shreyash.png" alt="Shreyash Code" className="project-img" style={{ objectFit: 'cover', padding: 0 }} />
                 <div className="project-info">
                   <div>
-                    <h3 style={{fontSize: '1rem'}}>SHREYASH CODE</h3>
+                    <h3 style={{fontSize: '1.1rem'}}>SHREYASH CODE</h3>
                     <p>PYTHON SCRIPTS</p>
                   </div>
                   <div className="project-arrow"><ArrowRight size={14} color="white" /></div>
@@ -448,12 +456,12 @@ function App() {
                 <h2>ABOUT ME</h2>
                 <p>I'm a passionate UI/UX designer and frontend developer who loves turning ideas into impactful digital products.</p>
               </div>
-              <div className="box-3d bg-purple about-me-btn" onClick={() => setIsAboutModalOpen(true)} style={{ alignSelf: 'flex-start' }}>
+              <div className="box-3d bg-purple about-me-btn" style={{ alignSelf: 'flex-start' }}>
                 MORE ABOUT ME <ArrowRight size={16} />
               </div>
             </div>
 
-            {/* What I Do */}
+            {/* What I Do - Basic (Opens Modal) */}
             <div className="bento-block box-3d bg-purple" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '1.5rem', textAlign: 'center', textShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}>WHAT I DO</h3>
               
@@ -482,8 +490,8 @@ function App() {
             <div className="box-3d bg-orange bento-block">
               <div>
                 <h2>LET'S CONNECT!</h2>
-                <a href="mailto:shreyash.designs@gmail.com" style={{ color: 'black', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.4rem' }}><Mail size={16} /> shreyash.designs@gmail.com</a>
-                <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" style={{ color: 'black', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.4rem' }}><Monitor size={16} /> shreyashmishra.in</a>
+                <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" style={{ color: 'black', textDecoration: 'none', display: 'block', fontSize: '1rem', fontWeight: 700, marginBottom: '0.5rem' }}>shreyashmishra.in</a>
+                <a href="mailto:shreyash.designs@gmail.com" style={{ color: 'black', textDecoration: 'none', display: 'block', fontSize: '1rem', fontWeight: 700, marginBottom: '1.5rem' }}>shreyash.designs@gmail.com</a>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '1rem' }}>
                 <button onClick={() => setIsModalOpen(true)} className="box-3d bg-purple connect-btn" style={{ textDecoration: 'none', color: 'white', border: 'none', cursor: 'pointer', fontFamily: 'inherit', display: 'flex', alignItems: 'center' }}>
@@ -495,15 +503,6 @@ function App() {
               </div>
             </div>
           </section>
-
-          {/* Quote Section */}
-          <div className="quote-section">
-            <span className="quote-mark">❝</span>
-            <div>
-              <p className="quote-text">Design is not just what it looks like and feels like. Design is how it works.</p>
-              <p className="quote-author">— Steve Jobs</p>
-            </div>
-          </div>
 
         </main>
       </div>
