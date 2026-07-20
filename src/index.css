@@ -871,6 +871,24 @@ h1 {
   .bento-block .box-3d p { color: white !important; }
   .bento-block .box-3d svg { color: white !important; stroke: white !important; fill: transparent !important; }
   
+  /* Modals */
+  .mobile-modal-overlay {
+    padding: 1rem !important;
+  }
+  .mobile-modal-content {
+    padding: 1.5rem !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+  .mobile-modal-content h2 {
+    font-size: 2rem !important;
+    text-shadow: none !important;
+    -webkit-text-stroke: 0px !important;
+  }
+  .mobile-modal-content p {
+    color: #ccc !important;
+  }
+  
   /* Projects */
   .featured-projects { padding: 1.5rem !important; margin-top: 1rem; }
   .projects-tab {

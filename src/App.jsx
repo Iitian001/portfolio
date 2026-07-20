@@ -211,9 +211,9 @@ function App() {
 
       {/* Contact Modal */}
       {isModalOpen && (
-        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
-          <div style={{ backgroundColor: '#ff7b00', borderRadius: '40px', boxShadow: '12px 12px 0 rgba(0,0,0,1)', padding: '3rem 2.5rem', width: '100%', maxWidth: '900px', position: 'relative', display: 'flex', flexDirection: 'column', border: '4px solid black' }}>
-            <button onClick={() => setIsModalOpen(false)} style={{ position: 'absolute', top: 20, right: 25, background: 'white', border: '3px solid black', color: 'black', fontSize: '1.5rem', cursor: 'pointer', fontWeight: '900', width: '50px', height: '50px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '4px 4px 0 black', zIndex: 100 }}>✕</button>
+        <div className="mobile-modal-overlay" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
+          <div className="mobile-modal-content" style={{ backgroundColor: 'rgba(20, 25, 45, 0.95)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '32px', padding: '2.5rem 2rem', width: '100%', maxWidth: '900px', position: 'relative', display: 'flex', flexDirection: 'column', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
+            <button onClick={() => setIsModalOpen(false)} style={{ position: 'absolute', top: 20, right: 20, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: 'white', fontSize: '1.2rem', cursor: 'pointer', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100 }}>✕</button>
             
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1.5rem', borderRadius: '50px', fontSize: '0.9rem', fontWeight: 900, marginBottom: '2rem', color: 'black', backgroundColor: '#ffe500', border: '2px solid black', boxShadow: '4px 4px 0 black', textTransform: 'uppercase', alignSelf: 'flex-start' }}>
               <Mail size={18} strokeWidth={3} /> LET'S TALK
