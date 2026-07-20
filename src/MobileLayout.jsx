@@ -209,13 +209,96 @@ export default function MobileLayout() {
       )}
 
       {/* =========================================
-          PROJECTS / CONTACT PLACEHOLDERS
+          PROJECTS TAB
           ========================================= */}
-      {(activeTab === 'projects' || activeTab === 'contact') && (
+      {activeTab === 'projects' && (
+        <section className="sm-middle-section" style={{ minHeight: '100vh', paddingTop: '3rem', paddingBottom: '6rem' }}>
+          <div className="sm-project-header" style={{justifyContent: 'center', marginBottom: '2rem'}}>
+            <span className="sm-badge" style={{backgroundColor: '#8b5cf6', color: '#fff', fontSize: '0.8rem', padding: '0.5rem 1rem'}}>STUFF I BUILT</span>
+          </div>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '400px', margin: '0 auto' }}>
+            
+            {/* Project 1 */}
+            <a href="https://github.com/Iitian001/Palak_Ai_stock-expert" target="_blank" rel="noreferrer" className="sm-about-card" style={{ display: 'block', textDecoration: 'none' }}>
+              <div className="sm-about-img-container" style={{ height: '160px' }}>
+                <img src="/palak.jpg" alt="Palak AI" className="sm-about-img" />
+              </div>
+              <div className="sm-about-content">
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
+                  <h2 className="sm-about-title" style={{ fontSize: '1.4rem' }}>Palak AI Stock Expert</h2>
+                  <div style={{ backgroundColor: '#1a1a1a', padding: '0.4rem', borderRadius: '50%' }}><ArrowRight size={14} color="#8b5cf6" /></div>
+                </div>
+                <div className="sm-about-tags" style={{ marginTop: '0.5rem' }}>
+                  <span className="sm-tag-react" style={{ backgroundColor: '#f81f72' }}>AI / FINANCE</span>
+                </div>
+                <p className="sm-about-text" style={{ marginTop: '1rem', color: '#d4d4d4' }}>Advanced AI tool for smart stock market analysis and financial insights.</p>
+              </div>
+            </a>
+
+            {/* Project 2 */}
+            <a href="https://github.com/Iitian001/N8N_tamplets" target="_blank" rel="noreferrer" className="sm-about-card" style={{ display: 'block', textDecoration: 'none' }}>
+              <div className="sm-about-img-container" style={{ height: '160px' }}>
+                <img src="/n8n.png" alt="N8N" className="sm-about-img" />
+              </div>
+              <div className="sm-about-content">
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
+                  <h2 className="sm-about-title" style={{ fontSize: '1.4rem' }}>n8n Templates</h2>
+                  <div style={{ backgroundColor: '#1a1a1a', padding: '0.4rem', borderRadius: '50%' }}><ArrowRight size={14} color="#8b5cf6" /></div>
+                </div>
+                <div className="sm-about-tags" style={{ marginTop: '0.5rem' }}>
+                  <span className="sm-tag-react" style={{ backgroundColor: '#217eff' }}>WORKFLOW AUTOMATION</span>
+                </div>
+                <p className="sm-about-text" style={{ marginTop: '1rem', color: '#d4d4d4' }}>Ready-to-use n8n automation workflows for streamlining business processes.</p>
+              </div>
+            </a>
+
+            {/* Project 3 */}
+            <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" className="sm-about-card" style={{ display: 'block', textDecoration: 'none' }}>
+              <div className="sm-about-img-container" style={{ height: '160px' }}>
+                <img src="/portfolio.png" alt="Portfolio" className="sm-about-img" />
+              </div>
+              <div className="sm-about-content">
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
+                  <h2 className="sm-about-title" style={{ fontSize: '1.4rem' }}>Portfolio</h2>
+                  <div style={{ backgroundColor: '#1a1a1a', padding: '0.4rem', borderRadius: '50%' }}><ArrowRight size={14} color="#8b5cf6" /></div>
+                </div>
+                <div className="sm-about-tags" style={{ marginTop: '0.5rem' }}>
+                  <span className="sm-tag-react" style={{ backgroundColor: '#a855f7' }}>JAVASCRIPT / REACT</span>
+                </div>
+                <p className="sm-about-text" style={{ marginTop: '1rem', color: '#d4d4d4' }}>A stunning 3D interactive portfolio showcasing my design and development skills.</p>
+              </div>
+            </a>
+
+            {/* Project 4 */}
+            <a href="https://github.com/Iitian001/Shreyash_code-" target="_blank" rel="noreferrer" className="sm-about-card" style={{ display: 'block', textDecoration: 'none' }}>
+              <div className="sm-about-img-container" style={{ height: '160px' }}>
+                <img src="/shreyash.png" alt="Shreyash Code" className="sm-about-img" />
+              </div>
+              <div className="sm-about-content">
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
+                  <h2 className="sm-about-title" style={{ fontSize: '1.4rem' }}>Shreyash Code</h2>
+                  <div style={{ backgroundColor: '#1a1a1a', padding: '0.4rem', borderRadius: '50%' }}><ArrowRight size={14} color="#8b5cf6" /></div>
+                </div>
+                <div className="sm-about-tags" style={{ marginTop: '0.5rem' }}>
+                  <span className="sm-tag-react" style={{ backgroundColor: '#ff7b00' }}>PYTHON SCRIPTS</span>
+                </div>
+                <p className="sm-about-text" style={{ marginTop: '1rem', color: '#d4d4d4' }}>A collection of powerful Python scripts for data processing and automation.</p>
+              </div>
+            </a>
+
+          </div>
+        </section>
+      )}
+
+      {/* =========================================
+          CONTACT PLACEHOLDER
+          ========================================= */}
+      {activeTab === 'contact' && (
         <section className="sm-middle-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
            <div className="sm-project-header">
              <span className="sm-badge" style={{backgroundColor: '#8b5cf6', fontSize: '0.9rem', padding: '0.8rem 1.5rem'}}>
-               {activeTab.toUpperCase()} SECTION COMING SOON
+               CONTACT SECTION COMING SOON
              </span>
            </div>
         </section>
