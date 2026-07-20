@@ -755,17 +755,22 @@ h1 {
   html, body {
     min-height: 100vh;
     height: auto;
-    background-color: #0b0f19;
+    background-color: #e8eff5;
     background-attachment: scroll;
+    color: #2c3e50;
   }
 
-  /* Force all colorful 3D blocks into sleek dark glassmorphism cards */
+  /* Force all colorful 3D blocks into claymorphism cards */
   .box-3d {
-    background-color: rgba(30, 35, 60, 0.8) !important;
-    color: white !important;
-    box-shadow: none !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    border-radius: 24px !important;
+    background-color: #e8eff5 !important;
+    color: #2c3e50 !important;
+    border: none !important;
+    border-radius: 32px !important;
+    box-shadow: 
+      12px 12px 24px rgba(165, 177, 194, 0.4), 
+      -12px -12px 24px #ffffff,
+      inset 2px 2px 5px rgba(255, 255, 255, 0.7),
+      inset -3px -3px 5px rgba(165, 177, 194, 0.2) !important;
   }
   
   /* Hide desktop-specific elements */
@@ -779,21 +784,25 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin: 1rem 1rem 2rem 1rem;
+    padding: 1.5rem 1rem !important;
   }
-  .mobile-header-title { font-size: 1.2rem; font-weight: 700; color: white; }
-  .mobile-header-subtitle { font-size: 0.9rem; color: #aaa; }
+  .mobile-header-title { font-size: 1.5rem; font-weight: 900; color: #2c3e50 !important; }
+  .mobile-header-subtitle { font-size: 0.9rem; color: #7f8c8d !important; }
   .mobile-bell {
-    background-color: rgba(255,255,255,0.1);
+    background-color: #e8eff5;
     padding: 0.6rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #2c3e50;
+    box-shadow: 
+      6px 6px 12px rgba(165, 177, 194, 0.4), 
+      -6px -6px 12px #ffffff;
   }
   
   /* Typography */
-  h1 { font-size: 3.2rem; letter-spacing: -1px; text-align: center; margin-bottom: 2rem; color: var(--color-yellow); }
+  h1 { font-size: 3.8rem !important; letter-spacing: -1px; text-align: center; margin-bottom: 0.5rem !important; color: #2c3e50 !important; position: relative; z-index: 20; text-shadow: none !important; -webkit-text-stroke: 0 !important; }
   
   /* Main Content Area */
   .main-content {
@@ -807,12 +816,16 @@ h1 {
     flex-direction: column;
   }
   .hero-text-area {
-    background: linear-gradient(145deg, rgba(30,35,60,0.8) 0%, rgba(15,20,40,0.9) 100%) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    border-radius: 32px !important;
-    padding: 2rem 1.5rem 120px 1.5rem !important;
+    background: #e8eff5 !important;
+    border: none !important;
+    border-radius: 40px !important;
+    padding: 2.5rem 1.5rem 120px 1.5rem !important;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    box-shadow: 
+      12px 12px 24px rgba(165, 177, 194, 0.4), 
+      -12px -12px 24px #ffffff,
+      inset 4px 4px 10px rgba(255, 255, 255, 0.8),
+      inset -4px -4px 10px rgba(165, 177, 194, 0.3) !important;
   }
   .intro-text {
     font-size: 1rem;
@@ -820,21 +833,25 @@ h1 {
     text-align: left;
     max-width: 65%;
     margin-bottom: 1rem;
+    color: #34495e !important;
   }
   
-  /* Say Hello Button styling matching image */
+  /* Say Hello Button */
   .hero-text-area::after {
     content: "Say Hello!";
     position: absolute;
     left: 1.5rem;
     bottom: 2rem;
-    background-color: rgba(255, 222, 0, 0.1);
-    color: var(--color-yellow);
-    border: 1px solid var(--color-yellow);
-    padding: 0.5rem 1.5rem;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 0.9rem;
+    background-color: #e8eff5;
+    color: #ff7b00;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    font-weight: 900;
+    font-size: 1rem;
+    box-shadow: 
+      6px 6px 12px rgba(165, 177, 194, 0.4), 
+      -6px -6px 12px #ffffff;
   }
   
   /* Avatar */
@@ -853,25 +870,10 @@ h1 {
     border: none !important;
     background: transparent !important;
     transform: none;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
   }
   
   /* Layout Spacing Polish */
-  .mobile-header {
-    padding: 1.5rem 1rem !important;
-  }
-  .mobile-header h2 {
-    font-size: 1.5rem !important;
-    font-weight: 900 !important;
-  }
-  .hero-section h1 {
-    font-size: 3.8rem !important;
-    margin-bottom: 0.5rem !important;
-    position: relative;
-    z-index: 20;
-  }
-  .hero-text-area {
-    padding: 2.5rem 1.5rem 120px 1.5rem !important;
-  }
   .bottom-grid {
     gap: 1.5rem !important;
     margin-top: 1.5rem !important;
@@ -882,43 +884,63 @@ h1 {
     text-align: left !important;
     font-size: 1.4rem !important;
     margin-bottom: 1rem !important;
-    color: white !important;
+    color: #2c3e50 !important;
     text-shadow: none !important;
   }
   .bento-block { padding: 1.5rem !important; }
   .bento-block > div[style*="grid"] {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 0.6rem !important;
+    gap: 0.8rem !important;
   }
-  .bento-block .box-3d p { color: white !important; }
-  .bento-block .box-3d svg { color: white !important; stroke: white !important; fill: transparent !important; }
+  .bento-block .box-3d p { color: #2c3e50 !important; }
+  .bento-block .box-3d svg { color: #2c3e50 !important; stroke: #2c3e50 !important; fill: transparent !important; }
   
   /* Modals */
   .mobile-modal-overlay {
     padding: 1rem !important;
+    background-color: rgba(232, 239, 245, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
   }
   .mobile-modal-content {
-    padding: 1.5rem !important;
+    background-color: #e8eff5 !important;
+    border: none !important;
+    border-radius: 40px !important;
+    padding: 2.5rem 1.5rem !important;
     max-height: 90vh !important;
     overflow-y: auto !important;
+    box-shadow: 
+      15px 15px 30px rgba(165, 177, 194, 0.5), 
+      -15px -15px 30px #ffffff,
+      inset 4px 4px 10px rgba(255, 255, 255, 0.8),
+      inset -4px -4px 10px rgba(165, 177, 194, 0.2) !important;
   }
   .mobile-modal-content h2 {
     font-size: 2rem !important;
     text-shadow: none !important;
     -webkit-text-stroke: 0px !important;
+    color: #2c3e50 !important;
   }
   .mobile-modal-content p {
-    color: #ccc !important;
+    color: #34495e !important;
+  }
+  .mobile-modal-content button {
+    background-color: #e8eff5 !important;
+    color: #2c3e50 !important;
+    border: none !important;
+    box-shadow: 
+      4px 4px 8px rgba(165, 177, 194, 0.4), 
+      -4px -4px 8px #ffffff !important;
   }
   
   /* Projects */
-  .featured-projects { padding: 1.5rem !important; margin-top: 1rem; }
+  .featured-projects { padding: 1.5rem !important; margin-top: 2rem !important; }
   .projects-tab {
     background: transparent !important; box-shadow: none !important; border: none !important;
-    color: white !important; font-size: 1.4rem !important; padding: 0 !important; margin-bottom: 1rem !important; text-align: left !important;
+    color: #2c3e50 !important; font-size: 1.4rem !important; padding: 0 !important; margin-bottom: 1rem !important; text-align: left !important;
   }
-  .project-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .project-card { border-radius: 24px !important; }
+  .project-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .project-card { border-radius: 32px !important; }
+  .project-info p { color: #7f8c8d !important; }
   
   /* Bottom Navigation */
   .mobile-bottom-nav {
@@ -929,12 +951,13 @@ h1 {
     bottom: 20px;
     left: 20px;
     right: 20px;
-    background-color: rgba(10, 15, 30, 0.95);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(0, 255, 255, 0.4);
+    background-color: #e8eff5;
+    border: none;
     border-radius: 40px;
     padding: 0.8rem 1rem;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    box-shadow: 
+      10px 10px 20px rgba(165, 177, 194, 0.5), 
+      -10px -10px 20px #ffffff;
     z-index: 999;
   }
   .mobile-nav-item {
@@ -942,12 +965,12 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 0.3rem;
-    color: #666;
+    color: #a5b1c2;
     font-size: 0.65rem;
     cursor: pointer;
   }
   .mobile-nav-item.active {
-    color: var(--color-yellow);
+    color: #ff7b00;
   }
   .custom-icon-outline {
     width: 22px;
