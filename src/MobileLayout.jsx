@@ -1,178 +1,172 @@
 import React from 'react';
-import { Home, User, Settings, Mail, ArrowRight, Code, Terminal, Monitor, Sparkles } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import './mobile.css';
+import { Home, User, Settings, Mail, ArrowRight, Code, Terminal, Monitor, Sparkles, Plus, MoreHorizontal } from 'lucide-react';
 
 export default function MobileLayout() {
   return (
     <div className="sarcastic-mobile">
-      {/* Header */}
-      <header className="s-header">
-        <div className="s-logo">&lt; <span style={{color: '#a855f7'}}>{':)'}</span> /&gt;</div>
-        <button className="s-menu-btn">
-          <div className="s-menu-dot"></div> MENU
-        </button>
-      </header>
-
-      {/* Hero Section */}
-      <section className="s-hero">
-        <div className="s-hero-text">
-          <h1>I BUILD.<br/>I AUTOMATE.<br/><span className="s-highlight">I SHIP.</span></h1>
-          <p className="s-hero-sub">
-            Full-stack AI developer who writes code that works and workflows that save hours <span style={{color: '#a855f7'}}>(in a good way)</span>.
-          </p>
-          <button className="s-btn-primary">
-            VIEW MY WORK <ArrowRight size={16} />
+      {/* Top Light Section */}
+      <section className="sm-top-section">
+        {/* Header */}
+        <header className="sm-header">
+          <div className="sm-logo">&lt; / &gt;</div>
+          <button className="sm-menu-btn">
+            <div className="sm-menu-dot"></div> MENU
           </button>
-        </div>
-        
-        <div className="s-hero-visual">
-          <div className="s-speech-bubble s-bubble-1">console.log("hello world");</div>
-          <div className="s-speech-bubble s-bubble-2">always();</div>
-          
-          <div className="s-avatar-wrapper">
-             <img src="/avatar.png" alt="2D Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} />
-             <div className="s-laptop-prop">
-               <Code size={20} color="white" />
-               <div style={{fontSize: '0.6rem', textAlign: 'right', fontWeight: 'bold', color: 'white'}}>BUGS<br/>FEAR<br/>ME</div>
-             </div>
-          </div>
-          
-          <div className="s-sticker">
-            SHIPS<br/>FAST
-          </div>
-        </div>
-      </section>
+        </header>
 
-      {/* Code Block */}
-      <section className="s-code-section">
-        <div className="s-code-window">
-          <div className="s-code-dots">
-            <span style={{backgroundColor: '#ff5f56'}}></span>
-            <span style={{backgroundColor: '#ffbd2e'}}></span>
-            <span style={{backgroundColor: '#27c93f'}}></span>
+        <div className="sm-hero-container">
+          {/* Left Text */}
+          <div className="sm-hero-left">
+            <h1 className="sm-hero-title">
+              I CODE.<br/>
+              I JOKE.<br/>
+              <span className="sm-highlight">I SHIP.</span>
+            </h1>
+            <p className="sm-hero-sub">
+              Full-stack developer who writes code that works and jokes that don't. Hire me before I automate my own job.
+            </p>
+            <button className="sm-btn-primary">
+              HIRE ME <ArrowRight size={14} />
+            </button>
           </div>
-          <pre className="s-code-content">
-            <span className="c-line"><span className="c-num">1</span>  <span className="c-keyword">const</span> <span className="c-var">developer</span> = {'{'}</span>
-            <span className="c-line"><span className="c-num">2</span>    <span className="c-prop">name:</span> <span className="c-str">"Shreyash Mishra"</span>,</span>
-            <span className="c-line"><span className="c-num">3</span>    <span className="c-prop">skills:</span> [<span className="c-str">"React"</span>, <span className="c-str">"Python"</span>, <span className="c-str">"AI"</span>],</span>
-            <span className="c-line"><span className="c-num">4</span>    <span className="c-prop">motto:</span> <span className="c-str">"Code. Automate. Repeat."</span>,</span>
-            <span className="c-line"><span className="c-num">5</span>  {'};'}</span>
-            <span className="c-line"><span className="c-num">6</span>  </span>
-            <span className="c-line"><span className="c-num">7</span>  <span className="c-var">developer</span>.<span className="c-prop">workingHard</span> = <span className="c-keyword">true</span>;</span>
-          </pre>
-        </div>
 
-        <div className="s-status-card">
-          <div className="s-status-header">CURRENT STATUS</div>
-          <h3>Building smart AI tools & automating boring tasks</h3>
-          <ul className="s-status-list">
-            <li>&gt; Coffee: <span style={{color: '#ffbd2e'}}>3 cups</span></li>
-            <li>&gt; Efficiency: <span style={{color: '#ffbd2e'}}>99%</span></li>
-          </ul>
-          <div className="s-status-badge">&gt; available_for_hire();</div>
-        </div>
-      </section>
-
-      {/* What I Do Section */}
-      <section className="s-what-i-do">
-        <div className="s-section-badge">WHAT I DO</div>
-        <div className="s-bento-container">
-          <div className="s-bento-card s-bento-purple">
-            <div className="s-bento-icon"><Code size={24} /></div>
-            <h4>WEB DEVELOPMENT</h4>
-            <p>Clean code, modern stacks, responsive designs.</p>
-          </div>
-          <div className="s-bento-card">
-            <div className="s-bento-icon"><Terminal size={24} /></div>
-            <h4>PYTHON SCRIPTS</h4>
-            <p>Data processing, automation & everything in between.</p>
-          </div>
-          <div className="s-bento-card">
-            <div className="s-bento-icon"><Sparkles size={24} /></div>
-            <h4>AI ENGINEERING</h4>
-            <p>Smart models turning data into real world magic.</p>
-          </div>
-          <div className="s-bento-card">
-            <div className="s-bento-icon"><Monitor size={24} /></div>
-            <h4>WORKFLOWS</h4>
-            <p>n8n setups to save time & sanity.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Project */}
-      <section className="s-featured">
-        <div className="s-section-header">
-          <div className="s-section-badge">FEATURED PROJECT</div>
-          <a href="#" className="s-link">SEE ALL PROJECTS <ArrowRight size={12} /></a>
-        </div>
-        
-        <div className="s-project-card">
-          <div className="s-project-info">
-            <div className="s-project-icon">
-               <img src="/palak.jpg" alt="Palak" style={{width:'100%', height:'100%', objectFit:'cover', borderRadius:'12px'}}/>
-            </div>
-            <div>
-              <h3>Palak AI Stock Expert</h3>
-              <p>An AI-powered app that analyzes stocks so you don't have to guess.</p>
+          {/* Right Avatar Card */}
+          <div className="sm-hero-right">
+            <div className="sm-avatar-card">
+              <div className="sm-pill top-pill">AVAILABLE FOR WORK</div>
+              
+              {/* Replacing 3D model with user's image, simulating the mockup's style */}
+              <div className="sm-avatar-image-wrapper">
+                 <img src="/avatar.png" alt="Avatar" className="sm-avatar-img" />
+              </div>
+              
+              <div className="sm-pill right-pill">REMOTE</div>
+              <div className="sm-pill bottom-pill-badge">
+                <div className="sm-star-icon">★</div>
+                FRONTEND<br/>DEV
+              </div>
             </div>
           </div>
-          <div className="s-project-tags">
-            <span>Python</span>
-            <span>React</span>
-            <span>Machine Learning</span>
-          </div>
-          
-          <div className="s-code-snippet">
-            <div style={{color: '#a855f7', marginBottom: '0.5rem', fontWeight: 800, fontSize: '0.8rem'}}>GET <span style={{color: '#9ca3af', fontWeight: 'normal'}}>/api/stock/analyze</span></div>
-            <pre>
-{`{
-  "recommendation": "BUY",
-  "reason": "Because the AI said so."
-}`}
+        </div>
+      </section>
+
+      {/* Middle Dark Section */}
+      <section className="sm-middle-section">
+        <div className="sm-grid-2">
+          {/* Code Window */}
+          <div className="sm-code-window">
+            <div className="sm-window-header">
+              <div className="sm-dots"><span></span><span></span><span></span></div>
+            </div>
+            <pre className="sm-code-text">
+{`const developer = {
+  name: "Shreyash",
+  skills: ["React", "Python"],
+  motto: "Code. Joke. Ship."
+};
+
+developer.work();`}
             </pre>
           </div>
-        </div>
-      </section>
 
-      {/* Latest Commit */}
-      <section className="s-commit">
-        <div className="s-section-badge">LATEST COMMIT (AKA LIFE UPDATE)</div>
-        <div className="s-commit-card">
-          <div className="s-quote-mark">"</div>
-          <div className="s-commit-text">
-            Some days I ship features.<br/>
-            Some days I automate workflows.<br/>
-            Either way, the commit goes in.<br/>
-            <span className="s-commit-author">- Shreyash</span>
+          {/* Status Card */}
+          <div className="sm-status-card">
+            <p>Add my new API & missing you to the cart.</p>
+            <button className="sm-btn-purple">Add to cart <ArrowRight size={12}/></button>
           </div>
-          <div className="s-meme-box">
-             <img src="/meme.jpg" alt="Code that works on first try" style={{width: '100%', borderRadius: '8px'}} onError={(e) => { e.target.src = 'https://i.imgflip.com/1g8my4.jpg'; }} />
+        </div>
+
+        {/* Skills/What I Do Slider */}
+        <div className="sm-skills-container">
+          <div className="sm-skills-badge">&lt; / &gt;</div>
+          <div className="sm-skills-scroll">
+            <div className="sm-skill-card active-skill">
+              <div className="sm-skill-icon"><Code size={20}/></div>
+              <h4>Web Dev</h4>
+              <p>Clean code, modern stacks, responsive designs.</p>
+            </div>
+            <div className="sm-skill-card">
+              <div className="sm-skill-icon"><Terminal size={20}/></div>
+              <h4>Python</h4>
+              <p>Data processing, automation & scripts.</p>
+            </div>
+            <div className="sm-skill-card">
+              <div className="sm-skill-icon"><Sparkles size={20}/></div>
+              <h4>AI Eng</h4>
+              <p>Smart models turning data into magic.</p>
+            </div>
+            <div className="sm-skill-card">
+              <div className="sm-skill-icon"><Monitor size={20}/></div>
+              <h4>n8n</h4>
+              <p>Workflows to save time & sanity.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Featured Project */}
+        <div className="sm-project-section">
+          <div className="sm-project-header">
+            <span className="sm-badge">FEATURED PROJECT</span>
+          </div>
+          <div className="sm-project-box">
+            <div className="sm-project-left">
+              <div className="sm-project-icon-box">
+                <span className="sm-emoji">😂</span>
+              </div>
+              <div className="sm-project-details">
+                <h3>Joke API</h3>
+                <p>An API that delivers the worst programming jokes. You've been warned.</p>
+              </div>
+            </div>
+            <div className="sm-project-right">
+              <div className="sm-mini-code">
+                <div className="sm-code-title">GET /api/joke</div>
+                <pre>{`{
+  "setup": "Why do...",
+  "punchline": "..."
+}`}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Latest Commit */}
+        <div className="sm-commit-section">
+          <div className="sm-project-header" style={{marginTop: '1.5rem'}}>
+            <span className="sm-badge">LATEST COMMIT</span>
+          </div>
+          <div className="sm-commit-box">
+            <div className="sm-commit-left">
+              <span className="sm-quote-mark">"</span>
+              <p>Some days I ship features. Some days I automate workflows. Either way, the commit goes in.<br/><span>- Shreyash</span></p>
+            </div>
+            <div className="sm-commit-right">
+              <img src="https://i.imgflip.com/1g8my4.jpg" alt="Success Kid" className="sm-meme-img" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Bottom Nav */}
-      <nav className="s-bottom-nav">
-        <div className="s-nav-item s-active">
+      <nav className="sm-bottom-nav">
+        <div className="sm-nav-item active">
           <Home size={20} />
           <span>HOME</span>
         </div>
-        <div className="s-nav-item">
+        <div className="sm-nav-item">
           <User size={20} />
           <span>ABOUT</span>
         </div>
         
-        <div className="s-nav-center">
-           &lt; <span style={{color: '#fff'}}>{':)'}</span> /&gt;
+        <div className="sm-nav-center-btn">
+          &lt; / &gt;
         </div>
         
-        <div className="s-nav-item">
+        <div className="sm-nav-item">
           <Settings size={20} />
           <span>PROJECTS</span>
         </div>
-        <div className="s-nav-item">
+        <div className="sm-nav-item">
           <Mail size={20} />
           <span>CONTACT</span>
         </div>
