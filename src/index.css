@@ -438,7 +438,7 @@ h1 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem; /* More breathing room between major sections */
+  gap: 4rem; /* Large gap between hero, projects, and bottom sections */
 }
 
 /* Hero Section */
