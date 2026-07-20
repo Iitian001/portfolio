@@ -341,15 +341,15 @@ function App() {
         
         {/* Sidebar Navigation */}
         <aside className="sidebar" style={{ marginTop: '12rem' }}>
-          <div className="box-3d bg-pink" style={{padding: '1.4rem 1.5rem'}}><Home size={28} /> HOME</div>
-          <div className="box-3d bg-purple" onClick={() => setIsAboutModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}><User size={28} /> ABOUT</div>
+          <div className="box-3d bg-pink" style={{padding: '1.4rem 1.5rem'}}><Home size={28} /> <span className="sidebar-text">HOME</span></div>
+          <div className="box-3d bg-purple" onClick={() => setIsAboutModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}><User size={28} /> <span className="sidebar-text">ABOUT</span></div>
           <div className="box-3d bg-pink" onClick={() => setIsProjectsModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}>
             <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, border: '2px solid #fff', borderRadius: '6px', marginRight: '0.5rem', verticalAlign: 'middle'}}>
               <div style={{width: 12, height: 12, backgroundColor: '#fff', borderRadius: '3px'}}/>
-            </div> PROJECTS
+            </div> <span className="sidebar-text">PROJECTS</span>
           </div>
-          <div className="box-3d bg-cyan" onClick={() => setIsServicesModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}><Star size={28} /> SERVICES</div>
-          <div className="box-3d bg-purple" onClick={() => setIsModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}><Mail size={28} /> CONTACT</div>
+          <div className="box-3d bg-cyan" onClick={() => setIsServicesModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}><Star size={28} /> <span className="sidebar-text">SERVICES</span></div>
+          <div className="box-3d bg-purple" onClick={() => setIsModalOpen(true)} style={{padding: '1.4rem 1.5rem', cursor: 'pointer'}}><Mail size={28} /> <span className="sidebar-text">CONTACT</span></div>
 
           {/* Character & Social Box */}
           <div className="character-section">
@@ -402,7 +402,7 @@ function App() {
                <div className="box-3d bg-pink tag-float tag-dev" style={{fontSize: '1.2rem', padding: '1.5rem'}}>&lt;/&gt; INTELLIGENCE</div>
                
                {/* Avatar */}
-               <div className="avatar-container" style={{ width: 260, height: 260, left: -40, top: 120 }}>
+               <div className="avatar-container">
                   <model-viewer src="/avatar1.glb" alt="3D Avatar" camera-controls disable-zoom style={{ width: '100%', height: '100%', borderRadius: '50%', backgroundColor: 'transparent' }}></model-viewer>
                   <div className="box-3d bg-blue freelance-badge" style={{ fontSize: '0.9rem', padding: '0.8rem 1.5rem', bottom: -10, right: -20, whiteSpace: 'nowrap' }}>
                     <div style={{width: 14, height: 14, backgroundColor: '#00ff88', borderRadius: '50%'}}></div>

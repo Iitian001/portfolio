@@ -276,9 +276,9 @@ html, body {
 
 /* Typography */
 h1 {
-  font-size: 9rem; /* Increased size to pack space */
+  font-size: clamp(4rem, 12vw, 9rem);
   line-height: 0.8;
-  margin-bottom: 0; /* Removed margin */
+  margin-bottom: 2rem; /* Add margin to prevent overlap on smaller screens */
   color: var(--color-yellow);
   text-transform: uppercase;
   font-weight: 900;
@@ -516,10 +516,10 @@ h1 {
 
 .avatar-container {
   position: absolute;
-  top: 140px;
-  left: -20px;
-  width: 220px;
-  height: 220px;
+  top: 120px;
+  left: -40px;
+  width: 260px;
+  height: 260px;
   background-color: var(--color-purple);
   border: 8px solid var(--color-blue);
   border-radius: 50%;
@@ -726,7 +726,107 @@ h1 {
     flex-direction: column;
   }
   .hero-visuals {
-    height: 400px;
+    height: 450px;
+    width: 100%;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+  }
+  .avatar-container {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 3.5rem;
+    letter-spacing: -1px;
+  }
+  .sidebar {
+    gap: 0.5rem;
+  }
+  .sidebar .box-3d {
+    min-width: 0;
+    flex: 1;
+    padding: 1rem;
+    justify-content: center;
+  }
+  .sidebar-text {
+    display: none;
+  }
+  .main-content {
+    gap: 2.5rem;
+  }
+  .hero-subtitle {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    gap: 0.5rem;
+  }
+  .hero-subtitle .dot {
+    display: none;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .tools-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .featured-projects {
+    padding: 2.5rem 1rem 1rem 1rem;
+  }
+  .projects-tab {
+    left: 15px;
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+  .projects-view-all {
+    display: none;
+  }
+  .hero-visuals {
+    height: 380px;
     margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .avatar-container {
+    top: 80px;
+    width: 220px;
+    height: 220px;
+  }
+  .freelance-badge {
+    bottom: -25px !important;
+    right: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  .tag-float {
+    font-size: 0.9rem !important;
+    padding: 1rem !important;
+  }
+  .tag-uiux { top: -10px; left: -10px; }
+  .tag-webdesign { top: -20px; right: -10px; }
+  .tag-branding { top: 50px; right: -15px; }
+  .tag-dev { top: 80px; left: -15px; }
+  
+  .character-section {
+    display: none; /* Hide for cleaner mobile UI */
+  }
+  .floating-shapes {
+    display: none; /* Hide background shapes on mobile to improve performance and prevent clutter */
+  }
+  
+  .bento-block {
+    padding: 1.5rem;
+  }
+  .bento-block h2 {
+    font-size: 1.5rem;
   }
 }
