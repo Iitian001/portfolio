@@ -71,7 +71,7 @@ export default function MobileLayout() {
                 </div>
                 <pre className="sm-code-text">
 <span style={{color: '#555'}}>1</span> <span style={{color: '#8b5cf6'}}>const</span> <span style={{color: '#ef4444'}}>developer</span> <span style={{color: '#fff'}}>= {'{'}</span>
-<span style={{color: '#555'}}>2</span>   <span style={{color: '#60a5fa'}}>name</span><span style={{color: '#fff'}}>:</span> <span style={{color: '#4ade80'}}>"Sarcastic Dev"</span><span style={{color: '#fff'}}>,</span>
+<span style={{color: '#555'}}>2</span>   <span style={{color: '#60a5fa'}}>name</span><span style={{color: '#fff'}}>:</span> <span style={{color: '#4ade80'}}>"Shreyash"</span><span style={{color: '#fff'}}>,</span>
 <span style={{color: '#555'}}>3</span>   <span style={{color: '#60a5fa'}}>skills</span><span style={{color: '#fff'}}>: [</span><span style={{color: '#4ade80'}}>"React"</span><span style={{color: '#fff'}}>, </span><span style={{color: '#4ade80'}}>"Python"</span><span style={{color: '#fff'}}>, </span><span style={{color: '#4ade80'}}>"C++"</span><span style={{color: '#fff'}}>, </span><span style={{color: '#4ade80'}}>"AI/ML"</span><span style={{color: '#fff'}}>, </span><span style={{color: '#4ade80'}}>"DL"</span><span style={{color: '#fff'}}>, </span><span style={{color: '#4ade80'}}>"Comedy"</span><span style={{color: '#fff'}}>],</span>
 <span style={{color: '#555'}}>4</span>   <span style={{color: '#60a5fa'}}>motto</span><span style={{color: '#fff'}}>:</span> <span style={{color: '#4ade80'}}>"Code. Commit. Crack a joke. Repeat."</span><span style={{color: '#fff'}}>,</span>
 <span style={{color: '#555'}}>5</span> <span style={{color: '#fff'}}>{'};'}</span>
@@ -163,7 +163,7 @@ export default function MobileLayout() {
               <div className="sm-commit-box">
                 <div className="sm-commit-left">
                   <span className="sm-quote-mark">"</span>
-                  <p>Some days I ship features.<br/>Some days I ship jokes.<br/>Either way, the commit goes in.<br/><span className="sm-commit-author">- Sarcastic Dev</span></p>
+                  <p>Some days I ship features.<br/>Some days I ship jokes.<br/>Either way, the commit goes in.<br/><span className="sm-commit-author">- Shreyash</span></p>
                 </div>
                 <div className="sm-commit-right">
                   <img src="/avatar.png" alt="Commit Meme" className="sm-meme-img" />
