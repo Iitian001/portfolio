@@ -497,6 +497,7 @@ h1 {
 .hero-visuals {
   position: relative;
   width: 450px;
+  min-height: 420px; /* Ensures it takes up vertical space for absolute children */
 }
 
 .tag-float {
