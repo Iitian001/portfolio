@@ -310,7 +310,7 @@ export default function MobileLayout() {
 
             {/* Social Links Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem' }}>
-              <a href="mailto:shreyash.designs@gmail.com" className="sm-about-card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
+              <a href="mailto:shreyash.aiml.dev@gmail.com" className="sm-about-card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
                 <Mail size={24} color="#8b5cf6" />
                 <span style={{ color: '#fff', fontSize: '0.6rem', fontWeight: 700 }}>EMAIL ME</span>
               </a>

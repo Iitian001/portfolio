@@ -2,20 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { Home, User, Star, Mail, ArrowRight, Monitor, Code, Send, Cpu, Settings, Network, Bot, Sparkles, Bell } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import MobileLayout from './MobileLayout';
+import SketchbookLayout from './layouts/SketchbookLayout';
+import AnimeLayout from './layouts/AnimeLayout';
 
+const StephaneLayout = () => <div style={{ color: 'white', padding: '5rem', fontSize: '2rem', textAlign: 'center' }}>Stephane Layout (Coming Soon...)</div>;
+const LynnLayout = () => <div style={{ color: 'black', padding: '5rem', fontSize: '2rem', textAlign: 'center' }}>Lynn Layout (Coming Soon...)</div>;
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isServicesModalOpen, setIsServicesModalOpen] = useState(false);
   const [isProjectsModalOpen, setIsProjectsModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   
-  // State for mobile view
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  // State for mobile view (Strictly Mobile Devices Only)
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+    };
+    setIsMobile(checkMobile());
   }, []);
 
   useEffect(() => {
@@ -34,6 +40,12 @@ function App() {
   if (isMobile) {
     return <MobileLayout />;
   }
+
+  const layout = import.meta.env.VITE_LAYOUT;
+  if (layout === 'sketchbook') return <SketchbookLayout />;
+  if (layout === 'anime') return <AnimeLayout />;
+  if (layout === 'stephane') return <StephaneLayout />;
+  if (layout === 'lynn') return <LynnLayout />;
 
   return (
     <>
@@ -244,9 +256,9 @@ function App() {
                 </p>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
-                  <a href="mailto:shreyash.designs@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', backgroundColor: 'white', border: '3px solid black', borderRadius: '16px', boxShadow: '4px 4px 0 black', textDecoration: 'none', color: 'black', fontWeight: 900, fontSize: '1.1rem' }}>
+                  <a href="mailto:shreyash.aiml.dev@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', backgroundColor: 'white', border: '3px solid black', borderRadius: '16px', boxShadow: '4px 4px 0 black', textDecoration: 'none', color: 'black', fontWeight: 900, fontSize: '1.1rem' }}>
                     <div style={{ backgroundColor: '#217eff', padding: '0.5rem', borderRadius: '10px', color: 'white', border: '2px solid black' }}><Mail size={24} /></div>
-                    shreyash.designs@gmail.com
+                    shreyash.aiml.dev@gmail.com
                   </a>
                   <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', backgroundColor: 'white', border: '3px solid black', borderRadius: '16px', boxShadow: '4px 4px 0 black', textDecoration: 'none', color: 'black', fontWeight: 900, fontSize: '1.1rem' }}>
                     <div style={{ backgroundColor: '#f81f72', padding: '0.5rem', borderRadius: '10px', color: 'white', border: '2px solid black' }}><Monitor size={24} /></div>
@@ -534,7 +546,7 @@ function App() {
               <div>
                 <h2>LET'S CONNECT!</h2>
                 <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" style={{ color: 'black', textDecoration: 'none', display: 'block', fontSize: '1rem', fontWeight: 700, marginBottom: '0.5rem' }}>shreyashmishra.in</a>
-                <a href="mailto:shreyash.designs@gmail.com" style={{ color: 'black', textDecoration: 'none', display: 'block', fontSize: '1rem', fontWeight: 700, marginBottom: '1.5rem' }}>shreyash.designs@gmail.com</a>
+                <a href="mailto:shreyash.aiml.dev@gmail.com" style={{ color: 'black', textDecoration: 'none', display: 'block', fontSize: '1rem', fontWeight: 700, marginBottom: '1.5rem' }}>shreyash.aiml.dev@gmail.com</a>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '1rem' }}>
                 <button onClick={() => setIsModalOpen(true)} className="box-3d bg-purple connect-btn" style={{ textDecoration: 'none', color: 'white', border: 'none', cursor: 'pointer', fontFamily: 'inherit', display: 'flex', alignItems: 'center' }}>
@@ -548,32 +560,6 @@ function App() {
           </section>
 
         </main>
-        
-        {/* Mobile Bottom Navigation */}
-        <nav className="mobile-bottom-nav">
-          <div className="mobile-nav-item active">
-            <Home size={22} />
-            <span>Home</span>
-          </div>
-          <div className="mobile-nav-item" onClick={() => setIsAboutModalOpen(true)}>
-            <User size={22} />
-            <span>About</span>
-          </div>
-          <div className="mobile-nav-item" onClick={() => setIsProjectsModalOpen(true)}>
-            <div className="custom-icon-outline">
-              <div className="custom-icon-inner" />
-            </div>
-            <span>Projects</span>
-          </div>
-          <div className="mobile-nav-item" onClick={() => setIsServicesModalOpen(true)}>
-            <Settings size={22} />
-            <span>Services</span>
-          </div>
-          <div className="mobile-nav-item" onClick={() => setIsModalOpen(true)}>
-            <Mail size={22} />
-            <span>Contact</span>
-          </div>
-        </nav>
       </div>
     </>
   );
