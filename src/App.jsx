@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Home, User, Star, Mail, ArrowRight, Monitor, Code, Send, Cpu, Settings, Network, Bot, Sparkles, Bell } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import MobileLayout from './MobileLayout';
-import SketchbookLayout from './layouts/SketchbookLayout';
-import AnimeLayout from './layouts/AnimeLayout';
+
+const SketchbookLayout = React.lazy(() => import('./layouts/SketchbookLayout'));
+const AnimeLayout = React.lazy(() => import('./layouts/AnimeLayout'));
 
 const StephaneLayout = () => <div style={{ color: 'white', padding: '5rem', fontSize: '2rem', textAlign: 'center' }}>Stephane Layout (Coming Soon...)</div>;
 const LynnLayout = () => <div style={{ color: 'black', padding: '5rem', fontSize: '2rem', textAlign: 'center' }}>Lynn Layout (Coming Soon...)</div>;
@@ -37,15 +38,53 @@ function App() {
     };
   }, [isModalOpen, isServicesModalOpen, isProjectsModalOpen, isAboutModalOpen]);
 
+  const [randomLayout, setRandomLayout] = useState(null);
+
+  useEffect(() => {
+    // If layout is fixed in env, use it. Otherwise, pick a random layout and remember it in localStorage
+    const envLayout = import.meta.env.VITE_LAYOUT;
+    if (envLayout) {
+      setRandomLayout(envLayout);
+    } else {
+      let savedLayout = null;
+      try {
+        savedLayout = localStorage.getItem('portfolio-layout');
+      } catch (e) {
+        console.warn('localStorage is not available:', e);
+      }
+      
+      if (!savedLayout) {
+        const layouts = ['brutalist', 'sketchbook', 'anime'];
+        savedLayout = layouts[Math.floor(Math.random() * layouts.length)];
+        try {
+          localStorage.setItem('portfolio-layout', savedLayout);
+        } catch (e) {
+          // ignore
+        }
+      }
+      setRandomLayout(savedLayout);
+    }
+  }, []);
+
   if (isMobile) {
     return <MobileLayout />;
   }
 
-  const layout = import.meta.env.VITE_LAYOUT;
-  if (layout === 'sketchbook') return <SketchbookLayout />;
-  if (layout === 'anime') return <AnimeLayout />;
-  if (layout === 'stephane') return <StephaneLayout />;
-  if (layout === 'lynn') return <LynnLayout />;
+  // Show nothing while calculating the layout to prevent flicker
+  if (!randomLayout) return null;
+
+  if (randomLayout === 'sketchbook') return (
+    <Suspense fallback={<div style={{height: '100vh', width: '100vw', background: 'white'}} />}>
+      <SketchbookLayout />
+    </Suspense>
+  );
+  if (randomLayout === 'anime') return (
+    <Suspense fallback={<div style={{height: '100vh', width: '100vw', background: 'black'}} />}>
+      <AnimeLayout />
+    </Suspense>
+  );
+  if (randomLayout === 'stephane') return <StephaneLayout />;
+  if (randomLayout === 'lynn') return <LynnLayout />;
 
   return (
     <>
