@@ -201,6 +201,31 @@ const SketchbookLayout = () => {
           </div>
         </section>
 
+        {/* Certificates Section */}
+        <section id="certificates" style={{ marginTop: '8rem' }}>
+          <h2 className="sketch-section-title">Certifications</h2>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '2rem', maxWidth: '800px', margin: '2rem auto 0' }}>
+            
+            <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" className="sketch-box" style={{ display: 'flex', alignItems: 'center', gap: '2rem', padding: '1.5rem', textDecoration: 'none', color: 'black', transition: 'transform 0.2s' }}>
+              <Star size={40} color="var(--marker-blue)" />
+              <div>
+                <h3 style={{ margin: 0, fontSize: '1.8rem', color: 'var(--marker-blue)' }}>Data Analytics Foundations</h3>
+                <p style={{ margin: '0.5rem 0 0', fontSize: '1.4rem' }}>DeepLearning.AI</p>
+              </div>
+            </a>
+
+            <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" className="sketch-box" style={{ display: 'flex', alignItems: 'center', gap: '2rem', padding: '1.5rem', textDecoration: 'none', color: 'black', transition: 'transform 0.2s' }}>
+              <Star size={40} color="var(--marker-red)" />
+              <div>
+                <h3 style={{ margin: 0, fontSize: '1.8rem', color: 'var(--marker-red)' }}>Fast Prototyping of GenAI Apps with Streamlit</h3>
+                <p style={{ margin: '0.5rem 0 0', fontSize: '1.4rem' }}>DeepLearning.AI</p>
+              </div>
+            </a>
+            
+          </div>
+        </section>
+
         {/* Projects Section */}
         <section id="projects" style={{ marginTop: '8rem' }}>
           <h2 className="sketch-section-title">Things I've Built</h2>

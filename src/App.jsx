@@ -372,6 +372,34 @@ function App() {
                   <div style={{ backgroundColor: '#ff7b00', color: 'white', padding: '0.6rem 1.2rem', borderRadius: '50px', fontWeight: 900, border: '2px solid black', fontSize: '0.9rem', boxShadow: '3px 3px 0 black' }}>AUTOMATION</div>
                   <div style={{ backgroundColor: '#2ae0e0', color: 'black', padding: '0.6rem 1.2rem', borderRadius: '50px', fontWeight: 900, border: '2px solid black', fontSize: '0.9rem', boxShadow: '3px 3px 0 black' }}>UX / UI</div>
                 </div>
+
+                {/* Certificates Section */}
+                <div style={{ marginTop: '3rem', width: '100%' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1.5rem', borderRadius: '50px', fontSize: '0.9rem', fontWeight: 900, marginBottom: '1.5rem', color: 'black', backgroundColor: '#ffe500', border: '2px solid black', boxShadow: '4px 4px 0 black', textTransform: 'uppercase' }}>
+                    <Star size={18} strokeWidth={3} /> CERTIFICATES
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '1.5rem', border: '3px solid black', borderRadius: '20px', backgroundColor: '#ff7b00', color: 'white', textDecoration: 'none', boxShadow: '6px 6px 0 black' }}>
+                      <div style={{ backgroundColor: 'white', borderRadius: '50%', padding: '1rem', border: '2px solid black', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Star size={24} color="black" fill="black" />
+                      </div>
+                      <div>
+                        <h3 style={{ fontSize: '1.2rem', fontWeight: 900, margin: 0, textTransform: 'uppercase' }}>Data Analytics Foundations</h3>
+                        <p style={{ fontSize: '0.9rem', fontWeight: 700, margin: '0.3rem 0 0', opacity: 0.9 }}>DeepLearning.AI</p>
+                      </div>
+                    </a>
+                    <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '1.5rem', border: '3px solid black', borderRadius: '20px', backgroundColor: '#217eff', color: 'white', textDecoration: 'none', boxShadow: '6px 6px 0 black' }}>
+                      <div style={{ backgroundColor: 'white', borderRadius: '50%', padding: '1rem', border: '2px solid black', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Star size={24} color="black" fill="black" />
+                      </div>
+                      <div>
+                        <h3 style={{ fontSize: '1.2rem', fontWeight: 900, margin: 0, textTransform: 'uppercase' }}>Fast Prototyping of GenAI Apps with Streamlit</h3>
+                        <p style={{ fontSize: '0.9rem', fontWeight: 700, margin: '0.3rem 0 0', opacity: 0.9 }}>DeepLearning.AI</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
               </div>
             </div>
 
