@@ -140,26 +140,34 @@ const AnimeLayout = () => {
               <div style={{ background: '#3a86ff', color: 'white', padding: '0.5rem 1rem', fontWeight: 900, borderRadius: '4px' }}>N8N AUTOMATION</div>
               <div style={{ background: 'var(--neon-yellow)', color: 'black', padding: '0.5rem 1rem', fontWeight: 900, borderRadius: '4px' }}>UI/UX DESIGN</div>
             </div>
-
-            <h3 style={{ fontFamily: 'Permanent Marker', fontSize: '2rem', color: 'var(--neon-pink)', marginTop: '3rem', marginBottom: '1.5rem' }}>CERTIFICATIONS</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" className="glitch-hover" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.2)', padding: '1.5rem', borderRadius: '8px', textDecoration: 'none', color: 'white', transition: 'all 0.3s' }}>
-                <Star size={30} color="var(--neon-yellow)" />
-                <div>
-                  <h4 style={{ fontSize: '1.2rem', fontWeight: 900, margin: 0, letterSpacing: '1px' }}>Data Analytics Foundations</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
-                </div>
-              </a>
-              <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" className="glitch-hover" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.2)', padding: '1.5rem', borderRadius: '8px', textDecoration: 'none', color: 'white', transition: 'all 0.3s' }}>
-                <Star size={30} color="var(--neon-purple)" />
-                <div>
-                  <h4 style={{ fontSize: '1.2rem', fontWeight: 900, margin: 0, letterSpacing: '1px' }}>Fast Prototyping of GenAI Apps with Streamlit</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
-                </div>
-              </a>
-            </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+
+  const renderCertificates = () => (
+    <section className="anime-page stagger-1">
+      <h1 className="anime-title" style={{ fontSize: '6rem', marginBottom: '4rem', marginTop: '2rem' }}>MY ACHIEVEMENTS</h1>
+      
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+        <h3 style={{ fontFamily: 'Permanent Marker', fontSize: '2rem', color: 'var(--neon-pink)', marginBottom: '1.5rem', alignSelf: 'center' }}>CERTIFICATIONS</h3>
+        
+        <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" className="glitch-hover" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.2)', padding: '2rem', borderRadius: '12px', textDecoration: 'none', color: 'white', transition: 'all 0.3s' }}>
+          <Star size={40} color="var(--neon-yellow)" />
+          <div>
+            <h4 style={{ fontSize: '1.5rem', fontWeight: 900, margin: 0, letterSpacing: '1px' }}>Data Analytics Foundations</h4>
+            <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', margin: '0.5rem 0 0' }}>DeepLearning.AI</p>
+          </div>
+        </a>
+        
+        <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" className="glitch-hover" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.2)', padding: '2rem', borderRadius: '12px', textDecoration: 'none', color: 'white', transition: 'all 0.3s' }}>
+          <Star size={40} color="var(--neon-purple)" />
+          <div>
+            <h4 style={{ fontSize: '1.5rem', fontWeight: 900, margin: 0, letterSpacing: '1px' }}>Fast Prototyping of GenAI Apps with Streamlit</h4>
+            <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', margin: '0.5rem 0 0' }}>DeepLearning.AI</p>
+          </div>
+        </a>
       </div>
     </section>
   );
@@ -292,7 +300,8 @@ const AnimeLayout = () => {
         <nav className="anime-nav">
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('home'); }} className={`anime-nav-link glitch-hover ${activePage === 'home' ? 'active' : ''}`}><Home size={20} /> HOME</a>
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('about'); }} className={`anime-nav-link glitch-hover ${activePage === 'about' ? 'active' : ''}`}><User size={20} /> ABOUT</a>
-          <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('projects'); }} className={`anime-nav-link glitch-hover ${activePage === 'projects' ? 'active' : ''}`}><Briefcase size={20} /> PROJECTS</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('certificates'); }} className={`anime-nav-link glitch-hover ${activePage === 'certificates' ? 'active' : ''}`}><Star size={20} /> CERTS</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('projects'); }} className={`anime-nav-link glitch-hover ${activePage === 'projects' ? 'active' : ''}`}><Cpu size={20} /> PROJECTS</a>
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('services'); }} className={`anime-nav-link glitch-hover ${activePage === 'services' ? 'active' : ''}`}><Star size={20} /> SERVICES</a>
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('contact'); }} className={`anime-nav-link glitch-hover ${activePage === 'contact' ? 'active' : ''}`}><Mail size={20} /> CONTACT</a>
         </nav>
@@ -311,6 +320,7 @@ const AnimeLayout = () => {
       <main className="anime-main">
         {activePage === 'home' && renderHome()}
         {activePage === 'about' && renderAbout()}
+        {activePage === 'certificates' && renderCertificates()}
         {activePage === 'projects' && renderProjects()}
         {activePage === 'services' && renderServices()}
         {activePage === 'contact' && renderContact()}

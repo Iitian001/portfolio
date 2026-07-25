@@ -203,25 +203,36 @@ export default function MobileLayout() {
                 <span className="sm-tag-ai" style={{ padding: '0.4rem 0.8rem', fontSize: '0.6rem' }}>AI / ML</span>
                 <span className="sm-tag-ui" style={{ padding: '0.4rem 0.8rem', fontSize: '0.6rem' }}>UX / UI</span>
               </div>
-              
-              <h3 style={{fontFamily: "'Space Mono', monospace", fontSize: '0.6rem', color: '#666', marginBottom: '0.8rem', marginTop: '1.5rem'}}>CERTIFICATIONS</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', backgroundColor: '#1a1a1a', borderRadius: '12px', border: '1px solid #333', textDecoration: 'none' }}>
-                  <Star size={20} color="#ffb86c" />
-                  <div>
-                    <h4 style={{ color: '#fff', fontSize: '0.8rem', margin: 0 }}>Data Analytics Foundations</h4>
-                    <p style={{ color: '#888', fontSize: '0.65rem', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
-                  </div>
-                </a>
-                <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', backgroundColor: '#1a1a1a', borderRadius: '12px', border: '1px solid #333', textDecoration: 'none' }}>
-                  <Star size={20} color="#8be9fd" />
-                  <div>
-                    <h4 style={{ color: '#fff', fontSize: '0.8rem', margin: 0 }}>Fast Prototyping of GenAI Apps</h4>
-                    <p style={{ color: '#888', fontSize: '0.65rem', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
-                  </div>
-                </a>
-              </div>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================
+          CERTIFICATES TAB
+          ========================================= */}
+      {activeTab === 'certificates' && (
+        <section className="sm-middle-section" style={{ minHeight: '100vh', paddingTop: '3rem', paddingBottom: '6rem' }}>
+          <div className="sm-project-header" style={{justifyContent: 'center', marginBottom: '2rem'}}>
+            <span className="sm-badge" style={{backgroundColor: '#eab308', color: '#000', fontSize: '0.8rem', padding: '0.5rem 1rem'}}>MY ACHIEVEMENTS</span>
+          </div>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px', margin: '0 auto' }}>
+            <h2 className="sm-about-title" style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '1rem' }}>CERTIFICATIONS</h2>
+            <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.2rem', backgroundColor: '#1a1a1a', borderRadius: '12px', border: '1px solid #333', textDecoration: 'none' }}>
+              <Star size={28} color="#ffb86c" />
+              <div>
+                <h4 style={{ color: '#fff', fontSize: '0.9rem', margin: 0 }}>Data Analytics Foundations</h4>
+                <p style={{ color: '#888', fontSize: '0.75rem', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
+              </div>
+            </a>
+            <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.2rem', backgroundColor: '#1a1a1a', borderRadius: '12px', border: '1px solid #333', textDecoration: 'none' }}>
+              <Star size={28} color="#8be9fd" />
+              <div>
+                <h4 style={{ color: '#fff', fontSize: '0.9rem', margin: 0 }}>Fast Prototyping of GenAI Apps</h4>
+                <p style={{ color: '#888', fontSize: '0.75rem', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
+              </div>
+            </a>
           </div>
         </section>
       )}
@@ -382,10 +393,17 @@ export default function MobileLayout() {
         <div 
           className={`sm-nav-item ${activeTab === 'about' ? 'active-nav' : ''}`} 
           onClick={() => setActiveTab('about')}
-          style={{ cursor: 'pointer' }}
         >
-          <User size={18} />
+          <User size={24} color={activeTab === 'about' ? '#8b5cf6' : '#666'} />
           <span>ABOUT</span>
+        </div>
+        
+        <div 
+          className={`sm-nav-item ${activeTab === 'certificates' ? 'active-nav' : ''}`} 
+          onClick={() => setActiveTab('certificates')}
+        >
+          <Star size={24} color={activeTab === 'certificates' ? '#eab308' : '#666'} />
+          <span>CERTS</span>
         </div>
         
         <div className="sm-nav-center-wrapper" onClick={() => setActiveTab('home')} style={{ cursor: 'pointer' }}>

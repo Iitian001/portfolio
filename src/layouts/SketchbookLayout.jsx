@@ -31,6 +31,7 @@ const SketchbookLayout = () => {
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="#certificates">Certificates</a>
             <a href="#projects">Work</a>
             <a href="#contact">Contact</a>
           </nav>
