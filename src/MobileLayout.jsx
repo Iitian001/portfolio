@@ -219,18 +219,24 @@ export default function MobileLayout() {
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px', margin: '0 auto' }}>
             <h2 className="sm-about-title" style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '1rem' }}>CERTIFICATIONS</h2>
-            <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.2rem', backgroundColor: '#1a1a1a', borderRadius: '12px', border: '1px solid #333', textDecoration: 'none' }}>
-              <Star size={28} color="#ffb86c" />
-              <div>
-                <h4 style={{ color: '#fff', fontSize: '0.9rem', margin: 0 }}>Data Analytics Foundations</h4>
-                <p style={{ color: '#888', fontSize: '0.75rem', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
+            <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" style={{ display: 'flex', flexDirection: 'column', padding: '1rem', backgroundColor: '#1a1a1a', borderRadius: '12px', border: '1px solid #333', textDecoration: 'none' }}>
+              <img src="/certificates/cert1.png" alt="Data Analytics Foundations" style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                <Star size={24} color="#ffb86c" />
+                <div>
+                  <h4 style={{ color: '#fff', fontSize: '0.9rem', margin: 0 }}>Data Analytics Foundations</h4>
+                  <p style={{ color: '#888', fontSize: '0.75rem', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
+                </div>
               </div>
             </a>
-            <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.2rem', backgroundColor: '#1a1a1a', borderRadius: '12px', border: '1px solid #333', textDecoration: 'none' }}>
-              <Star size={28} color="#8be9fd" />
-              <div>
-                <h4 style={{ color: '#fff', fontSize: '0.9rem', margin: 0 }}>Fast Prototyping of GenAI Apps</h4>
-                <p style={{ color: '#888', fontSize: '0.75rem', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
+            <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" style={{ display: 'flex', flexDirection: 'column', padding: '1rem', backgroundColor: '#1a1a1a', borderRadius: '12px', border: '1px solid #333', textDecoration: 'none' }}>
+              <img src="/certificates/cert2.png" alt="Fast Prototyping of GenAI Apps" style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                <Star size={24} color="#8be9fd" />
+                <div>
+                  <h4 style={{ color: '#fff', fontSize: '0.9rem', margin: 0 }}>Fast Prototyping of GenAI Apps</h4>
+                  <p style={{ color: '#888', fontSize: '0.75rem', margin: '0.2rem 0 0' }}>DeepLearning.AI</p>
+                </div>
               </div>
             </a>
           </div>

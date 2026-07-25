@@ -153,19 +153,25 @@ const AnimeLayout = () => {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
         <h3 style={{ fontFamily: 'Permanent Marker', fontSize: '2rem', color: 'var(--neon-pink)', marginBottom: '1.5rem', alignSelf: 'center' }}>CERTIFICATIONS</h3>
         
-        <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" className="glitch-hover" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.2)', padding: '2rem', borderRadius: '12px', textDecoration: 'none', color: 'white', transition: 'all 0.3s' }}>
-          <Star size={40} color="var(--neon-yellow)" />
-          <div>
-            <h4 style={{ fontSize: '1.5rem', fontWeight: 900, margin: 0, letterSpacing: '1px' }}>Data Analytics Foundations</h4>
-            <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', margin: '0.5rem 0 0' }}>DeepLearning.AI</p>
+        <a href="https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27" target="_blank" rel="noreferrer" className="glitch-hover" style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem', background: 'rgba(255,255,255,0.05)', border: '2px solid rgba(255,255,255,0.1)', borderRadius: '16px', textDecoration: 'none', color: 'white', transition: 'all 0.3s' }}>
+          <img src="/certificates/cert1.png" alt="Data Analytics Foundations" style={{ width: '100%', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', marginBottom: '1.5rem' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+            <Star size={30} color="var(--neon-yellow)" />
+            <div>
+              <h4 style={{ fontSize: '1.5rem', fontWeight: 900, margin: 0, letterSpacing: '1px' }}>Data Analytics Foundations</h4>
+              <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', margin: '0.5rem 0 0' }}>DeepLearning.AI</p>
+            </div>
           </div>
         </a>
         
-        <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" className="glitch-hover" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.2)', padding: '2rem', borderRadius: '12px', textDecoration: 'none', color: 'white', transition: 'all 0.3s' }}>
-          <Star size={40} color="var(--neon-purple)" />
-          <div>
-            <h4 style={{ fontSize: '1.5rem', fontWeight: 900, margin: 0, letterSpacing: '1px' }}>Fast Prototyping of GenAI Apps with Streamlit</h4>
-            <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', margin: '0.5rem 0 0' }}>DeepLearning.AI</p>
+        <a href="https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19" target="_blank" rel="noreferrer" className="glitch-hover" style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem', background: 'rgba(255,255,255,0.05)', border: '2px solid rgba(255,255,255,0.1)', borderRadius: '16px', textDecoration: 'none', color: 'white', transition: 'all 0.3s' }}>
+          <img src="/certificates/cert2.png" alt="Fast Prototyping of GenAI Apps" style={{ width: '100%', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', marginBottom: '1.5rem' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+            <Star size={30} color="var(--neon-purple)" />
+            <div>
+              <h4 style={{ fontSize: '1.5rem', fontWeight: 900, margin: 0, letterSpacing: '1px' }}>Fast Prototyping of GenAI Apps</h4>
+              <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)', margin: '0.5rem 0 0' }}>DeepLearning.AI</p>
+            </div>
           </div>
         </a>
       </div>
