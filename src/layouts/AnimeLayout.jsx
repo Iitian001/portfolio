@@ -301,7 +301,7 @@ const AnimeLayout = () => {
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('home'); }} className={`anime-nav-link glitch-hover ${activePage === 'home' ? 'active' : ''}`}><Home size={20} /> HOME</a>
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('about'); }} className={`anime-nav-link glitch-hover ${activePage === 'about' ? 'active' : ''}`}><User size={20} /> ABOUT</a>
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('certificates'); }} className={`anime-nav-link glitch-hover ${activePage === 'certificates' ? 'active' : ''}`}><Star size={20} /> CERTS</a>
-          <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('projects'); }} className={`anime-nav-link glitch-hover ${activePage === 'projects' ? 'active' : ''}`}><Cpu size={20} /> PROJECTS</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('projects'); }} className={`anime-nav-link glitch-hover ${activePage === 'projects' ? 'active' : ''}`}><Briefcase size={20} /> PROJECTS</a>
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('services'); }} className={`anime-nav-link glitch-hover ${activePage === 'services' ? 'active' : ''}`}><Star size={20} /> SERVICES</a>
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('contact'); }} className={`anime-nav-link glitch-hover ${activePage === 'contact' ? 'active' : ''}`}><Mail size={20} /> CONTACT</a>
         </nav>
