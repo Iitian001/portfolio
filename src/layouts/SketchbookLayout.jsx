@@ -287,6 +287,31 @@ const SketchbookLayout = () => {
               </a>
             </div>
 
+            {/* Project 5: ArtBloom */}
+            <div className="sketch-box">
+              <h3 className="sketch-project-title">ArtBloom</h3>
+              <div className="sketch-project-tech">AI / Image Generation Platform</div>
+              <p className="sketch-project-desc">
+                An advanced AI image generation platform empowering users to seamlessly create beyond their imagination.
+              </p>
+              <a href="https://www.artbloom.tech/" target="_blank" rel="noreferrer" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem' }}>
+                Live Site <ArrowRight size={16} />
+              </a>
+            </div>
+
+            {/* Project 6: AutoGPT Contribution */}
+            <div className="sketch-box">
+              <img src="/projects/autogpt-contrib.png" alt="AutoGPT Contribution" style={{ width: '100%', borderRadius: '4px', border: '1px solid var(--ink)', marginBottom: '1rem' }} />
+              <h3 className="sketch-project-title" style={{ fontSize: '1.6rem' }}>AutoGPT Core Contributor</h3>
+              <div className="sketch-project-tech">Open Source / Feature Dev</div>
+              <p className="sketch-project-desc">
+                Contributed the "Most Recently Ran" sorting feature in the Library for the official AutoGPT open-source platform.
+              </p>
+              <a href="https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.70" target="_blank" rel="noreferrer" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem' }}>
+                View Release <FaGithub size={16} />
+              </a>
+            </div>
+
           </div>
         </section>
 
