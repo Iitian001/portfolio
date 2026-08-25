@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Mail, ArrowRight, Send } from 'lucide-react';
+import { Mail, ArrowRight, Send, Star } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './sketchbook.css';
 
