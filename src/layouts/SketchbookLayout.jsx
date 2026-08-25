@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Mail, ArrowRight, Send, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './sketchbook.css';
 
@@ -229,6 +230,39 @@ const SketchbookLayout = () => {
                 </div>
               </div>
             </a>
+
+            <a href="#" className="sketch-box" style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem', textDecoration: 'none', color: 'black', transition: 'transform 0.2s' }}>
+              <img src="/certificates/cert3.png" alt="AI Engineer" style={{ width: '100%', borderRadius: '4px', border: '2px solid var(--ink)', marginBottom: '1.5rem' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+                <Star size={40} color="var(--marker-green)" />
+                <div>
+                  <h3 style={{ margin: 0, fontSize: '1.8rem', color: 'var(--marker-green)' }}>AI Engineer for Data Scientists</h3>
+                  <p style={{ margin: '0.5rem 0 0', fontSize: '1.4rem' }}>DataCamp</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="#" className="sketch-box" style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem', textDecoration: 'none', color: 'black', transition: 'transform 0.2s' }}>
+              <img src="/certificates/cert4.png" alt="Data Engineer" style={{ width: '100%', borderRadius: '4px', border: '2px solid var(--ink)', marginBottom: '1.5rem' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+                <Star size={40} color="var(--marker-green)" />
+                <div>
+                  <h3 style={{ margin: 0, fontSize: '1.8rem', color: 'var(--marker-green)' }}>Data Engineer</h3>
+                  <p style={{ margin: '0.5rem 0 0', fontSize: '1.4rem' }}>DataCamp</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="#" className="sketch-box" style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem', textDecoration: 'none', color: 'black', transition: 'transform 0.2s' }}>
+              <img src="/certificates/cert5.png" alt="Machine Learning" style={{ width: '100%', borderRadius: '4px', border: '2px solid var(--ink)', marginBottom: '1.5rem' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+                <Star size={40} color="var(--marker-blue)" />
+                <div>
+                  <h3 style={{ margin: 0, fontSize: '1.8rem', color: 'var(--marker-blue)' }}>Machine Learning</h3>
+                  <p style={{ margin: '0.5rem 0 0', fontSize: '1.4rem' }}>Coursera</p>
+                </div>
+              </div>
+            </a>
             
           </div>
         </section>
@@ -241,62 +275,67 @@ const SketchbookLayout = () => {
             
             {/* Project 1 */}
             <div className="sketch-box">
+              <img src="/palak.jpg" alt="Palak AI Stock Expert" style={{ width: '100%', borderRadius: '4px', border: '1px solid var(--ink)', marginBottom: '1rem' }} />
               <h3 className="sketch-project-title">Palak AI Stock Expert</h3>
               <div className="sketch-project-tech">AI / Data / Finance</div>
               <p className="sketch-project-desc">
                 An advanced financial analytics dashboard that uses AI to provide actionable stock market insights and predictions.
               </p>
-              <a href="https://github.com/Iitian001/Palak_Ai_stock-expert" target="_blank" rel="noreferrer" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem' }}>
-                View Source <FaGithub size={16} />
-              </a>
+              <Link to="/project/palak" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem', textDecoration: 'none' }}>
+                View Details <ArrowRight size={16} />
+              </Link>
             </div>
 
             {/* Project 2 */}
             <div className="sketch-box">
+              <img src="/projects/n8n.webp" alt="n8n Templates" style={{ width: '100%', borderRadius: '4px', border: '1px solid var(--ink)', marginBottom: '1rem' }} />
               <h3 className="sketch-project-title">n8n Templates</h3>
               <div className="sketch-project-tech">Automation / Workflows</div>
               <p className="sketch-project-desc">
                 A highly organized collection of ready-to-use n8n automation workflows designed to streamline complex business logic.
               </p>
-              <a href="https://github.com/Iitian001/N8N_tamplets" target="_blank" rel="noreferrer" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem' }}>
-                View Source <FaGithub size={16} />
-              </a>
+              <Link to="/project/n8n" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem', textDecoration: 'none' }}>
+                View Details <ArrowRight size={16} />
+              </Link>
             </div>
 
             {/* Project 3 */}
             <div className="sketch-box">
+              <img src="/portfolio.png" alt="3D Portfolio" style={{ width: '100%', borderRadius: '4px', border: '1px solid var(--ink)', marginBottom: '1rem' }} />
               <h3 className="sketch-project-title">3D Portfolio</h3>
               <div className="sketch-project-tech">React / Three.js / WebGL</div>
               <p className="sketch-project-desc">
                 An immersive 3D interactive web portfolio built to showcase creative development and complex rendering techniques.
               </p>
-              <a href="https://shreyashmishra.in" target="_blank" rel="noreferrer" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem' }}>
-                Live Site <ArrowRight size={16} />
-              </a>
+              <Link to="/project/portfolio" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem', textDecoration: 'none' }}>
+                View Details <ArrowRight size={16} />
+              </Link>
             </div>
 
             {/* Project 4 */}
             <div className="sketch-box">
+              <img src="/projects/shreyash-code.png" alt="Shreyash Code" style={{ width: '100%', borderRadius: '4px', border: '1px solid var(--ink)', marginBottom: '1rem' }} />
               <h3 className="sketch-project-title">Shreyash Code</h3>
               <div className="sketch-project-tech">Python / Scripts</div>
               <p className="sketch-project-desc">
                 A suite of powerful Python scripts utilized for data processing, automation, and backend system tasks.
               </p>
-              <a href="https://github.com/Iitian001/Shreyash_code-" target="_blank" rel="noreferrer" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem' }}>
-                View Source <FaGithub size={16} />
-              </a>
+              <Link to="/project/shreyash-code" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem', textDecoration: 'none' }}>
+                View Details <ArrowRight size={16} />
+              </Link>
             </div>
 
             {/* Project 5: ArtBloom */}
             <div className="sketch-box">
+              <img src="/projects/artbloom.png" alt="ArtBloom" style={{ width: '100%', borderRadius: '4px', border: '1px solid var(--ink)', marginBottom: '1rem' }} />
               <h3 className="sketch-project-title">ArtBloom</h3>
               <div className="sketch-project-tech">AI / Image Generation Platform</div>
               <p className="sketch-project-desc">
                 An advanced AI image generation platform empowering users to seamlessly create beyond their imagination.
               </p>
-              <a href="https://www.artbloom.tech/" target="_blank" rel="noreferrer" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem' }}>
-                Live Site <ArrowRight size={16} />
-              </a>
+              <Link to="/project/artbloom" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem', textDecoration: 'none' }}>
+                View Details <ArrowRight size={16} />
+              </Link>
             </div>
 
             {/* Project 6: AutoGPT Contribution */}
@@ -307,9 +346,9 @@ const SketchbookLayout = () => {
               <p className="sketch-project-desc">
                 Contributed the "Most Recently Ran" sorting feature in the Library for the official AutoGPT open-source platform.
               </p>
-              <a href="https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.70" target="_blank" rel="noreferrer" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem' }}>
-                View Release <FaGithub size={16} />
-              </a>
+              <Link to="/project/autogpt" className="sketch-btn" style={{ padding: '0.4rem 1rem', fontSize: '1.2rem', textDecoration: 'none' }}>
+                View Details <ArrowRight size={16} />
+              </Link>
             </div>
 
           </div>
