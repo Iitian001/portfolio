@@ -6,7 +6,13 @@
   --ink-light: #4a4a4a;
   --marker-red: #d32f2f;
   --marker-blue: #0288d1;
+  --marker-green: #2e7d32;
+  --marker-orange: #ef6c00;
   --grid-line: rgba(0, 0, 0, 0.06);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body, html {
@@ -15,10 +21,10 @@ body, html {
   background-color: var(--paper);
 }
 
+/* ── Sketchbook Page Shell ── */
 .sketch-body {
-  /* Graph paper background */
   background-color: var(--paper);
-  background-image: 
+  background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 30px 30px;
@@ -26,35 +32,54 @@ body, html {
   font-family: 'Kalam', cursive;
   color: var(--ink);
   overflow-x: hidden;
-  padding: 2rem;
 }
 
 .sketch-container {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 2rem;
 }
 
-/* Hand-drawn Box Effect */
+/* ── Generic box (used by about cards, etc.) ── */
 .sketch-box {
-  border: 2px solid var(--ink);
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
-  transition: all 0.2s;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.08);
+  padding: 2rem;
+  transition: transform 0.2s;
 }
 
-.sketch-box:hover {
-  transform: rotate(-1deg) scale(1.02);
-  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+/* ── Smooth Anchor Scrolling ── */
+html {
+  scroll-behavior: smooth;
 }
 
+/* Offset in-page anchor targets (e.g. /#contact) from the viewport edge. */
+.sketch-section[id] {
+  scroll-margin-top: 2rem;
+}
+
+/* ── Keyboard Focus ── */
+.sketch-nav a:focus-visible,
+.sketch-logo:focus-visible,
+.sketch-btn:focus-visible,
+.sketch-socials a:focus-visible,
+.sketch-cert-card:focus-visible,
+.sketch-input:focus-visible {
+  outline: 3px solid var(--marker-blue);
+  outline-offset: 3px;
+}
+
+/* ── Header ── */
 .sketch-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .sketch-logo {
@@ -63,11 +88,14 @@ body, html {
   font-weight: 700;
   color: var(--ink);
   transform: rotate(-3deg);
+  text-decoration: none;
 }
 
 .sketch-nav {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .sketch-nav a {
@@ -77,11 +105,11 @@ body, html {
   position: relative;
 }
 
-/* Drawn underline on hover */
 .sketch-nav a:hover {
   color: var(--marker-red);
 }
-.sketch-nav a:hover::after {
+
+.sketch-nav a::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -90,24 +118,38 @@ body, html {
   height: 3px;
   background-color: var(--marker-red);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  transform: rotate(-2deg);
+  transform: rotate(-2deg) scaleX(0);
+  transition: transform 0.2s;
 }
 
+.sketch-nav a:hover::after,
+.sketch-nav .sketch-nav-active::after {
+  transform: rotate(-2deg) scaleX(1);
+}
+
+.sketch-nav-active {
+  color: var(--marker-red) !important;
+  font-size: 1.6rem;
+}
+
+/* ── Hero ── */
 .sketch-hero {
   display: flex;
   align-items: center;
   gap: 4rem;
   margin-bottom: 6rem;
+  flex-wrap: wrap;
 }
 
 .sketch-hero-text {
   flex: 1;
+  min-width: 280px;
 }
 
 .sketch-greeting {
   font-size: 2.5rem;
   color: var(--marker-blue);
-  margin-bottom: -1rem;
+  margin-bottom: -0.5rem;
   transform: rotate(-2deg);
   display: inline-block;
 }
@@ -132,7 +174,23 @@ body, html {
   margin-bottom: 2rem;
 }
 
-/* Hand-drawn button */
+.sketch-socials {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sketch-socials a {
+  color: var(--ink);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.sketch-socials a:hover {
+  transform: translateY(-3px);
+  color: var(--marker-blue);
+}
+
+/* ── Button ── */
 .sketch-btn {
   background: transparent;
   border: 3px solid var(--ink);
@@ -157,28 +215,32 @@ body, html {
   box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
 }
 
-/* Avatar styling */
+/* ── Avatar ── */
 .sketch-hero-visual {
   flex: 0.8;
   position: relative;
+  min-width: 280px;
 }
 
-.sketch-avatar-container {
+.sketch-avatar-frame {
+  position: relative;
   border: 4px solid var(--ink);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   padding: 10px;
   background: #fff;
   transform: rotate(3deg);
   box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
+/* Renders immediately — no fade-in, no delay, no draw-on animation. */
 .sketch-avatar {
   width: 100%;
+  height: auto;
   border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
   display: block;
+  opacity: 1;
 }
-
-
 
 .sketch-arrow-annotation {
   position: absolute;
@@ -190,7 +252,11 @@ body, html {
   transform: rotate(-10deg);
 }
 
-/* Projects Grid */
+/* ── Sections ── */
+.sketch-section {
+  margin-top: 8rem;
+}
+
 .sketch-section-title {
   font-family: 'Caveat', cursive;
   font-size: 4rem;
@@ -201,6 +267,7 @@ body, html {
   left: 50%;
   transform: translateX(-50%);
 }
+
 .sketch-section-title::after {
   content: "";
   position: absolute;
@@ -213,10 +280,124 @@ body, html {
   transform: rotate(-1deg);
 }
 
+/* ── About ── */
+.sketch-about-grid {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.sketch-about-bio {
+  flex: 1.2;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.sketch-about-bio p {
+  margin: 0 0 1rem 0;
+}
+
+.sketch-fast-facts {
+  flex: 0.8;
+}
+
+.sketch-facts-title {
+  font-size: 2rem;
+  color: var(--marker-blue);
+  margin: 0 0 1rem 0;
+}
+
+.sketch-fact {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+/* ── Skills ── */
+.sketch-skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.sketch-pill {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  font-family: 'Kalam', cursive;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: 2px solid var(--ink);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.sketch-pill:hover {
+  transform: rotate(-2deg) scale(1.05);
+}
+
+.sketch-pill--blue {
+  background: rgba(2, 136, 209, 0.12);
+  color: var(--marker-blue);
+  border-color: var(--marker-blue);
+}
+
+.sketch-pill--red {
+  background: rgba(211, 47, 47, 0.08);
+  color: var(--marker-red);
+  border-color: var(--marker-red);
+}
+
+.sketch-pill--green {
+  background: rgba(46, 125, 50, 0.08);
+  color: var(--marker-green);
+  border-color: var(--marker-green);
+}
+
+.sketch-pill--orange {
+  background: rgba(239, 108, 0, 0.08);
+  color: var(--marker-orange);
+  border-color: var(--marker-orange);
+}
+
+/* ── Projects Grid ── */
 .sketch-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
+}
+
+.sketch-project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  transition: transform 0.2s;
+}
+
+.sketch-project-card:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+}
+
+.sketch-project-img-wrap {
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: #fff;
+  padding: 0.3rem;
+}
+
+.sketch-project-img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+.sketch-project-card:hover .sketch-project-img {
+  transform: scale(1.03);
 }
 
 .sketch-project-title {
@@ -232,12 +413,263 @@ body, html {
 }
 
 .sketch-project-desc {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 1.4;
   margin-bottom: 1.5rem;
+  flex: 1;
 }
 
-/* Footer */
+/* ── Certificates – 2-per-row grid (no horizontal scrolling) ── */
+.sketch-certs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  padding: 1rem 0 2rem;
+  align-items: stretch;
+}
+
+.sketch-cert-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s;
+  position: relative;
+}
+
+.sketch-cert-card--static {
+  cursor: default;
+}
+
+a.sketch-cert-card:hover {
+  transform: rotate(-1.5deg) translateY(-4px);
+}
+
+.sketch-cert-pin {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--marker-red);
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 5;
+}
+
+.sketch-cert-img-wrap {
+  padding: 2rem 1.5rem 1rem;
+  background: #fff;
+  flex: 1;
+}
+
+.sketch-cert-img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  display: block;
+  background: #fdfdfd;
+}
+
+/* Shared fallback shown when an image 404s, so a broken asset leaves a
+   labelled box instead of a hole. Used by certificates and project cards. */
+.sketch-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 220px;
+  border: 2px dashed rgba(0,0,0,0.25);
+  border-radius: 4px;
+  background: #f5f5f5;
+  color: var(--ink-light);
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.sketch-cert-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 1rem 1.5rem;
+  margin-top: auto;
+  background: rgba(0,0,0,0.02);
+  border-top: 1px dashed rgba(0,0,0,0.15);
+}
+
+.sketch-cert-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.sketch-cert-star {
+  flex-shrink: 0;
+}
+
+.sketch-cert-star--blue {
+  color: var(--marker-blue);
+}
+
+.sketch-cert-star--red {
+  color: var(--marker-red);
+}
+
+.sketch-cert-star--green {
+  color: var(--marker-green);
+}
+
+.sketch-cert-star--orange {
+  color: var(--marker-orange);
+}
+
+.sketch-cert-title {
+  font-size: 1.4rem;
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.sketch-cert-issuer {
+  font-size: 1.1rem;
+  margin: 0.2rem 0 0;
+  color: var(--ink-light);
+}
+
+.sketch-cert-link-icon {
+  color: var(--ink-light);
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.sketch-cert-card:hover .sketch-cert-link-icon {
+  color: var(--marker-blue);
+}
+
+/* ── Page Titles ── */
+.sketch-page-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sketch-page-title {
+  font-family: 'Caveat', cursive;
+  font-size: 5rem;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+
+.sketch-page-subtitle {
+  font-size: 1.6rem;
+  color: var(--ink-light);
+  margin: 0;
+}
+
+/* ── Project Detail ── */
+.sketch-detail-back {
+  margin-bottom: 3rem;
+}
+
+.sketch-detail-card {
+  padding: 2.5rem;
+}
+
+.sketch-detail-title {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 1;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+
+.sketch-detail-tech {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sketch-detail-img-wrap {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  padding: 1rem;
+}
+
+.sketch-detail-desc {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  margin: 0 0 3rem;
+}
+
+.sketch-detail-cta {
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+}
+
+/* ── Contact ── */
+.sketch-contact-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.sketch-contact-heading {
+  font-size: 2rem;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+
+.sketch-contact-sub {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: var(--ink-light);
+}
+
+.sketch-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sketch-input {
+  width: 100%;
+  padding: 1rem;
+  font-family: 'Kalam', cursive;
+  font-size: 1.3rem;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.7);
+  color: var(--ink);
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.sketch-input:focus {
+  box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.25);
+}
+
+.sketch-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.sketch-submit-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* ── Footer ── */
 .sketch-footer {
   margin-top: 6rem;
   text-align: center;
@@ -245,12 +677,115 @@ body, html {
   border-top: 2px dashed var(--ink-light);
 }
 
+.sketch-footer-signature {
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  color: var(--ink);
+}
+
+.sketch-footer-copy {
+  font-size: 1.2rem;
+  color: var(--ink-light);
+  margin-top: 0.5rem;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--marker-blue);
+  color: white;
+}
+
+/* ── Responsive ── */
 @media (max-width: 900px) {
   .sketch-hero {
     flex-direction: column;
     text-align: center;
+    gap: 2rem;
   }
+
+  .sketch-title {
+    font-size: 5rem;
+  }
+
   .sketch-grid {
     grid-template-columns: 1fr;
+  }
+
+  .sketch-about-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .sketch-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sketch-page-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .sketch-certs-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .sketch-container {
+    padding: 1rem;
+  }
+
+  .sketch-title {
+    font-size: 3.5rem;
+  }
+
+  .sketch-section-title {
+    font-size: 3rem;
+  }
+
+  .sketch-nav {
+    gap: 1rem;
+  }
+
+  .sketch-nav a {
+    font-size: 1.3rem;
+  }
+
+  .sketch-skills-grid {
+    gap: 0.8rem;
+  }
+
+  .sketch-pill {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .sketch-logo {
+    font-size: 2.5rem;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .sketch-pill:hover,
+  .sketch-project-card:hover,
+  a.sketch-cert-card:hover,
+  .sketch-btn:hover,
+  .sketch-socials a:hover {
+    transform: none;
   }
 }

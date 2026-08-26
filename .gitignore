@@ -25,3 +25,8 @@ dist-ssr
 
 .vercel
 .env*
+
+# Local dev artifacts (screenshots, one-off scripts) — keep them out of the repo
+/*.png
+/scratch/
+.playwright-mcp/
