@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Kalam:wght@300;400;700&display=swap');
+
+:root {
+  --paper: #faf8f5;
+  --ink: #1a1a1a;
+  --ink-light: #4a4a4a;
+  --marker-red: #d32f2f;
+  --marker-blue: #0288d1;
+  --grid-line: rgba(0, 0, 0, 0.06);
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--paper);
+}
+
+.sketch-body {
+  /* Graph paper background */
+  background-color: var(--paper);
+  background-image: 
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 30px 30px;
+  min-height: 100vh;
+  font-family: 'Kalam', cursive;
+  color: var(--ink);
+  overflow-x: hidden;
+  padding: 2rem;
+}
+
+.sketch-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Hand-drawn Box Effect */
+.sketch-box {
+  border: 2px solid var(--ink);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+}
+
+.sketch-box:hover {
+  transform: rotate(-1deg) scale(1.02);
+  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+}
+
+.sketch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.sketch-logo {
+  font-family: 'Caveat', cursive;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  transform: rotate(-3deg);
+}
+
+.sketch-nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.sketch-nav a {
+  color: var(--ink-light);
+  text-decoration: none;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+/* Drawn underline on hover */
+.sketch-nav a:hover {
+  color: var(--marker-red);
+}
+.sketch-nav a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--marker-red);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  transform: rotate(-2deg);
+}
+
+.sketch-hero {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+.sketch-hero-text {
+  flex: 1;
+}
+
+.sketch-greeting {
+  font-size: 2.5rem;
+  color: var(--marker-blue);
+  margin-bottom: -1rem;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+.sketch-title {
+  font-family: 'Caveat', cursive;
+  font-size: 7rem;
+  margin: 0;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.sketch-subtitle {
+  font-size: 2.2rem;
+  color: var(--ink-light);
+  margin: 1rem 0 2rem 0;
+}
+
+.sketch-description {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+/* Hand-drawn button */
+.sketch-btn {
+  background: transparent;
+  border: 3px solid var(--ink);
+  color: var(--ink);
+  padding: 0.8rem 2rem;
+  font-family: 'Kalam', cursive;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+  transition: all 0.2s;
+}
+
+.sketch-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+}
+
+/* Avatar styling */
+.sketch-hero-visual {
+  flex: 0.8;
+  position: relative;
+}
+
+.sketch-avatar-container {
+  border: 4px solid var(--ink);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding: 10px;
+  background: #fff;
+  transform: rotate(3deg);
+  box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+}
+
+.sketch-avatar {
+  width: 100%;
+  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+  display: block;
+}
+
+
+
+.sketch-arrow-annotation {
+  position: absolute;
+  bottom: -40px;
+  right: 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  color: var(--marker-red);
+  transform: rotate(-10deg);
+}
+
+/* Projects Grid */
+.sketch-section-title {
+  font-family: 'Caveat', cursive;
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sketch-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 4px;
+  background-color: var(--marker-blue);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  transform: rotate(-1deg);
+}
+
+.sketch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.sketch-project-title {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--ink);
+}
+
+.sketch-project-tech {
+  font-size: 1.2rem;
+  color: var(--marker-red);
+  margin: 0 0 1rem 0;
+}
+
+.sketch-project-desc {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+/* Footer */
+.sketch-footer {
+  margin-top: 6rem;
+  text-align: center;
+  padding-top: 3rem;
+  border-top: 2px dashed var(--ink-light);
+}
+
+@media (max-width: 900px) {
+  .sketch-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .sketch-grid {
+    grid-template-columns: 1fr;
+  }
+}
