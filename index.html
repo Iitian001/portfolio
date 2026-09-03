@@ -2,14 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- favicon.ico is listed even though nothing links to it in modern browsers:
+    <!-- The ?v= is load-bearing, not decoration. vercel.json tells browsers to
+         cache anything ending in .ico or .svg for a day, and before the real
+         icons existed the SPA rewrite answered /favicon.ico with index.html —
+         so browsers cached an HTML document under the icon URL, and
+         X-Content-Type-Options: nosniff forbids them from ever drawing it. The
+         old purple favicon.svg was cached the same way. Changing the URL is the
+         only thing that evicts those entries. Bump v on every icon change.
+
+         favicon.ico is listed even though modern browsers prefer the SVG:
          crawlers, feed readers and older browsers request /favicon.ico blindly,
-         and vercel.json rewrites unknown paths to this file, so without a real
-         .ico they would receive HTML with an image content type. -->
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+         with no chance to see this markup at all. -->
+    <link rel="icon" href="/favicon.ico?v=2" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+    <link rel="manifest" href="/site.webmanifest?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Shreyash — Full Stack Developer & AI Engineer. Building robust web applications and intelligent systems." />
     <meta name="author" content="Shreyash Mishra" />
