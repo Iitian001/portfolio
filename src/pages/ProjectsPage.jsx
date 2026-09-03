@@ -2,13 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { projects } from '../data/projects';
-import SiteHeader from '../components/SiteHeader';
-import SiteFooter from '../components/SiteFooter';
+import PageShell from '../components/PageShell';
 import PageHero from '../components/PageHero';
-import ScrollProgress from '../components/ScrollProgress';
 import Reveal from '../components/Reveal';
+import JsonLd from '../components/JsonLd';
 import { usePageTitle } from '../hooks/usePageTitle';
-import '../layouts/sketchbook.css';
+import { graph, projectListSchema, breadcrumbSchema } from '../lib/structuredData';
 
 /** Cards in the first grid row are above the fold, so their images load eagerly. */
 const EAGER_COUNT = 2;
@@ -57,28 +56,28 @@ const ProjectsPage = () => {
   );
 
   return (
-    <div className="sketch-body">
-      <a href="#work" className="sketch-skip-link">Skip to projects</a>
-      <ScrollProgress />
+    <PageShell>
+      {/* The list schema is what lets a crawler treat these as one body of work
+          by one person, rather than five unrelated pages that happen to link
+          to each other. */}
+      <JsonLd
+        data={graph(
+          projectListSchema(),
+          breadcrumbSchema([['Home', '/'], ['Work', '/projects']]),
+        )}
+      />
 
-      <div className="sketch-container">
+      <PageHero
+        title="Things I've Built"
+        subtitle="A collection of projects that reflect my journey as a developer"
+      />
 
-        <SiteHeader />
-
-        <PageHero
-          title="Things I've Built"
-          subtitle="A collection of projects that reflect my journey as a developer"
-        />
-
-        <div className="sketch-grid" id="work">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
-
-        <SiteFooter />
+      <div className="sketch-grid" id="work">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
       </div>
-    </div>
+    </PageShell>
   );
 };
 

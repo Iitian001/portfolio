@@ -1,0 +1,43 @@
+# Lint, test and build on every push and pull request.
+#
+# Vercel already builds this on push, but it builds only the default branch's
+# deployment and it does not run the tests. This is the gate that catches a broken
+# route regex or a canonical URL regression before it reaches a deployment at all.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A second push to the same branch makes the first run's answer irrelevant.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          # Matches the major this is developed against. `cache: npm` keys on
+          # package-lock.json, so the install below is a restore in most runs.
+          node-version: '22'
+          cache: npm
+
+      # `npm ci` rather than `npm install`: it installs the locked tree exactly
+      # and fails if package.json and the lockfile disagree, which is the whole
+      # point of running this on a clean machine.
+      - run: npm ci
+
+      # Ordered cheapest-first, so an obvious mistake fails in seconds instead of
+      # after a full build.
+      - run: npm run lint
+
+      - run: npm test
+
+      - run: npm run build

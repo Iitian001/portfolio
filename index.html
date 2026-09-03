@@ -20,22 +20,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Shreyash — Full Stack Developer & AI Engineer. Building robust web applications and intelligent systems." />
     <meta name="author" content="Shreyash Mishra" />
+    <!-- One tag, no media attribute: the script below sets it from the theme
+         actually in effect, which the two-tag prefers-color-scheme trick cannot
+         do once a stored choice overrides the OS. -->
     <meta name="theme-color" content="#faf8f5" />
+
+    <!-- Runs before the first paint, which is the whole point: applying the
+         stored theme from React instead would paint the light palette and then
+         repaint dark, so anyone who chose dark would see a white flash on every
+         navigation. Inline and synchronous for the same reason.
+
+         Only writes data-theme when there is a stored override — with the
+         attribute absent the CSS keeps `color-scheme: light dark` and follows
+         the OS live, which is what src/lib/theme.js expects. The two hex values
+         are the --paper token for each theme; they are also in theme.js and
+         sketchbook.css, and a pre-paint script cannot read either. -->
+    <script>
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem('theme'); } catch (e) { /* privacy mode */ }
+        if (stored !== 'light' && stored !== 'dark') stored = null;
+
+        if (stored) document.documentElement.dataset.theme = stored;
+
+        var dark = stored
+          ? stored === 'dark'
+          : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', dark ? '#14120f' : '#faf8f5');
+      })();
+    </script>
+
     <!-- Home-page defaults. Every route is served this same file, so usePageTitle
          rewrites the canonical and og:url below to the current path once React
          mounts — otherwise /projects and every detail page would declare the
          home page as their canonical URL. -->
     <link rel="canonical" href="https://shreyashmishra.in/" />
 
-    <!-- Fonts are loaded here rather than through a CSS @import: an @import inside
-         a stylesheet can only start downloading after that stylesheet has arrived,
-         which serialises two round trips before any text can render. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Kalam:wght@300;400;700&display=swap"
-    />
+    <!-- Fonts are self-hosted (scripts/build-fonts.py writes public/fonts and
+         src/styles/fonts.css). The Google Fonts <link> that used to sit here was
+         render-blocking on a third-party origin: the browser could not learn a
+         single font URL until a DNS lookup, a TLS handshake and a stylesheet
+         round trip to fonts.googleapis.com had all finished, and the headline is
+         Caveat, so that chain gated the largest text on the page.
+
+         Only the two faces used above the fold are preloaded. Preloading all six
+         would compete with the hero image for bandwidth to fetch the bold Kalam
+         that no first screen needs. crossorigin is required even same-origin:
+         fonts are fetched in CORS mode, and a preload without it is a second,
+         unusable copy in the cache. -->
+    <link rel="preload" href="/fonts/caveat-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/kalam-400-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- No <link rel="preload"> for the hero portrait: this single index.html is
          served for every route, so a static preload would download it on

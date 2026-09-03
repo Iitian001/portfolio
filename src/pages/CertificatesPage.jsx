@@ -1,61 +1,13 @@
 import { useCallback, useState } from 'react';
 import { Star, ExternalLink, Maximize2 } from 'lucide-react';
-import SiteHeader from '../components/SiteHeader';
-import SiteFooter from '../components/SiteFooter';
+import PageShell from '../components/PageShell';
 import Lightbox from '../components/Lightbox';
 import PageHero from '../components/PageHero';
-import ScrollProgress from '../components/ScrollProgress';
 import Reveal from '../components/Reveal';
+import JsonLd from '../components/JsonLd';
+import { certificates } from '../data/certificates';
 import { usePageTitle } from '../hooks/usePageTitle';
-import '../layouts/sketchbook.css';
-
-// `width`/`height` are the images' real intrinsic pixel sizes. They let the
-// browser reserve the right box before the bytes arrive, so the grid doesn't
-// reflow as each certificate decodes.
-const certificates = [
-  {
-    title: 'Data Analytics Foundations',
-    issuer: 'DeepLearning.AI',
-    image: '/certificates/cert1.webp',
-    width: 1024,
-    height: 768,
-    url: 'https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27',
-    color: 'blue',
-  },
-  {
-    title: 'Fast Prototyping of GenAI Apps',
-    issuer: 'DeepLearning.AI',
-    image: '/certificates/cert2.webp',
-    width: 1024,
-    height: 768,
-    url: 'https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19',
-    color: 'red',
-  },
-  {
-    title: 'AI Engineer for Data Scientists',
-    issuer: 'DataCamp',
-    image: '/certificates/cert3.webp',
-    width: 1719,
-    height: 988,
-    color: 'green',
-  },
-  {
-    title: 'Data Engineer',
-    issuer: 'DataCamp',
-    image: '/certificates/cert4.webp',
-    width: 1719,
-    height: 988,
-    color: 'green',
-  },
-  {
-    title: 'Machine Learning',
-    issuer: 'Coursera',
-    image: '/certificates/cert5.webp',
-    width: 1650,
-    height: 1275,
-    color: 'blue',
-  },
-];
+import { graph, breadcrumbSchema } from '../lib/structuredData';
 
 /** Cards in the first grid row are above the fold, so their images load eagerly. */
 const EAGER_COUNT = 2;
@@ -140,26 +92,22 @@ const CertificatesPage = () => {
   );
 
   return (
-    <div className="sketch-body">
-      <a href="#certificates" className="sketch-skip-link">Skip to certificates</a>
-      <ScrollProgress />
+    <PageShell>
+      {/* The credentials themselves are asserted on the Person schema in the
+          served HTML, so this page only needs to place itself in the site. */}
+      <JsonLd
+        data={graph(breadcrumbSchema([['Home', '/'], ['Certifications', '/certificates']]))}
+      />
 
-      <div className="sketch-container">
+      <PageHero
+        title="Certifications"
+        subtitle="Credentials and certifications I've earned along the way"
+      />
 
-        <SiteHeader />
-
-        <PageHero
-          title="Certifications"
-          subtitle="Credentials and certifications I've earned along the way"
-        />
-
-        <div className="sketch-certs-grid" id="certificates">
-          {certificates.map((cert, index) => (
-            <CertCard key={cert.title} cert={cert} index={index} onOpen={setOpenIndex} />
-          ))}
-        </div>
-
-        <SiteFooter />
+      <div className="sketch-certs-grid" id="certificates">
+        {certificates.map((cert, index) => (
+          <CertCard key={cert.title} cert={cert} index={index} onOpen={setOpenIndex} />
+        ))}
       </div>
 
       {open && (
@@ -172,7 +120,7 @@ const CertificatesPage = () => {
           onNext={certificates.length > 1 ? () => step(1) : undefined}
         />
       )}
-    </div>
+    </PageShell>
   );
 };
 
