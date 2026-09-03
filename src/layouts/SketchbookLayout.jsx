@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Mail, ArrowRight, Send } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import ContactForm from '../components/ContactForm';
+import { site } from '../data/site';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './sketchbook.css';
 
 const skills = [
@@ -18,8 +21,12 @@ const skills = [
 ];
 
 const SketchbookLayout = () => {
+  usePageTitle(null);
+
   return (
     <div className="sketch-body">
+      <a href="#about" className="sketch-skip-link">Skip to content</a>
+
       <div className="sketch-container">
 
         <SiteHeader />
@@ -28,15 +35,15 @@ const SketchbookLayout = () => {
         <section className="sketch-hero">
           <div className="sketch-hero-text">
             <span className="sketch-greeting">Hi, I am</span>
-            <h1 className="sketch-title">Shreyash</h1>
+            <h1 className="sketch-title">{site.name}</h1>
             <h2 className="sketch-subtitle">Full Stack Developer &amp; AI Engineer</h2>
             <p className="sketch-description">
               I build robust web applications and intelligent systems. Currently available for freelance work and new opportunities!
             </p>
             <div className="sketch-socials">
-              <a href="https://github.com/Iitian001" target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub size={28} /></a>
-              <a href="https://www.linkedin.com/in/shreyashautomation" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin size={28} /></a>
-              <a href="mailto:shreyash.aiml.dev@gmail.com" aria-label="Email"><Mail size={28} /></a>
+              <a href={site.github} target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub size={28} /></a>
+              <a href={site.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin size={28} /></a>
+              <a href={`mailto:${site.email}`} aria-label={`Email ${site.email}`}><Mail size={28} /></a>
             </div>
             <Link to="/projects" className="sketch-btn">Explore Projects <ArrowRight size={22} /></Link>
           </div>
@@ -67,8 +74,11 @@ const SketchbookLayout = () => {
             </div>
             <div className="sketch-box sketch-fast-facts">
               <h3 className="sketch-facts-title">Fast Facts</h3>
-              <div className="sketch-fact"><strong>Location:</strong> India</div>
-              <div className="sketch-fact"><strong>Email:</strong> shreyash.aiml.dev@gmail.com</div>
+              <div className="sketch-fact"><strong>Location:</strong> {site.location}</div>
+              <div className="sketch-fact">
+                <strong>Email:</strong>{' '}
+                <a className="sketch-contact-link" href={`mailto:${site.email}`}>{site.email}</a>
+              </div>
               <div className="sketch-fact"><strong>Experience:</strong> Full Stack &amp; AI</div>
               <div className="sketch-fact"><strong>Status:</strong> Open to Work</div>
             </div>
@@ -88,17 +98,7 @@ const SketchbookLayout = () => {
         {/* Contact Section */}
         <section id="contact" className="sketch-section">
           <h2 className="sketch-section-title">Let's Talk</h2>
-          <div className="sketch-box sketch-contact-card">
-            <h3 className="sketch-contact-heading">Send me a message</h3>
-            <p className="sketch-contact-sub">Interested in collaborating or just want to say hi? Drop a message below.</p>
-            <form action="https://api.web3forms.com/submit" method="POST" className="sketch-contact-form">
-              <input type="hidden" name="access_key" value="32325e99-d553-4bad-a24a-50f938ffbd0c" />
-              <input type="text" name="name" placeholder="Your Name" aria-label="Your name" required className="sketch-input" />
-              <input type="email" name="email" placeholder="Your Email" aria-label="Your email address" required className="sketch-input" />
-              <textarea name="message" placeholder="What's on your mind?" aria-label="Your message" required rows="4" className="sketch-input sketch-textarea"></textarea>
-              <button type="submit" className="sketch-btn sketch-submit-btn">Send It <Send size={20} /></button>
-            </form>
-          </div>
+          <ContactForm />
         </section>
 
         <SiteFooter />

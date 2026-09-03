@@ -5,12 +5,15 @@ import { FaGithub } from 'react-icons/fa';
 import { getProject } from '../data/projects';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './sketchbook.css';
 
 const ProjectPage = () => {
   const { id } = useParams();
   const [imgError, setImgError] = useState(false);
   const project = getProject(id);
+
+  usePageTitle(project ? project.title : 'Project Not Found', project?.desc);
 
   useEffect(() => {
     setImgError(false);
@@ -56,8 +59,12 @@ const ProjectPage = () => {
             ) : (
               <img
                 src={project.image}
-                alt={project.title}
+                alt={`${project.title} preview`}
                 className="sketch-project-img"
+                width={project.width}
+                height={project.height}
+                fetchPriority="high"
+                decoding="async"
                 onError={() => setImgError(true)}
               />
             )}

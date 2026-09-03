@@ -4,10 +4,15 @@ import { ArrowRight } from 'lucide-react';
 import { projects } from '../data/projects';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import { usePageTitle } from '../hooks/usePageTitle';
 import '../layouts/sketchbook.css';
 
-const ProjectCard = ({ project }) => {
+/** Cards in the first grid row are above the fold, so their images load eagerly. */
+const EAGER_COUNT = 2;
+
+const ProjectCard = ({ project, index }) => {
   const [imgError, setImgError] = useState(false);
+  const eager = index < EAGER_COUNT;
 
   return (
     <div className="sketch-box sketch-project-card">
@@ -17,9 +22,13 @@ const ProjectCard = ({ project }) => {
         ) : (
           <img
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} preview`}
             className="sketch-project-img"
-            loading="lazy"
+            width={project.width}
+            height={project.height}
+            loading={eager ? 'eager' : 'lazy'}
+            fetchPriority={index === 0 ? 'high' : 'auto'}
+            decoding="async"
             onError={() => setImgError(true)}
           />
         )}
@@ -35,8 +44,15 @@ const ProjectCard = ({ project }) => {
 };
 
 const ProjectsPage = () => {
+  usePageTitle(
+    'Work',
+    'Projects by Shreyash — AI platforms, automation workflows, open-source contributions and web applications.',
+  );
+
   return (
     <div className="sketch-body">
+      <a href="#work" className="sketch-skip-link">Skip to projects</a>
+
       <div className="sketch-container">
 
         <SiteHeader />
@@ -46,9 +62,9 @@ const ProjectsPage = () => {
           <p className="sketch-page-subtitle">A collection of projects that reflect my journey as a developer</p>
         </section>
 
-        <div className="sketch-grid">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        <div className="sketch-grid" id="work">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
 

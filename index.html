@@ -6,7 +6,25 @@
     <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Shreyash — Full Stack Developer & AI Engineer. Building robust web applications and intelligent systems." />
+    <meta name="author" content="Shreyash Mishra" />
     <meta name="theme-color" content="#faf8f5" />
+    <link rel="canonical" href="https://shreyashmishra.in/" />
+
+    <!-- Fonts are loaded here rather than through a CSS @import: an @import inside
+         a stylesheet can only start downloading after that stylesheet has arrived,
+         which serialises two round trips before any text can render. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Kalam:wght@300;400;700&display=swap"
+    />
+
+    <!-- No <link rel="preload"> for the hero portrait: this single index.html is
+         served for every route, so a static preload would download it on
+         /projects, /certificates and every other page that never shows it. The
+         <img> itself carries fetchpriority="high" instead. -->
+
     <meta property="og:title" content="Shreyash | Portfolio" />
     <meta property="og:description" content="Full Stack Developer & AI Engineer" />
     <meta property="og:type" content="website" />

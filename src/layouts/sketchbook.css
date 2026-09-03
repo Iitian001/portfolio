@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Kalam:wght@300;400;700&display=swap');
+/* Google Fonts are linked from index.html — see the comment there. */
 
 :root {
   --paper: #faf8f5;
@@ -66,10 +66,37 @@ html {
 .sketch-logo:focus-visible,
 .sketch-btn:focus-visible,
 .sketch-socials a:focus-visible,
-.sketch-cert-card:focus-visible,
+.sketch-cert-img-btn:focus-visible,
+.sketch-cert-verify:focus-visible,
+.sketch-contact-link:focus-visible,
+.sketch-lightbox-close:focus-visible,
+.sketch-lightbox-nav:focus-visible,
+.sketch-skip-link:focus-visible,
 .sketch-input:focus-visible {
   outline: 3px solid var(--marker-blue);
   outline-offset: 3px;
+}
+
+/* ── Skip link ──
+   Off-screen until focused, so keyboard visitors can jump past the nav. */
+.sketch-skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.7rem 1.2rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Kalam', cursive;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transform: translateY(-150%);
+  transition: transform 0.15s;
+}
+
+.sketch-skip-link:focus {
+  transform: translateY(0);
 }
 
 /* ── Header ── */
@@ -391,6 +418,9 @@ html {
 
 .sketch-project-img {
   width: 100%;
+  /* Paired with the width/height attributes on the element, this lets the browser
+     reserve the correct box from the intrinsic aspect ratio before decoding. */
+  height: auto;
   display: block;
   border-radius: 4px;
   transition: transform 0.3s;
@@ -437,17 +467,12 @@ html {
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
   overflow: hidden;
-  text-decoration: none;
   color: inherit;
   transition: transform 0.25s;
   position: relative;
 }
 
-.sketch-cert-card--static {
-  cursor: default;
-}
-
-a.sketch-cert-card:hover {
+.sketch-cert-card:hover {
   transform: rotate(-1.5deg) translateY(-4px);
 }
 
@@ -465,10 +490,38 @@ a.sketch-cert-card:hover {
   z-index: 5;
 }
 
-.sketch-cert-img-wrap {
+/* The image area is a button so the certificate can be opened full size — the
+   thumbnail is far too small to actually read. Reset the UA button styling. */
+.sketch-cert-img-btn {
+  position: relative;
+  display: block;
+  width: 100%;
   padding: 2rem 1.5rem 1rem;
   background: #fff;
+  border: 0;
   flex: 1;
+  font: inherit;
+  color: inherit;
+  cursor: zoom-in;
+  text-align: center;
+}
+
+.sketch-cert-zoom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  font-family: 'Kalam', cursive;
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sketch-cert-img-btn:hover .sketch-cert-zoom,
+.sketch-cert-img-btn:focus-visible .sketch-cert-zoom {
+  opacity: 1;
 }
 
 .sketch-cert-img {
@@ -548,14 +601,23 @@ a.sketch-cert-card:hover {
   color: var(--ink-light);
 }
 
-.sketch-cert-link-icon {
-  color: var(--ink-light);
+.sketch-cert-verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   flex-shrink: 0;
-  transition: color 0.2s;
+  padding: 0.35rem 0.8rem;
+  font-size: 1.15rem;
+  color: var(--marker-blue);
+  text-decoration: none;
+  border: 2px solid var(--marker-blue);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  transition: background 0.2s, color 0.2s;
 }
 
-.sketch-cert-card:hover .sketch-cert-link-icon {
-  color: var(--marker-blue);
+.sketch-cert-verify:hover {
+  background: var(--marker-blue);
+  color: #fff;
 }
 
 /* ── Page Titles ── */
@@ -669,6 +731,78 @@ a.sketch-cert-card:hover {
   margin-top: 0.5rem;
 }
 
+.sketch-input:disabled,
+.sketch-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sketch-btn:disabled:hover {
+  background: transparent;
+  color: var(--ink);
+  transform: none;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+}
+
+.sketch-contact-link {
+  color: var(--marker-blue);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-underline-offset: 3px;
+}
+
+.sketch-contact-link:hover {
+  color: var(--marker-red);
+}
+
+/* Honeypot field — off-screen rather than display:none, which some bots skip. */
+.sketch-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.sketch-form-status:empty {
+  display: none;
+}
+
+.sketch-form-msg {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+  padding: 0.9rem 1.1rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  border: 2px solid currentColor;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.sketch-form-msg svg {
+  flex-shrink: 0;
+}
+
+.sketch-form-msg--ok {
+  color: var(--marker-green);
+  background: rgba(46, 125, 50, 0.08);
+}
+
+.sketch-form-msg--err {
+  color: var(--marker-red);
+  background: rgba(211, 47, 47, 0.08);
+}
+
+.sketch-spin {
+  animation: sketch-spin 0.9s linear infinite;
+}
+
+@keyframes sketch-spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ── Footer ── */
 .sketch-footer {
   margin-top: 6rem;
@@ -683,10 +817,145 @@ a.sketch-cert-card:hover {
   color: var(--ink);
 }
 
+.sketch-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.sketch-footer-links a {
+  color: var(--ink);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.sketch-footer-links a:hover {
+  transform: translateY(-3px);
+  color: var(--marker-blue);
+}
+
+.sketch-footer-links a:focus-visible {
+  outline: 3px solid var(--marker-blue);
+  outline-offset: 3px;
+}
+
+.sketch-footer-email {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 1.25rem;
+}
+
 .sketch-footer-copy {
   font-size: 1.2rem;
   color: var(--ink-light);
   margin-top: 0.5rem;
+}
+
+/* ── Lightbox ── */
+.sketch-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(20, 18, 16, 0.88);
+  animation: sketch-fade-in 0.15s ease-out;
+}
+
+@keyframes sketch-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.sketch-lightbox-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: min(1100px, 100%);
+  max-height: 100%;
+}
+
+.sketch-lightbox-img {
+  max-width: 100%;
+  /* Leave room for the caption and the frame padding. */
+  max-height: calc(100vh - 10rem);
+  width: auto;
+  height: auto;
+  display: block;
+  background: #fff;
+  border: 3px solid var(--paper);
+  border-radius: 6px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+
+.sketch-lightbox-caption {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: var(--paper);
+  text-align: center;
+}
+
+.sketch-lightbox-close,
+.sketch-lightbox-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.sketch-lightbox-close {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 44px;
+  height: 44px;
+  z-index: 2;
+}
+
+.sketch-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  transform: translateY(-50%);
+}
+
+.sketch-lightbox-nav--prev { left: -1.5rem; }
+.sketch-lightbox-nav--next { right: -1.5rem; }
+
+.sketch-lightbox-close:hover,
+.sketch-lightbox-nav:hover {
+  background: var(--marker-red);
+  color: var(--paper);
+}
+
+@media (max-width: 700px) {
+  .sketch-lightbox {
+    padding: 1rem;
+  }
+
+  .sketch-lightbox-close {
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+
+  .sketch-lightbox-nav--prev { left: 0; }
+  .sketch-lightbox-nav--next { right: 0; }
+
+  .sketch-lightbox-caption {
+    font-size: 1.6rem;
+  }
 }
 
 /* ── Selection ── */
@@ -783,9 +1052,14 @@ a.sketch-cert-card:hover {
 
   .sketch-pill:hover,
   .sketch-project-card:hover,
-  a.sketch-cert-card:hover,
+  .sketch-cert-card:hover,
   .sketch-btn:hover,
-  .sketch-socials a:hover {
+  .sketch-socials a:hover,
+  .sketch-footer-links a:hover {
     transform: none;
+  }
+
+  .sketch-lightbox {
+    animation: none;
   }
 }
