@@ -13,7 +13,7 @@ const SiteHeader = () => {
   const { pathname } = useLocation();
 
   return (
-    <header className="sketch-header">
+    <header className="sketch-header sketch-enter">
       <Link to="/" className="sketch-logo">Portfolio.</Link>
       <nav className="sketch-nav" aria-label="Main navigation">
         {links.map(({ label, to, match }) => {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import Reveal from './Reveal';
 import { site } from '../data/site';
 
 const ENDPOINT = 'https://api.web3forms.com/submit';
@@ -48,7 +49,9 @@ const ContactForm = () => {
   const sending = status === 'sending';
 
   return (
-    <div className="sketch-box sketch-contact-card">
+    // Reveal is the card's own root rather than a wrapper around it, so the
+    // reveal costs no extra element in the section's layout.
+    <Reveal className="sketch-box sketch-contact-card">
       <h3 className="sketch-contact-heading">Send me a message</h3>
       <p className="sketch-contact-sub">
         Interested in collaborating or just want to say hi? Drop a message below, or email{' '}
@@ -115,7 +118,7 @@ const ContactForm = () => {
           </p>
         )}
       </div>
-    </div>
+    </Reveal>
   );
 };
 

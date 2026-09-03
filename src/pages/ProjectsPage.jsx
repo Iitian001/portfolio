@@ -4,6 +4,9 @@ import { ArrowRight } from 'lucide-react';
 import { projects } from '../data/projects';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import PageHero from '../components/PageHero';
+import ScrollProgress from '../components/ScrollProgress';
+import Reveal from '../components/Reveal';
 import { usePageTitle } from '../hooks/usePageTitle';
 import '../layouts/sketchbook.css';
 
@@ -15,7 +18,11 @@ const ProjectCard = ({ project, index }) => {
   const eager = index < EAGER_COUNT;
 
   return (
-    <div className="sketch-box sketch-project-card">
+    // The delay repeats every third card instead of growing with the index, so
+    // a row staggers but a card far down the page still appears the moment it
+    // is scrolled to. The first card gets no delay at all — its image is the
+    // likely Largest Contentful Paint.
+    <Reveal className="sketch-box sketch-project-card" delay={(index % 3) * 70}>
       <div className="sketch-project-img-wrap">
         {imgError ? (
           <div className="sketch-img-placeholder">{project.title}</div>
@@ -39,7 +46,7 @@ const ProjectCard = ({ project, index }) => {
       <Link to={`/project/${project.id}`} className="sketch-btn">
         View Details <ArrowRight size={18} />
       </Link>
-    </div>
+    </Reveal>
   );
 };
 
@@ -52,15 +59,16 @@ const ProjectsPage = () => {
   return (
     <div className="sketch-body">
       <a href="#work" className="sketch-skip-link">Skip to projects</a>
+      <ScrollProgress />
 
       <div className="sketch-container">
 
         <SiteHeader />
 
-        <section className="sketch-page-hero">
-          <h1 className="sketch-page-title">Things I've Built</h1>
-          <p className="sketch-page-subtitle">A collection of projects that reflect my journey as a developer</p>
-        </section>
+        <PageHero
+          title="Things I've Built"
+          subtitle="A collection of projects that reflect my journey as a developer"
+        />
 
         <div className="sketch-grid" id="work">
           {projects.map((project, index) => (

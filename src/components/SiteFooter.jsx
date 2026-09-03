@@ -1,9 +1,10 @@
 import { Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Reveal from './Reveal';
 import { site } from '../data/site';
 
 const SiteFooter = () => (
-  <footer className="sketch-footer">
+  <Reveal as="footer" className="sketch-footer">
     <div className="sketch-footer-signature">Handcrafted by {site.name}</div>
 
     <div className="sketch-footer-links">
@@ -16,7 +17,7 @@ const SiteFooter = () => (
 
     {/* Derived from the clock so the notice doesn't silently go stale. */}
     <div className="sketch-footer-copy">&copy; {new Date().getFullYear()} All rights reserved</div>
-  </footer>
+  </Reveal>
 );
 
 export default SiteFooter;

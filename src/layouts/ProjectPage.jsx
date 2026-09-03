@@ -5,6 +5,8 @@ import { FaGithub } from 'react-icons/fa';
 import { getProject } from '../data/projects';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import PageHero from '../components/PageHero';
+import ScrollProgress from '../components/ScrollProgress';
 import { usePageTitle } from '../hooks/usePageTitle';
 import './sketchbook.css';
 
@@ -22,17 +24,17 @@ const ProjectPage = () => {
   if (!project) {
     return (
       <div className="sketch-body">
+        <ScrollProgress />
         <div className="sketch-container">
           <SiteHeader />
-          <section className="sketch-page-hero">
-            <h1 className="sketch-page-title">Project Not Found</h1>
-            <p className="sketch-page-subtitle">
-              There's no project called &ldquo;{id}&rdquo; here.
-            </p>
+          <PageHero
+            title="Project Not Found"
+            subtitle={<>There's no project called &ldquo;{id}&rdquo; here.</>}
+          >
             <Link to="/projects" className="sketch-btn sketch-detail-back">
               <ArrowLeft size={20} /> Back to Projects
             </Link>
-          </section>
+          </PageHero>
           <SiteFooter />
         </div>
       </div>
@@ -41,17 +43,22 @@ const ProjectPage = () => {
 
   return (
     <div className="sketch-body">
+      <ScrollProgress />
       <div className="sketch-container">
 
         <SiteHeader />
 
-        <Link to="/projects" className="sketch-btn sketch-detail-back">
+        <Link to="/projects" className="sketch-btn sketch-detail-back sketch-enter">
           <ArrowLeft size={20} /> Back to Projects
         </Link>
 
+        {/* The card itself does not fade in: it holds this page's largest image,
+            and an element that starts transparent is not eligible for the
+            Largest Contentful Paint until it is visible. Its children animate
+            instead, and the title only slides. */}
         <article className="sketch-box sketch-detail-card">
-          <h1 className="sketch-detail-title">{project.title}</h1>
-          <div className="sketch-project-tech sketch-detail-tech">{project.tech}</div>
+          <h1 className="sketch-detail-title sketch-enter sketch-enter--slide">{project.title}</h1>
+          <div className="sketch-project-tech sketch-detail-tech sketch-enter sketch-enter--2">{project.tech}</div>
 
           <div className="sketch-project-img-wrap sketch-detail-img-wrap">
             {imgError ? (
@@ -70,9 +77,9 @@ const ProjectPage = () => {
             )}
           </div>
 
-          <p className="sketch-detail-desc">{project.desc}</p>
+          <p className="sketch-detail-desc sketch-enter sketch-enter--4">{project.desc}</p>
 
-          <a href={project.link} target="_blank" rel="noreferrer" className="sketch-btn sketch-detail-cta">
+          <a href={project.link} target="_blank" rel="noreferrer" className="sketch-btn sketch-detail-cta sketch-enter sketch-enter--5">
             {project.linkType === 'github' ? (
               <>View on GitHub <FaGithub size={22} /></>
             ) : (

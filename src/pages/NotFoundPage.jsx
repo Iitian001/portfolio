@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import PageHero from '../components/PageHero';
 import { usePageTitle } from '../hooks/usePageTitle';
 import '../layouts/sketchbook.css';
 
@@ -18,15 +19,14 @@ const NotFoundPage = () => {
       <div className="sketch-container">
         <SiteHeader />
 
-        <section className="sketch-page-hero">
-          <h1 className="sketch-page-title">Page Not Found</h1>
-          <p className="sketch-page-subtitle">
-            This page isn&rsquo;t in the sketchbook. Try the nav above &mdash; or head back home.
-          </p>
+        <PageHero
+          title="Page Not Found"
+          subtitle={<>This page isn&rsquo;t in the sketchbook. Try the nav above &mdash; or head back home.</>}
+        >
           <Link to="/" className="sketch-btn sketch-detail-back">
             <ArrowLeft size={20} /> Back Home
           </Link>
-        </section>
+        </PageHero>
 
         <SiteFooter />
       </div>

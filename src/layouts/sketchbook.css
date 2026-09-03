@@ -51,6 +51,120 @@ body, html {
   transition: transform 0.2s;
 }
 
+/* ── Motion primitives ──
+   Two separate mechanisms:
+   • .sketch-enter  — plain CSS entrance for content that is above the fold on
+     load. Runs unconditionally, no JavaScript involved.
+   • .sketch-reveal — scroll-triggered, and gated behind the `js-reveal` class
+     that src/lib/motion.js puts on <html>. Without that class these elements
+     simply stay visible, which is what crawlers, browsers with no
+     IntersectionObserver, and reduced-motion visitors get. */
+
+/* `translate`/`scale` are animated as individual properties rather than through
+   `transform`, so elements that already carry a static `transform: rotate(...)`
+   — the greeting, the avatar frame, the pills — keep it while they move. */
+@keyframes sketch-rise {
+  from { opacity: 0; translate: 0 18px; }
+  to   { opacity: 1; translate: none; }
+}
+
+@keyframes sketch-pop {
+  from { opacity: 0; scale: 0.86; }
+  to   { opacity: 1; scale: 1; }
+}
+
+@keyframes sketch-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Slide with no fade. For the one element on a page that is likely to be the
+   Largest Contentful Paint: it is painted on the very first frame, so the
+   metric is unaffected, and only its position settles. */
+@keyframes sketch-slide {
+  from { translate: 0 14px; }
+  to   { translate: none; }
+}
+
+.sketch-enter {
+  animation: sketch-rise 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.sketch-enter--slide { animation-name: sketch-slide; }
+
+.sketch-enter--2 { animation-delay: 0.08s; }
+.sketch-enter--3 { animation-delay: 0.16s; }
+.sketch-enter--4 { animation-delay: 0.24s; }
+.sketch-enter--5 { animation-delay: 0.32s; }
+.sketch-enter--6 { animation-delay: 0.4s; }
+
+.js-reveal .sketch-reveal {
+  opacity: 0;
+}
+
+.js-reveal .sketch-reveal.is-shown {
+  animation: sketch-rise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) var(--reveal-delay, 0ms) both;
+}
+
+/* Pills and other small elements pop in rather than sliding. */
+.js-reveal .sketch-reveal--pop.is-shown {
+  animation-name: sketch-pop;
+  animation-duration: 0.45s;
+}
+
+/* Underlines draw themselves. Undrawn is the enhanced state, so the default
+   here is a finished line and each rule below opts a heading into drawing. */
+.sketch-underline-pass {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+
+.js-reveal .sketch-section-title .sketch-underline-pass {
+  stroke-dashoffset: 100;
+}
+
+.js-reveal .sketch-section-title.is-shown .sketch-underline-pass {
+  animation: sketch-draw 0.7s ease-out 0.15s forwards;
+}
+
+.js-reveal .sketch-section-title.is-shown .sketch-underline-pass--second {
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+}
+
+/* Page titles are above the fold on arrival, so they draw on load rather than
+   waiting for a scroll that may never come. */
+.sketch-page-title .sketch-underline-pass {
+  stroke-dashoffset: 100;
+  animation: sketch-draw 0.75s ease-out 0.3s forwards;
+}
+
+.sketch-page-title .sketch-underline-pass--second {
+  animation-duration: 0.55s;
+  animation-delay: 0.62s;
+}
+
+/* ── Scroll progress ──
+   Driven by the visitor's own scrolling, so it is left running under
+   prefers-reduced-motion; there is no self-starting movement to suppress. */
+.sketch-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 150;
+  pointer-events: none;
+}
+
+.sketch-progress-bar {
+  display: block;
+  height: 100%;
+  background: var(--marker-red);
+  border-radius: 0 6px 6px 0;
+  transform-origin: 0 50%;
+  will-change: transform;
+}
+
 /* ── Smooth Anchor Scrolling ── */
 html {
   scroll-behavior: smooth;
@@ -114,9 +228,18 @@ html {
   font-size: 3.5rem;
   font-weight: 700;
   color: var(--ink);
-  transform: rotate(-3deg);
+  /* The individual `rotate` property rather than `transform`, so hovering can
+     straighten it without restating the whole transform. */
+  rotate: -3deg;
   text-decoration: none;
+  transition: rotate 0.25s, color 0.2s;
 }
+
+.sketch-logo:hover {
+  rotate: 1deg;
+  color: var(--marker-red);
+}
+
 
 .sketch-nav {
   display: flex;
@@ -146,6 +269,8 @@ html {
   background-color: var(--marker-red);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   transform: rotate(-2deg) scaleX(0);
+  /* Wipes in from the left like a pen stroke rather than growing from centre. */
+  transform-origin: 0 50%;
   transition: transform 0.2s;
 }
 
@@ -232,7 +357,9 @@ html {
   text-decoration: none;
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
-  transition: all 0.2s;
+  /* Named rather than `all`, which would also transition the opacity that the
+     entrance keyframes animate. */
+  transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s, border-radius 0.25s;
 }
 
 .sketch-btn:hover {
@@ -240,7 +367,23 @@ html {
   color: var(--paper);
   transform: translateY(-2px);
   box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+  /* Mirrors the squiggle, so the outline reads as having been drawn again. */
+  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
 }
+
+/* Icons lean the way the button goes. */
+.sketch-btn svg {
+  transition: translate 0.2s;
+}
+
+.sketch-btn:hover svg {
+  translate: 3px 0;
+}
+
+.sketch-detail-back:hover svg {
+  translate: -3px 0;
+}
+
 
 /* ── Avatar ── */
 .sketch-hero-visual {
@@ -258,7 +401,19 @@ html {
   transform: rotate(3deg);
   box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
   overflow: hidden;
+  /* Drifts, but never fades in: the portrait is the largest paint on the home
+     page, so starting it transparent would push LCP out by the whole duration. */
+  animation: sketch-drift 7s ease-in-out infinite;
 }
+
+@keyframes sketch-drift {
+  50% { translate: 0 -10px; }
+}
+
+.sketch-avatar-frame:hover {
+  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+}
+
 
 /* Renders immediately — no fade-in, no delay, no draw-on animation. */
 .sketch-avatar {
@@ -277,35 +432,61 @@ html {
   font-size: 2.5rem;
   color: var(--marker-red);
   transform: rotate(-10deg);
+  animation: sketch-bob 2.6s ease-in-out infinite;
 }
+
+@keyframes sketch-bob {
+  50% { translate: 0 7px; }
+}
+
 
 /* ── Sections ── */
 .sketch-section {
   margin-top: 8rem;
 }
 
+/* Centred with text-align on the block rather than the old
+   `left: 50%; transform: translateX(-50%)` trick, which would fight with the
+   reveal animation's own transform. */
 .sketch-section-title {
   font-family: 'Caveat', cursive;
   font-size: 4rem;
   text-align: center;
   margin-bottom: 3rem;
-  position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-.sketch-section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -10%;
-  width: 120%;
-  height: 4px;
-  background-color: var(--marker-blue);
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  transform: rotate(-1deg);
+/* Wraps only the words, so the underline is sized to the text and not to the
+   full-width heading block. Shared by section and page titles. */
+.sketch-title-inner {
+  position: relative;
+  display: inline-block;
 }
+
+.sketch-underline {
+  position: absolute;
+  left: -3%;
+  bottom: -0.14em;
+  width: 106%;
+  height: 0.26em;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sketch-underline-pass {
+  fill: none;
+  stroke: var(--marker-blue);
+  stroke-width: 4;
+  stroke-linecap: round;
+  /* The squiggle is stretched to the heading width by preserveAspectRatio="none";
+     without this the stroke would be stretched along with it. */
+  vector-effect: non-scaling-stroke;
+}
+
+.sketch-underline-pass--second {
+  stroke-width: 2.5;
+  opacity: 0.5;
+}
+
 
 /* ── About ── */
 .sketch-about-grid {
@@ -357,12 +538,15 @@ html {
   font-weight: 700;
   border: 2px solid var(--ink);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  transition: all 0.2s;
+  /* Named rather than `all`: `all` also transitions opacity, which fights the
+     reveal animation, and scale, which the pop keyframes drive. */
+  transition: transform 0.2s, border-radius 0.25s;
   cursor: default;
 }
 
 .sketch-pill:hover {
   transform: rotate(-2deg) scale(1.05);
+  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
 }
 
 .sketch-pill--blue {
@@ -400,12 +584,15 @@ html {
   display: flex;
   flex-direction: column;
   padding: 1.2rem;
-  transition: transform 0.2s;
+  transition: transform 0.2s, border-radius 0.25s, box-shadow 0.2s;
 }
 
 .sketch-project-card:hover {
   transform: translateY(-4px) rotate(-0.5deg);
+  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.12);
 }
+
 
 .sketch-project-img-wrap {
   border: 2px solid var(--ink);
@@ -468,12 +655,15 @@ html {
   box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
   overflow: hidden;
   color: inherit;
-  transition: transform 0.25s;
+  transition: transform 0.25s, border-radius 0.3s, box-shadow 0.25s;
   position: relative;
 }
 
+
 .sketch-cert-card:hover {
   transform: rotate(-1.5deg) translateY(-4px);
+  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.12);
 }
 
 .sketch-cert-pin {
@@ -488,7 +678,15 @@ html {
   border: 2px solid var(--ink);
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   z-index: 5;
+  /* `scale` rather than `transform` so the centring translate above survives. */
+  transition: scale 0.25s, background 0.25s;
 }
+
+.sketch-cert-card:hover .sketch-cert-pin {
+  scale: 1.2;
+  background: var(--marker-orange);
+}
+
 
 /* The image area is a button so the certificate can be opened full size — the
    thumbnail is far too small to actually read. Reset the UA button styling. */
@@ -637,6 +835,12 @@ html {
   font-size: 1.6rem;
   color: var(--ink-light);
   margin: 0;
+}
+
+/* Optional slot under a page title. Inherits the hero's `text-align: center`,
+   which is what centres the inline-flex button inside it. */
+.sketch-page-hero-actions {
+  margin-top: 2rem;
 }
 
 /* ── Project Detail ── */
@@ -1039,6 +1243,13 @@ html {
 }
 
 /* ── Reduced motion ── */
+/* The blanket rule below collapses every animation and transition to a single
+   near-instant tick, so the looping ambient motion (drift, bob) and the
+   draw-on underlines settle straight onto their finished frame. Scroll-reveal
+   needs no handling here: `js-reveal` is never applied when this query
+   matches, so revealed content is simply always visible. What the blanket rule
+   cannot do is stop a hover from *displacing* an element, so each hover offset
+   is cancelled explicitly below and only colour changes remain. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1059,7 +1270,25 @@ html {
     transform: none;
   }
 
+  .sketch-logo:hover,
+  .sketch-btn:hover svg,
+  .sketch-detail-back:hover svg,
+  .sketch-cert-card:hover .sketch-cert-pin {
+    translate: none;
+    rotate: none;
+    scale: none;
+  }
+
+  /* Keep the drawn border still on hover — a redrawn radius reads as a jump. */
+  .sketch-btn:hover,
+  .sketch-project-card:hover,
+  .sketch-cert-card:hover,
+  .sketch-avatar-frame:hover {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  }
+
   .sketch-lightbox {
     animation: none;
   }
 }
+

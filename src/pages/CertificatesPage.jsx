@@ -3,6 +3,9 @@ import { Star, ExternalLink, Maximize2 } from 'lucide-react';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
 import Lightbox from '../components/Lightbox';
+import PageHero from '../components/PageHero';
+import ScrollProgress from '../components/ScrollProgress';
+import Reveal from '../components/Reveal';
 import { usePageTitle } from '../hooks/usePageTitle';
 import '../layouts/sketchbook.css';
 
@@ -63,7 +66,7 @@ const CertCard = ({ cert, index, onOpen }) => {
   const eager = index < EAGER_COUNT;
 
   return (
-    <article className="sketch-cert-card">
+    <Reveal as="article" className="sketch-cert-card" delay={(index % 3) * 70}>
       <div className="sketch-cert-pin" aria-hidden="true"></div>
 
       <button
@@ -117,7 +120,7 @@ const CertCard = ({ cert, index, onOpen }) => {
           </a>
         )}
       </div>
-    </article>
+    </Reveal>
   );
 };
 
@@ -139,15 +142,16 @@ const CertificatesPage = () => {
   return (
     <div className="sketch-body">
       <a href="#certificates" className="sketch-skip-link">Skip to certificates</a>
+      <ScrollProgress />
 
       <div className="sketch-container">
 
         <SiteHeader />
 
-        <section className="sketch-page-hero">
-          <h1 className="sketch-page-title">Certifications</h1>
-          <p className="sketch-page-subtitle">Credentials and certifications I've earned along the way</p>
-        </section>
+        <PageHero
+          title="Certifications"
+          subtitle="Credentials and certifications I've earned along the way"
+        />
 
         <div className="sketch-certs-grid" id="certificates">
           {certificates.map((cert, index) => (
