@@ -59,7 +59,7 @@ const SketchbookLayout = () => {
           <div className="sketch-hero-visual">
             <div className="sketch-avatar-frame">
               <img
-                src="/sketch-avatar.jpg"
+                src="/sketch-avatar.webp"
                 alt="Pencil sketch portrait of Shreyash"
                 className="sketch-avatar"
                 width="819"

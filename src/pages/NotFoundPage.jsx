@@ -12,7 +12,7 @@ import '../layouts/sketchbook.css';
  * typo'd or stale link in production would land there.
  */
 const NotFoundPage = () => {
-  usePageTitle('Page Not Found');
+  usePageTitle('Page Not Found', undefined, { noindex: true });
 
   return (
     <div className="sketch-body">

@@ -15,7 +15,10 @@ const ProjectPage = () => {
   const [imgError, setImgError] = useState(false);
   const project = getProject(id);
 
-  usePageTitle(project ? project.title : 'Project Not Found', project?.desc);
+  // An unknown :id is a dead URL, not a page worth indexing.
+  usePageTitle(project ? project.title : 'Project Not Found', project?.desc, {
+    noindex: !project,
+  });
 
   useEffect(() => {
     setImgError(false);

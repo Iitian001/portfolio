@@ -16,7 +16,7 @@ const certificates = [
   {
     title: 'Data Analytics Foundations',
     issuer: 'DeepLearning.AI',
-    image: '/certificates/cert1.png',
+    image: '/certificates/cert1.webp',
     width: 1024,
     height: 768,
     url: 'https://learn.deeplearning.ai/certificates/2272a4ee-5c3e-4b27-95fd-b7bd70b0bd27',
@@ -25,7 +25,7 @@ const certificates = [
   {
     title: 'Fast Prototyping of GenAI Apps',
     issuer: 'DeepLearning.AI',
-    image: '/certificates/cert2.png',
+    image: '/certificates/cert2.webp',
     width: 1024,
     height: 768,
     url: 'https://learn.deeplearning.ai/certificates/907381d1-8616-4b35-9eac-d588876d0d19',
@@ -34,7 +34,7 @@ const certificates = [
   {
     title: 'AI Engineer for Data Scientists',
     issuer: 'DataCamp',
-    image: '/certificates/cert3.png',
+    image: '/certificates/cert3.webp',
     width: 1719,
     height: 988,
     color: 'green',
@@ -42,7 +42,7 @@ const certificates = [
   {
     title: 'Data Engineer',
     issuer: 'DataCamp',
-    image: '/certificates/cert4.png',
+    image: '/certificates/cert4.webp',
     width: 1719,
     height: 988,
     color: 'green',
@@ -50,7 +50,7 @@ const certificates = [
   {
     title: 'Machine Learning',
     issuer: 'Coursera',
-    image: '/certificates/cert5.png',
+    image: '/certificates/cert5.webp',
     width: 1650,
     height: 1275,
     color: 'blue',
