@@ -14,6 +14,8 @@
 // is imported in the same batch, or it would hold a different copy of React than
 // the component and every hook would fail.
 import { describe, it, expect, beforeAll, beforeEach, afterEach, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { skills } from '../src/data/skills';
 
 /** Hoisted, because vi.mock's factory is lifted above the imports. */
@@ -27,8 +29,13 @@ const { startBoard, handle } = vi.hoisted(() => {
 vi.mock('matter-js', () => ({ default: { stubbed: true } }));
 vi.mock('../src/lib/physicsBoard', () => ({ startBoard }));
 
-const START_DELAY = 700;
 const RESIZE_DEBOUNCE = 250;
+
+/** The component's own start delay, read out of the module under test in `load`
+    rather than copied here. It is derived from `skills.length`, so a copy would
+    have gone stale the moment the list grew — which it did, from nine to
+    twenty-two. */
+let startDelay = 0;
 
 /** Observers created since the last reset, in construction order. */
 let observers = [];
@@ -52,7 +59,7 @@ class FakeObserver {
   }
 }
 
-/** The board's own observer, told apart from the nine the pills create by the
+/** The board's own observer, told apart from the one each pill creates by the
     threshold it was given. */
 const boardObserver = () => observers.find((o) => o.options?.threshold === 0.35);
 
@@ -79,12 +86,14 @@ const load = async ({ hover = true, reduce = false } = {}) => {
     import('@testing-library/react'),
     import('../src/components/SkillsBoard'),
   ]);
+  startDelay = mod.START_DELAY;
   return { ...rtl, StrictMode: react.StrictMode, SkillsBoard: mod.default };
 };
 
 /** Runs the timer the board is waiting on and lets the two dynamic imports
-    resolve. Both halves are needed: the start is a timeout, the load is a promise. */
-const settle = async (act, ms = START_DELAY) => {
+    resolve. Both halves are needed: the start is a timeout, the load is a
+    promise. The default is read at call time, after `load` has set it. */
+const settle = async (act, ms = startDelay) => {
   await act(async () => {
     vi.advanceTimersByTime(ms);
   });
@@ -138,6 +147,39 @@ describe('the list itself', () => {
       cleanup();
     });
   }
+});
+
+describe('the entrance the physics has to wait for', () => {
+  // The pills stagger in and then pop, and the engine's first kick must land
+  // after the last of that has finished — a nudge applied to a note still fading
+  // up from scale 0.86 reads as a rendering fault, not as physics. Both halves of
+  // that sum are checked here because both have already been wrong: the delay was
+  // a hard-coded 700ms fitted to a nine-note list, and the pop duration is a
+  // generated number living in another file.
+  it('waits out the whole stagger, however long the list gets', async () => {
+    const mod = await import('../src/components/SkillsBoard');
+    // The last pill begins at (n-1) * stagger and needs POP_MS to land, so this
+    // is a lock on the formula rather than on a number: it fails if anyone puts a
+    // literal back, and it moves on its own when src/data/skills.js does.
+    const lastPillLands = (skills.length - 1) * mod.STAGGER_MS + mod.POP_MS;
+    expect(mod.START_DELAY).toBeGreaterThanOrEqual(lastPillLands);
+    // And not wildly beyond it: a board that waits seconds after the row has
+    // settled looks inert to anyone who scrolled to it deliberately.
+    expect(mod.START_DELAY).toBeLessThan(lastPillLands + 250);
+  });
+
+  it('uses the pop duration scripts/springs.mjs actually generated', async () => {
+    const mod = await import('../src/components/SkillsBoard');
+    // Not a URL relative to import.meta.url: in jsdom that is an http:// document
+    // URL rather than a file path.
+    const sheet = readFileSync(join(process.cwd(), 'src', 'styles', 'springs.css'), 'utf8');
+    const generated = sheet.match(/--spring-pop-ms:\s*(\d+)ms/);
+    expect(generated).not.toBeNull();
+    // Re-tuning the spring changes this number in the stylesheet, and nothing
+    // else would notice that the JS copy no longer matches the animation it is
+    // supposed to be waiting for.
+    expect(mod.POP_MS).toBe(Number(generated[1]));
+  });
 });
 
 describe('who gets the engine', () => {
@@ -287,9 +329,10 @@ describe('when the window changes size', () => {
     await act(async () => {
       window.dispatchEvent(new Event('resize'));
     });
-    // Every seat is a measurement of a wrapped flex row, so all nine are wrong
-    // the moment the row re-wraps. The notes go back into the flow immediately
-    // rather than hanging in stale positions for the length of the debounce.
+    // Every seat is a measurement of a wrapped flex row, so all of them are
+    // wrong the moment the row re-wraps. The notes go back into the flow
+    // immediately rather than hanging in stale positions for the length of the
+    // debounce.
     expect(handle.stop).toHaveBeenCalledTimes(1);
     expect(document.querySelector('.sketch-skills-shake').className).not.toContain('is-live');
 

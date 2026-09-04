@@ -25,17 +25,37 @@ import { motionEnabled } from '../lib/motion';
 const canDrag = () =>
   motionEnabled && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-/** Below this the row wraps to four or five lines of one or two notes, which is
-    not a board — and it is the width at which the second row's 20px gap, the
-    space a thrown note actually travels through, stops existing. */
+/** Below this the row wraps into a tall stack of one- and two-note lines, which
+    is not a board — and it is the width at which the gap between rows, the space
+    a thrown note actually travels through, stops existing. */
 const MIN_WIDTH = 720;
 
 /**
- * Long enough for the pills' own staggered entrance to finish before physics
- * touches them: eight notes at 45ms apart plus a 321ms pop is ~680ms, and a kick
- * arriving mid-fade looks like a glitch rather than a nudge.
+ * The gap between one pill's entrance and the next, which is what makes the row
+ * assemble left to right instead of landing as one block.
+ *
+ * Two frames rather than three. It was 45ms when the list was nine notes long;
+ * at twenty-two that spent almost a second before the last note had begun, and
+ * the whole entrance has to finish before physics may touch it.
  */
-const START_DELAY = 700;
+export const STAGGER_MS = 30;
+
+/** `--spring-pop-ms` from src/styles/springs.css, which scripts/springs.mjs
+    generates — so it is asserted against that file in tests/spring.test.js
+    rather than trusted here. */
+export const POP_MS = 321;
+
+/**
+ * Long enough for the pills' own staggered entrance to finish before physics
+ * touches them, because a kick arriving mid-fade reads as a glitch rather than a
+ * nudge.
+ *
+ * Derived, not a round number: this was a hard-coded 700ms measured against a
+ * nine-note list, which is wrong the moment src/data/skills.js grows — and it
+ * grew. The delay and the stagger that it has to outlast are now the same two
+ * numbers, so they cannot disagree.
+ */
+export const START_DELAY = (skills.length - 1) * STAGGER_MS + POP_MS;
 
 /** A window drag fires resize continuously; the board is torn down on the first
     event and rebuilt once the mouse has been still this long. */
@@ -146,14 +166,13 @@ const SkillsBoard = () => {
   return (
     <>
       <div className="sketch-skills-grid" ref={boardRef}>
-        {/* Each pill pops in on its own short delay, so the row assembles
-            left to right instead of landing as one block. */}
+        {/* Each pill pops in on its own delay — see STAGGER_MS. */}
         {skills.map((skill, index) => (
           <Reveal
             as="span"
             key={skill.name}
             className={`sketch-pill sketch-pill--${skill.color} sketch-reveal--pop`}
-            delay={index * 45}
+            delay={index * STAGGER_MS}
           >
             {skill.name}
           </Reveal>
